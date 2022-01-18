@@ -1,52 +1,36 @@
 ---
-title: About
+title: About Us
 layout: page
 description: About
-bodyClass: page-about
+# bodyClass: page-about
 ---
 
-Lorem markdownum aequalis strigis. _Saetigeri iubeas_, vultu huic alvum nondum
-de obside ut laniavit arbor palmis, cum quin. Rupes vetat videndo, armigerae
-crimen habet Priamum nec.
+## Let's build the future together
 
-## Ne verba patulosque numen vix libet
+We are in the business since 2004. Our main area of expertise is around Microsoft CRM. 
 
-Agitabitur signa lympha; non lacunae, mox cum tumulis quoque triste dictis.
-Ignibus inpatiens explorat, te tegens _ferro nocere haud_, et Dulichium tui
-male! Quo sed [fuit flexit et](#vexant-achivi) hic die solido, gloria?
+We think it is important to tell where we came from to get where we are today for you to know a little more about us.
 
-1. Cum det dixit Parcarum qui spemque est
-2. Exit ex huic
-3. Quod consiste agitataque claustraque vicina videt lacertis
-4. Loquor videt
-5. Ardua non igne caelesti coniugis cognovi diversorum
-6. Per nunc pariterque saeva vindicet
+The first project delivered (CRM 1.2), in the time was not called Dynamics, goes back to May of 2005, the client, a Portuguese government department. The project itself was something not really complex, but the tool was new and it had some peculiarities. 
 
-Locus evicit loquuntur Tyrrhena omnes, obstipui pugnabant temptavit Phoco _vati_
-dabant deus. Memorata haberet sepulcrales gentisque dum sic, in flumina templa!
-Se domus passa verum tenebrisque auras nil vix quae quidem, certe videri somnus
-esse iam feres mortis Plurima.
+"CRM 1.2 per se, only had few entities and not many customizations could be done at the time, it was only possible at the time add few fields to entities, but not new entities for example. Forget all the new things that can be done specially since version 4.0."
 
-## Postquam tamen
+The project itself was to create few ASP pages and embed them in CRM 1.2. In one for example, a user could search the ID Number, we would check if it existed in CRM already, if not, we would get some extra info from an external database, create the record, and open it. 
 
-Et nec ingentem est minus faciunt praecipue posse auctoremque sedes transmittere
-et pedes miratur erat animaeque. Tellus admonuit humanam funes, sagittis et
-licet! Inserui quamvis Clymeni.
+Looking back, looks easy for what the product grew, but who worked with the product knows that everything related get/set data in/from CRM was done with FetchXML, yes, no earlybound, latebound, all XML. CRM 1.2 had few methods that we could use to interact with, probably the most used one if not the only one, called Execute. In there we would add the XML content where would identify the operation and the information to perform the action on.
 
-- Parens est studiisque interea
-- Pro istis mediis carnes iste nec imperat
-- Te vocas orat nisi quantumque castra
-- Gestumque crepuscula esse videntur coegit
-- Ambo videtque gerat aquae ferens vagina
-- Adde leviter faciam tetigisse regunt concava in
+But the best was what we call Plugins, at the time was something from other world at that time. What Microsoft prays from CRM 3.0 or CRM 4.0 about, DON'T TOUCH THE DATABASE, was the other way around in CRM 1.2. to use "Plugins" we had to the database and change manually some flags in not really meaningful named tables, so we could have some code behind doing something extra.
 
-Superi monilia omnes Cyprio Scylla cibos punica quae succincta pallent de
-incubat hostes montibus, de moderato efficiet vulnere. Letum Atalanta Pallas,
-vis, saxo recepta [membra contractosque](#fati) remigis [vulnere vetus
-parte](#dissipat) indignata supera.
+Hope this gives you some idea of how much Microsoft improved since their early versions (1.0 and 1.2) until the latest version of the product.
 
-Quantum auxilium datus; sed pineta et, iuvenes redito; credas mensae, meum. Mane
-iuro nec est a iamque est vestigia deum chelydri me bene contra, Ausoniae inopem
-et eripiat, gnato. Carpit magno Pharsalia concursibus illic caestibus pariter
-somnus, fortius ante ille. Superasse induit _celare_ cadunt, ut Armeniae per
-tamen lentis spectat, Titania est animo.
+It has been an authentic pleasure growing around this product, so many challenging projects since our (kick off) in CRM, so many nights it not much sleep, but at the same time the filling of work well done at the end of the day when the customer really appreciates and tells you what improved their processes.
+
+### Expertise
+
+In terms of overall expertise, we can mention the following technologies:
+
+Microsoft Dynamics CRM 1.2, 3.0, 4.0, 2011, 2013, 2015, 2016 and Dynamics 365
+C#.Net, ASP.Net, MVC, WCF, ASP. NET Core / Standard 
+Azure (Logic Apps, Azure Functions, Azure API Management,...).
+Axure Dev Ops (Automating Deployment Processes)
+We can provide help to your business to implement small, medium and large projects.

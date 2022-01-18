@@ -85,47 +85,6 @@ models:
       - type: boolean
         name: intro_image_hide_on_mobile
         label: Intro Image Hide On Mobile
-  teams:
-    type: page
-    label: Teams
-    file: team.md
-    singleInstance: true
-    fields:
-      - type: string
-        name: title
-        label: Title
-      - type: string
-        name: layout
-        label: Layout
-      - type: string
-        name: permalink
-        label: Permalink
-      - type: boolean
-        name: intro_image_absolute
-        label: Intro Image Absolute
-      - type: boolean
-        name: intro_image_hide_on_mobile
-        label: Intro Image Hide On Mobile
-  basicpage:
-    type: page
-    label: Basic Page
-    match: "*.md"
-    exclude: index.md
-    fields:
-      - type: string
-        name: title
-      - type: datetime
-        name: date
-        label: Date
-      - type: string
-        name: bodyClass
-      - type: enum
-        name: layout
-        options:
-          - label: page
-            value: page
-          - label: contact
-            value: contact
   service:
     type: page
     label: Service
@@ -150,39 +109,6 @@ models:
         options:
           - label: service
             value: service
-  team:
-    type: page
-    label: Team
-    folder: _team
-    fields:
-      - type: string
-        name: title
-        label: Title
-      - type: datetime
-        name: date
-        label: Date
-      - type: boolean
-        name: draft
-        label: Draft
-      - type: image
-        name: image
-        label: Image
-      - type: string
-        name: jobtitle
-      - type: string
-        name: linkedinurl
-      - type: number
-        name: weight
-        label: Weight
-        subtype: int
-      - type: string
-        name: layout
-        label: Layout
-        hidden: true
-        default: team
-      - type: boolean
-        name: promoted
-        label: Promoted
   contact:
     type: data
     label: Contact

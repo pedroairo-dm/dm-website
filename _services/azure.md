@@ -5,7 +5,7 @@ featured: true
 weight: 1
 ---
 
-Get help identifying the Dynamics 365 applications that best fit your needs now and as your business needs change going forward.
+Get help identifying the Microsoft Azure Services that best fit your needs now and as your business needs change going forward.
 
 ![MicrosoftAzure](/images/illustrations/azure.jpg) 
 

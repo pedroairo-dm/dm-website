@@ -1,27 +1,27 @@
 [
   {
-    "title": "Free Consultation",
-    "description": "New clients receive an obligation free consultation.",
+    "title": "Microsoft CRM",
+    "description": "16+ Years of expertise in the area.",
     "image": {
-      "url": "images/features/noun_branding_1885335.svg",
+      "url": "images/features/crm.png",
+      "width": 337,
+      "height": 150
+    }
+  },
+  {
+    "title": "Custom Develoment",
+    "description": "16+ Years of expertise in the area.",
+    "image": {
+      "url": "images/features/customdevelopment.png",
       "width": 80,
       "height": 80
     }
   },
   {
-    "title": "Certified Accountants",
-    "description": "All members of our team are certified accountants.",
+    "title": "Microsoft Azure",
+    "description": "5+ Years of expertise in the area.",
     "image": {
-      "url": "images/features/noun_The Process_1885341.svg",
-      "width": 80,
-      "height": 80
-    }
-  },
-  {
-    "title": "Tax Compliance",
-    "description": "We stay up to date on the latest changes to the tax code.",
-    "image": {
-      "url": "images/features/noun_3d modeling_1885342.svg",
+      "url": "images/features/azure.png",
       "width": 80,
       "height": 80
     }

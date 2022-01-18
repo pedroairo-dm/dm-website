@@ -11,8 +11,6 @@ intro_image_hide_on_mobile: true
 
 We offer a range of services to help you achieve the results you're after. Not sure what you need, or what it costs? 
 
-<!-- ## Services
-
 We can explain what services are right for you and tell you more about our fees.
 
 We can help your business with fully tailored solutions that will increase the productivity of your day-to-day tasks.
@@ -24,4 +22,3 @@ You're currently dealing with degradation of performance on your solution, give 
 Using an older version of Microsoft CRM, leave with us the upgrade, experience of upgrading Microsoft CRM since version 1.2.
 
 Supporting existing solutions, we can help you.
- -->
