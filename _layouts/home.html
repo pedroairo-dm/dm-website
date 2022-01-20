@@ -2,19 +2,28 @@
 layout: default
 bodyClass: "page-home"
 ---
-
+<br/>
+<br/>
+<br/>
+<div class="strip">
+  <div class="container">
+    <div class="row justify-content-center">
+      <img alt="{{ page.title }}" src="{{ page.intro_image | relURL }}" />
+    </div>
+  </div>
+</div>
 <div class="intro">
   <div class="container">
     <div class="row justify-content-start">
       <div class="col-12 col-md-7 col-lg-6 order-2 order-md-1">
         {{ content }}
-        <!-- {% if page.show_call_box %}
+        {% if page.show_call_box %}
           {% include call.html show_button=true %}
-        {% endif %} -->
+        {% endif %}
       </div>
       {% if page.intro_image %}
       <div class="col-12 col-md-5 col-lg-6 order-1 order-md-2 position-relative">
-        <img alt="{{ page.title }}" class="intro-image{% if page.intro_image_absolute %} intro-image-absolute{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relURL }}" />
+        <img alt="{{ page.title }}" style="width: 100%;" class="intro-image{% if page.intro_image_ouservices %} intro-image{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image_ouservices | relURL }}" />
       </div>
       {% endif %}
     </div>

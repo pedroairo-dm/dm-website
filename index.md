@@ -2,7 +2,8 @@
 title: Dynammics Monster
 layout: home
 description: Dynamics Monster Website
-intro_image: "images/illustrations/our_mission.jpg"
+intro_image: "images/illustrations/dynamics_monster.png"
+intro_image_ouservices: "images/illustrations/our_mission.jpg"
 intro_image_absolute: true
 intro_image_hide_on_mobile: true
 show_call_box: false
