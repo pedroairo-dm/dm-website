@@ -3,10 +3,10 @@ permalink: pretty
 title: 'Dynamics Monster'
 
 logo:
-  mobile: "images/logo/Dynammics_Monster_mobile.png"
+  mobile: "images/logo/dynamics_monster_logo_mobile.png"
   mobile_height: "32px"
   mobile_width: "32px"
-  desktop: "images/logo/Dynammics_Monster.png"
+  desktop: "images/logo/dynamics_monster_logo.png"
   desktop_height: "32px"
   desktop_width: "120px"
 
