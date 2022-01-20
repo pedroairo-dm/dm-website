@@ -9,8 +9,6 @@ intro_image_hide_on_mobile: true
 
 # Our Services
 
-We offer a range of services to help you achieve the results you're after. Not sure what you need, or what it costs? 
-
 We can explain what services are right for you and tell you more about our fees.
 
 We can help your business with fully tailored solutions that will increase the productivity of your day-to-day tasks.
