@@ -12,9 +12,7 @@ excerpt: Multiple Activate Receives and Returning Soap Faults Oddity...
 tags: []
 
 ---
-Multiple Activate Receives and Returning Soap Faults Oddity</h3>
 
-<br>
 
 Imagine a scenario where you have an orchestration exposed as a web service that has two public ports. Each port accepts a message of the same type, but one port is used to send new messages, and the other is used to send update messages. The port type for the port has an access modifier of public, is a request-response port type, plus has a Fault message defined in addition to the request and response messages.
 

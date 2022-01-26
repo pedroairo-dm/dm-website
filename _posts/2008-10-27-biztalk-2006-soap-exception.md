@@ -11,7 +11,6 @@ categories: []
 excerpt: Multiple Activate Receives and Returning Soap Faults Oddity...
 ---
 
-#  Biztalk 2006 - Soap Exception
 Temos o seguinte cenário:
 - Publicação de Orquestração do BizTalk como WebService (Request Response)
 - Dentro da Orquestração chamada a Web Service Externo (Request - Response)
