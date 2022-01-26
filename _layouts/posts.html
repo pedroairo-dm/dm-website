@@ -29,13 +29,12 @@ bodyClass: "page-posts"
         font-size: 15px;
     }
 
-        
+
 
     .content {
         padding: 0 18px;
         display: none;
         overflow: hidden;
-        
     }
 </style>
 
@@ -46,22 +45,24 @@ bodyClass: "page-posts"
         <div class="post-content" style="width:100%">
             <button type="button" class="collapsible"> {{ postByTag.name }}</button>
             <div class="content">
-                {% for post in postByTag.items %}
-                <div class="col-12 col-md-6 mb-3">
-                    <div class="post service-summary">
-                        <div class="post-content">
-                            <h2 class="post-title">
-                                {{ post.title }}
-                            </h2>
+                <div class="row">
+                    {% for post in postByTag.items %}
+                    <div class="col-12 col-md-6 mb-3">
+                        <div class="post service-summary">
+                            <div class="post-content">
+                                <h2 class="post-title">
+                                    {{ post.title }}
+                                </h2>
 
-                            <p>{{ post.content | markdownify | strip_html | truncate: 200 }}</p>
-                            <a href="{{ post.url | relative_url }}">Read More</a>
-                            <hr />
-                            <sub><strong>Posted On: </strong>{{ post.date }}</sub>
+                                <p>{{ post.content | markdownify | strip_html | truncate: 200 }}</p>
+                                <a href="{{ post.url | relative_url }}">Read More</a>
+                                <hr />
+                                <sub><strong>Posted On: </strong>{{ post.date }}</sub>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
             <br />
             <br />
