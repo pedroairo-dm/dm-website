@@ -3,31 +3,9 @@ layout: post
 title: CRM 2015 - Reports - SPN / SSPI Problems
 date: 2016-03-08 01:26:21.000000000 +00:00
 type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
-categories:
-- CRM 2015
-tags:
-- Reports Errors
-- SPN
-meta:
-  _publicize_pending: '1'
-  sharing_disabled: '1'
-  _import_session_id: 61e12c43ccaa7
-  _import_original_post_id: '371001'
-author:
-  login: pedroairo
-  email: pedroairo@dynamicsmonster.com
-  display_name: pedroairo
-  first_name: ''
-  last_name: ''
-permalink: "/2016/03/08/crm-2015-reports-spn-sspi-problems/"
+tag: Microsoft Dynamics 2015
 ---
-<div>
-<div>
-<div>
+
 <p><font size="2">Running a report on CRM and if you fin an error message similar to this:</font></p>
 <p><font size="2"><span></span></font></p>
 <div><font size="2">If you see an error like this:</font></div>
@@ -39,18 +17,20 @@ permalink: "/2016/03/08/crm-2015-reports-spn-sspi-problems/"
 <p><font size="2"><span></span></font></p>
 <div><font size="2">On the CRM App Server run the following commands:</font></div>
 <div><font size="2"><br /></font></div>
-<div><font size="2"><i>setspn  -a  HTTP/[Crm App Server Name]  [Domain]CRMAPP_Account<br />setspn  -a  HTTP/[Crm App Server FQDN]  [Domain]CRMAPP_Account</i></p>
-<p></font></div>
-<div><font size="2">The Crm App Server FQDN might be something like CrmAppServerName.domain.com or something slightly different, so you'll need to figure this out for your specific environment. For example, if your server name is CrmAppServer and your domain is FooDomain.local you will have something like the following:</p>
-<p><i>setspn  -a  HTTP/CrmAppServer  FooDomainCRMAPP_Account<br />setspn  -a  HTTP/CrmAppServer.FooDomain.local  FooDomainCRMAPP_Account</i></p>
-<p>After, if SQL also runs under a domain account we'll need to log onto the SQL server and run the following commands for the SQL account:</font></div>
+<div>
+    <font size="2">
+        <i>setspn  -a  HTTP/[Crm App Server Name]  [Domain]CRMAPP_Account<br />setspn  -a  HTTP/[Crm App Server FQDN]  [Domain]CRMAPP_Account</i></p>
+        <p>
+    </font>
+</div>
+<div>
+    <font size="2">
+        The Crm App Server FQDN might be something like CrmAppServerName.domain.com or something slightly different, so you'll need to figure this out for your specific environment. For example, if your server name is CrmAppServer and your domain is FooDomain.local you will have something like the following:</p>
+        <p><i>setspn  -a  HTTP/CrmAppServer  FooDomainCRMAPP_Account<br />setspn  -a  HTTP/CrmAppServer.FooDomain.local  FooDomainCRMAPP_Account</i></p>
+        <p>After, if SQL also runs under a domain account we'll need to log onto the SQL server and run the following commands for the SQL account:
+    </font>
+</div>
 <div><font size="2"><br /></font></div>
 <div><font size="2"><i>setspn  -a  MSSQLSvc/[SQL Server Name]:1433 [Domain]SQL_Account<br />setspn  -a  MSSQLSvc/[Sql Server FQDN]:1433 [Domain]SQL_Account</i></font></div>
-<p><font size="2" />
-<div><font size="2"><br /></font></div>
+
 <p>Hope it helps.</p>
-<p><font size="2"><br /></font></p>
-<p><font size="2"><br /></font></p>
-</div>
-</div>
-</div>
