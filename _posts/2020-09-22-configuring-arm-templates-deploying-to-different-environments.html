@@ -1,34 +1,9 @@
 ---
 layout: post
 title: Configuring Arm Templates (Deploying to different environments)
-date: 2020-09-22 08:55:19.000000000 +00:00
+date: 2020-09-22 12:07:00.000000000 +00:00
 type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
-categories: []
-tags: []
-meta:
-  _publicize_pending: '1'
-  _publicize_done_external: a:1:{s:7:"twitter";a:1:{i:25049610;s:56:"https://twitter.com/pedroairo/status/1308313933892268032";}}
-  _publicize_job_id: '49093101210'
-  timeline_notification: '1600761323'
-  publicize_linkedin_url: ''
-  _publicize_done_23193164: '1'
-  _wpas_done_25049609: '1'
-  _publicize_done_23193165: '1'
-  _wpas_done_25049610: '1'
-  publicize_twitter_user: pedroairo
-  _import_session_id: 61e12c43ccaa7
-  _import_original_post_id: '966168'
-author:
-  login: pedroairo
-  email: pedroairo@dynamicsmonster.com
-  display_name: pedroairo
-  first_name: ''
-  last_name: ''
-permalink: "/2020/09/22/configuring-arm-templates-deploying-to-different-environments/"
+tag: Azure Arm Templates
 ---
 <p><!-- wp:paragraph --></p>
 <p>When developing around Azure, more specifically with Azure Logic Apps, Azure Functions, Azure API Management, and with almost no experience or none experience at all a good starting point it is using the browser.</p>
@@ -53,9 +28,9 @@ permalink: "/2020/09/22/configuring-arm-templates-deploying-to-different-environ
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:list --></p>
 <ul>
-<li>Use Visual Studio</li>
-<li>A resource group in Azure means an "Environment" </li>
-<li>Full automation of Deployment trough Azure Dev Ops</li>
+    <li>Use Visual Studio</li>
+    <li>A resource group in Azure means an "Environment" </li>
+    <li>Full automation of Deployment trough Azure Dev Ops</li>
 </ul>
 <p><!-- /wp:list --></p>
 <p><!-- wp:paragraph --></p>
@@ -63,45 +38,52 @@ permalink: "/2020/09/22/configuring-arm-templates-deploying-to-different-environ
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:list {"ordered":true} --></p>
 <ol>
-<li>Created a Visual Studio 'Azure Resource Group' and used a Logic App template
-<ol>
-<li>Created 2 files
-<ol>
-<li>LogicApp.json</li>
-<li>LogicApp.parameters.json</li>
-</ol>
-</li>
-<li>I changed the naming convention of the parameters file and created another file
-<ol>
-<li>LogicApp.parameters.dev.json</li>
-<li>LogicApp.parameters.uat.json</li>
-</ol>
-</li>
-<li>Opened the LogicApp.json design mode
-<ol>
-<li>Configured with recurrence trigger</li>
-<li>Added an artifact 'Initialize variable' and set value to 'Hello World'</li>
-</ol>
-</li>
-<li>Opened the LogicApp.json as json file and configured the following:</li>
-<li>Inside the parameters node:
-<ol>
-<li>"Environment": { "type": "string", "defaultValue": "Dev" }</li>
-<li>"LogicAppName": { "type": "string",  "defaultValue": "[concat('MyLogicAPp-', parameters('Environment'))]" }</li>
-</ol>
-</li>
-<li>In the LogicApp.parameters.dev.json inside the parameters node:
-<ol>
-<li>"Environment": { "type": "string", "value": "Dev" }</li>
-</ol>
-</li>
-<li>In the LogicApp.parameters.uat.json inside the parameters node:
-<ol>
-<li>"Environment": { "type": "string", "value": "Uat" }</li>
-</ol>
-</li>
-</ol>
-</li>
+    <li>
+        Created a Visual Studio 'Azure Resource Group' and used a Logic App template
+        <ol>
+            <li>
+                Created 2 files
+                <ol>
+                    <li>LogicApp.json</li>
+                    <li>LogicApp.parameters.json</li>
+                </ol>
+            </li>
+            <li>
+                I changed the naming convention of the parameters file and created another file
+                <ol>
+                    <li>LogicApp.parameters.dev.json</li>
+                    <li>LogicApp.parameters.uat.json</li>
+                </ol>
+            </li>
+            <li>
+                Opened the LogicApp.json design mode
+                <ol>
+                    <li>Configured with recurrence trigger</li>
+                    <li>Added an artifact 'Initialize variable' and set value to 'Hello World'</li>
+                </ol>
+            </li>
+            <li>Opened the LogicApp.json as json file and configured the following:</li>
+            <li>
+                Inside the parameters node:
+                <ol>
+                    <li>"Environment": { "type": "string", "defaultValue": "Dev" }</li>
+                    <li>"LogicAppName": { "type": "string",  "defaultValue": "[concat('MyLogicAPp-', parameters('Environment'))]" }</li>
+                </ol>
+            </li>
+            <li>
+                In the LogicApp.parameters.dev.json inside the parameters node:
+                <ol>
+                    <li>"Environment": { "type": "string", "value": "Dev" }</li>
+                </ol>
+            </li>
+            <li>
+                In the LogicApp.parameters.uat.json inside the parameters node:
+                <ol>
+                    <li>"Environment": { "type": "string", "value": "Uat" }</li>
+                </ol>
+            </li>
+        </ol>
+    </li>
 </ol>
 <p><!-- /wp:list --></p>
 <p><!-- wp:paragraph --></p>
@@ -112,28 +94,33 @@ permalink: "/2020/09/22/configuring-arm-templates-deploying-to-different-environ
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:list {"ordered":true} --></p>
 <ol>
-<li>Azure Resource Groups
-<ol>
-<li>Dev
-<ol>
-<li>Logic Apps
-<ol>
-<li>MyLogicApp-Dev</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Uat
-<ol>
-<li>Logic Apps
-<ol>
-<li>MyLogicApp-Uat</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
+    <li>
+        Azure Resource Groups
+        <ol>
+            <li>
+                Dev
+                <ol>
+                    <li>
+                        Logic Apps
+                        <ol>
+                            <li>MyLogicApp-Dev</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Uat
+                <ol>
+                    <li>
+                        Logic Apps
+                        <ol>
+                            <li>MyLogicApp-Uat</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </li>
 </ol>
 <p><!-- /wp:list --></p>
 <p><!-- wp:paragraph --></p>
@@ -144,41 +131,43 @@ permalink: "/2020/09/22/configuring-arm-templates-deploying-to-different-environ
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:table --></p>
 <figure class="wp-block-table">
-<table />
-<tbody />
-<tr>
-<td>Name</td>
-<td>Resource Group</td>
-</tr>
-<tr>
-<td>MyLogicApp</td>
-<td>Dev</td>
-</tr>
-<tr>
-<td>MyLogicApp</td>
-<td>Uat</td>
-</tr>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Resource Group</td>
+        </tr>
+        <tr>
+            <td>MyLogicApp</td>
+            <td>Dev</td>
+        </tr>
+        <tr>
+            <td>MyLogicApp</td>
+            <td>Uat</td>
+        </tr>
+    </table>
 </figure>
 <p><!-- /wp:table --></p>
 <p><!-- wp:paragraph --></p>
-<p id="block-131b8995-4a01-4f80-b08b-39975fc89b1a">Doing this naming convention the result would be something like.</p>
+<p>Doing this naming convention the result would be something like.</p>
 <p><!-- /wp:paragraph --></p>
 <p><!-- wp:table --></p>
 <figure class="wp-block-table">
-<table />
-<tbody />
-<tr>
-<td>Name</td>
-<td>Resource Group</td>
-</tr>
-<tr>
-<td>MyLogicApp-Dev</td>
-<td>Dev</td>
-</tr>
-<tr>
-<td>MyLogicApp-Uat</td>
-<td>Uat</td>
-</tr>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Resource Group</td>
+        </tr>
+        <tr>
+            <td>MyLogicApp-Dev</td>
+            <td>Dev</td>
+        </tr>
+        <tr>
+            <td>MyLogicApp-Uat</td>
+            <td>Uat</td>
+        </tr>
+    </table>
+
+
 </figure>
 <p><!-- /wp:table --></p>
 <p><!-- wp:paragraph --></p>

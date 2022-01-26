@@ -3,6 +3,7 @@ layout: post
 title:  Biztalk 2006 - Soap Exception
 date: 2008-10-27 13:18:00.000000000 +00:00
 type: post
+tag: Biztalk
 ---
 
 Temos o seguinte cenário:

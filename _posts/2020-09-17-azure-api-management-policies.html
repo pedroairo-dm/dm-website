@@ -1,30 +1,11 @@
 ---
 layout: post
 title: Azure API Management Policies
-date: 2020-09-17 14:30:23.000000000 +00:00
+date: 2020-09-17 12:07:00.000000000 +00:00
 type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
-categories: []
-tags:
-- Azure
-- Azure API Management
-meta:
-  _publicize_pending: '1'
-  _publicize_job_id: '48922772963'
-  timeline_notification: '1600349423'
-  _import_session_id: 61e12c43ccaa7
-  _import_original_post_id: '966121'
-author:
-  login: pedroairo
-  email: pedroairo@dynamicsmonster.com
-  display_name: pedroairo
-  first_name: ''
-  last_name: ''
-permalink: "/2020/09/17/azure-api-management-policies/"
+tag: Azure API Management
 ---
+
 <p><!-- wp:paragraph --></p>
 <p>This post is about a scenario I had to overcome when connecting to a third party API trough Azure API Management. </p>
 <p><!-- /wp:paragraph --></p>
@@ -70,21 +51,6 @@ permalink: "/2020/09/17/azure-api-management-policies/"
 <p><!-- wp:paragraph --></p>
 <p>The condition inside the policy is important in here because as I said, I have 2 API's inside my API Management Service, however, i only want the policy to be applied in one of the cases. </p>
 <p><!-- /wp:paragraph --></p>
-<p><!-- wp:paragraph --></p>
-<p>It is visible in the example below, that the headers will not be applied in the /Auth api, only to the Services one.</p>
-<p><!-- /wp:paragraph --></p>
-<p><!-- wp:paragraph --></p>
-<p>The Policy XML I added is below:</p>
-<p><!-- /wp:paragraph --></p>
-<p><!-- wp:gallery {"ids":[966130]} --></p>
-<figure class="wp-block-gallery columns-1 is-cropped">
-<ul class="blocks-gallery-grid">
-<li class="blocks-gallery-item">
-<figure><img src="{{ site.baseurl }}/assets/2020/09/api-management-policies.png?w=1024" alt="" data-id="966130" data-link="https://dynamicsmonster.wordpress.com/api-management-policies/" class="wp-image-966130" /></figure>
-</li>
-</ul>
-</figure>
-<p><!-- /wp:gallery --></p>
 <p><!-- wp:paragraph --></p>
 <p>Hope it helps.</p>
 <p><!-- /wp:paragraph --></p>
