@@ -1,0 +1,134 @@
+---
+layout: post
+title: CRM 2015 - Perform specialized operations using Update
+date: 2015-04-16 15:12:14.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Update Message
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '106001'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/04/16/crm-2015-perform-specialized-operations-using-update/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Functionality now available on release of new sdk release (7.1.a ,March 2015)</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">Before this release, some specialized messages should be called to update some entity fields, methods like assign request or set state request.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">However, from this release on it would be able to be done from the Update message. </font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">Please see the below table to see what are the deprecated methods.</font></p>
+<p><span><font face="Arial, Helvetica, sans-serif" size="2"> <br /> </font></span></p>
+<table>
+<tbody>
+<tr>
+<th><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">Deprecated message request </font></th>
+<th><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">Attribute to update </font></th>
+</tr>
+<tr>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.assignrequest.aspx">AssignRequest </a> </font></p>
+</td>
+<td>
+<p><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">&lt;entity&gt;. <b>OwnerId </b>* </font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.setstaterequest.aspx">SetStateRequest </a> </font></p>
+</td>
+<td>
+<p><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">&lt;entity&gt;. <b>StateCode </b>* </font></p>
+<div>
+<table>
+<tbody>
+<tr>
+<th align="left"> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><img alt="Important" src="{{ site.baseurl }}/assets/2015/04/clear.gif" title="Important" />Important </font></th>
+</tr>
+<tr>
+<td><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">For <span>  </span> <b>SLA </b> <span>  </span>and <span>  </span> <b>RoutingRule </b> <span>  </span>entities, changing the <span>  </span> <b>OwnerId </b> <span>  </span>and <span>  </span> <b>StateCode </b> <span>  </span>in a single <span>  </span> <b>Update </b> <span>  </span>message invocation is not supported and results in an exception. </font></p>
+</td>
+</tr>
+</tbody>
+</table>
+</p></div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.setparentsystemuserrequest.aspx">SetParentSystemUserRequest </a> </font></p>
+</td>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><b>SystemUser.ParentSystemUserId </b> </font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.setparentteamrequest.aspx">SetParentTeamRequest </a> </font></p>
+</td>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><b>Team.BusinessUnitId </b> </font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.setparentbusinessunitrequest.aspx">SetParentBusinessUnitRequest </a> </font></p>
+</td>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><b>BusinessUnit.ParentBusinessUnitId </b> </font></p>
+</td>
+</tr>
+<tr>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.setbusinessequipmentrequest.aspx">SetBusinessEquipmentRequest </a> </font></p>
+</td>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><b>Equipment.BusinessUnitId </b> </font></p>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.setbusinesssystemuserrequest.aspx">SetBusinessSystemUserRequest </a> </font></p>
+</td>
+<td>
+<p> <font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><b>SystemUser.BusinessUnitId </b> </font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><font face="Arial, Helvetica, sans-serif" size="2">*&lt;entity&gt; refers to any entity that provides this attribute. </font></p>
+<p> <font size="2"><br /></font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">Source of the information:</font></p>
+<p><font size="2"><a href="https://msdn.microsoft.com/en-us/library/dn932124.aspx" target="_blank" title="https://msdn.microsoft.com/en-us/library/dn932124.aspx">https://msdn.microsoft.com/en-us/library/dn932124.aspx</a> </font></p>
+</div>
+</div>
+</div>

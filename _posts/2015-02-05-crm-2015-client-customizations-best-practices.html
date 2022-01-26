@@ -1,0 +1,47 @@
+---
+layout: post
+title: CRM 2015 - Client Customizations - Best Practices
+date: 2015-02-05 17:01:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Javascript
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54039'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/05/crm-2015-client-customizations-best-practices/"
+---
+<div>
+<div>
+<div>
+<div style="line-height:18px;padding-bottom:15px;color:rgb(42,42,42);"><font face="Arial, Helvetica, sans-serif" size="2">Best practices for developing customizations for the CRM web application and Microsoft Dynamics CRM for Microsoft Office Outlook include the following:</font></div>
+<ul style="line-height:17.55px;">
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">Use web resources instead of pages that require server-side processing whenever possible. If your requirements can only be achieved by using server-side processing, adhere to the requirement that your custom webpages are installed in a separate website from Microsoft Dynamics CRM. Set the trust level for your site appropriately, depending on your confidence level in the security of your code. This reduces the threat from cross-site scripting and other threats.<br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">For improved security, make sure that your separate website runs on a different account from Microsoft Dynamics CRM. This account should have the minimum access possible and one that does not have direct access to the Microsoft databases. You can use a complex password that doesn’t expire because no person signs in to this account – only in to your application.<br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">Avoid use of ActiveX controls because they have known security problems.<br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">Be aware of the limitations of client scripting. More information: <a href="https://msdn.microsoft.com/en-us/library/gg328261.aspx" style="text-decoration:none;color:rgb(3,105,122);">Write code for Microsoft Dynamics CRM forms</a><br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">Use plug-ins to apply business logic regardless of how the data changes are made.<br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">Always use a modal confirmation dialog box when you delete records or apply sensitive changes, such as adding a new user to a security role. This helps prevent techniques such as click-jacking or UI redressing where a malicious developer may embed your page in a seemingly innocuous page to trick a user into performing actions that may compromise security or perform unwanted actions on data.<br /></font></li>
+</ul>
+<div style="line-height:18px;padding-bottom:15px;color:rgb(42,42,42);"><font face="Arial, Helvetica, sans-serif" size="2">Security best practices for your website include the following:</font></div>
+<ul style="line-height:17.55px;">
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">Don’t use anonymous access.<br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">Use integrated Windows authentication, NTLM, or Basic authentication over Secure Sockets Layer (SSL).<br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif" size="2">Use SSL to avoid sending unencrypted data over the network if your website is on a different computer than Microsoft Dynamics CRM.</font></li>
+</ul>
+</div>
+</div>
+</div>

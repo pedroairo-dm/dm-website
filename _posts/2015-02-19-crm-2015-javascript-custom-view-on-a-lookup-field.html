@@ -1,0 +1,35 @@
+---
+layout: post
+title: CRM 2015 - Javascript - Custom view on a lookup field
+date: 2015-02-19 09:24:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Javascript
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54013'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/19/crm-2015-javascript-custom-view-on-a-lookup-field/"
+---
+<div>
+<div>
+<div>
+<p style="line-height:18px;padding-bottom:0;"><font size="2">This is a recurring functionality that often a developer has to write and i will put in here as a reminder, change the view of a lookup field to meet some customer requirements, adding/removing columns or even add filters to a lookup field.<br /></font><font size="2">Don't remember by heart, but from one version of crm, porbably 3.0 to 4.0 or 4.0 to 2011, that changed.<br /></font><font size="2">I took this from the Microsoft Developer Network webbsite.</font></p>
+<p style="line-height:18px;padding-bottom:0;"><font size="2"><br /></font><font size="2"><code>var viewId = &quot;{C7034F4F-6F92-4DD7-BD9D-9B9C1E996380}&quot;;<br /></code></font><font size="2"><code>var viewDisplayName = &quot;SDK Sample View&quot;;<br /></code></font><font size="2"><code>var fetchXml = &quot;<br /></code></font><font size="2"><code><code>&quot;output-format='xml-platform' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;mapping='logical'&gt;&quot; +<br /></code></code></font><font size="2"><code><code>&quot;&quot; +<br /></code></code></font><font size="2"><code><code>&quot;&quot; +<br /></code></code></font><font size="2"><code><code>&quot;&quot; +<br /></code></code></font><font size="2"><code><code>&quot;<br /></code></code></font><font size="2"><code><code><code>&quot;descending='false' /&gt;&quot; +<br /></code></code></code></font><font size="2"><code><code><code>&quot;&quot; +<br /></code></code></code></font><font size="2"><code><code><code>&quot;<br /></code></code></code></font><font size="2"><code><code><code><code>&quot;operator='eq-userid' /&gt;&quot; +<br /></code></code></code></code></font><font size="2"><code><code><code><code>&quot;<br /></code></code></code></code></font><font size="2"><code><code><code><code><code>&quot;operator='eq' &quot; +<br /></code></code></code></code></code></font><font size="2"><code><code><code><code><code>&quot;value='0' /&gt;&quot; +<br /></code></code></code></code></code></font><font size="2"><code><code><code><code><code>&quot;<br /></code></code></code></code></code></font><font size="2">&quot; +<br /></font><font size="2"><code>&quot;&quot; +<br /></code></font><font size="2"><code>&quot;&quot; +<br /></code></font><font size="2"><code>&quot;&quot; +<br /></code></font><font size="2"><code>&quot;<br /></code></font><font size="2"><code><code>&quot;alias='accountprimarycontactidcontactcontactid' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;name='contact' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;from='contactid' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;to='primarycontactid' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;link-type='outer' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;visible='false'&gt;&quot; +<br /></code></code></font><font size="2"><code><code>&quot;&quot; +<br /></code></code></font><font size="2"><code><code>&quot;</code>&quot; +<br /></code></font><font size="2"><code>&quot;</code>&quot; +<br /></font><font size="2"><code>&quot;</code>&quot;;<br /></font><font size="2"><code>var layoutXml = &quot;<br /></code></font><font size="2"><code><code>&quot;object='1' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;jump='name' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;select='1' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;icon='1' &quot; +<br /></code></code></font><font size="2"><code><code>&quot;preview='1'&gt;&quot; +<br /></code></code></font><font size="2"><code><code>&quot;<br /></code></code></font><font size="2"><code><code><code>&quot;id='accountid'&gt;&quot; +<br /></code></code></code></font><font size="2"><code><code><code>&quot;<br /></code></code></code></font><font size="2"><code><code><code><code>&quot;width='300' /&gt;&quot; +<br /></code></code></code></code></font><font size="2"><code><code><code><code>&quot;<br /></code></code></code></code></font><font size="2"><code><code><code><code><code>&quot;width='100' /&gt;&quot; +<br /></code></code></code></code></code></font><font size="2"><code><code><code><code><code>&quot;<br /></code></code></code></code></code></font><font size="2"><code><code><code><code><code><code>&quot;width='100' /&gt;&quot; +<br /></code></code></code></code></code></code></font><font size="2"><code><code><code><code><code><code>&quot;<br /></code></code></code></code></code></code></font><font size="2"><code><code><code><code><code><code><code>&quot;width='150' /&gt;&quot; +<br /></code></code></code></code></code></code></code></font><font size="2"><code><code><code><code><code><code><code>&quot;<br /></code></code></code></code></code></code></code></font><font size="2"><code><code><code><code><code><code><code><code>&quot;width='150' &quot; +<br /></code></code></code></code></code></code></code></code></font><font size="2"><code><code><code><code><code><code><code><code>&quot;disableSorting='1' /&gt;&quot; +<br /></code></code></code></code></code></code></code></code></font><font size="2"><code><code><code><code><code><code><code><code>&quot;</code></code></code></code></code></code>&quot; +<br /></code></code></font><font size="2"><code><code>&quot;</code>&quot;;<br /></code></font><font size="2"><code>Xrm.Page.getControl(&quot;parentaccountid&quot;).addCustomView(viewId, &quot;account&quot;, viewDisplayName, fetchXml, layoutXml, true);<br /></code></font></p>
+<p><font size="2">Sets the <b>viewId</b>, <b>viewDisplayName</b>, <b>fetchXml</b>, and <b>layoutXml</b> variables to pass as arguments so that a custom view is added as the default view to the control for the<b>Parent Account</b> lookup field.<br /></font><font size="2">Hope it helps.</font></p></p>
+<p><span style="font-family:Verdana , sans-serif;"><br /></span></div>
+</div>
+</div>

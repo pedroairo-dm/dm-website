@@ -1,0 +1,358 @@
+---
+layout: post
+title: Dynamics CRM 2011 Quick Optimization Guide
+date: 2013-10-12 15:33:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2011
+- CRM 2011 Optimization
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54091'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2013/10/12/dynamics-crm-2011-quick-optimization/"
+---
+<div>
+<div>
+<div>
+<h1 class="post-name" style="background-color:white;clear:both;color:#707070;font-weight:100;line-height:1.3;margin:0;"><span style="line-height:1.3;"><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span></span></h1>
+<h1 class="post-name" style="background-color:white;clear:both;font-weight:100;line-height:1.3;margin:0;"><span style="line-height:1.3;"><span style="font-family:Verdana, sans-serif;font-size:x-small;"><u>This article is from Technet, url in the end of the post</u></span></span></h1>
+<div><span style="line-height:1.3;"><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span></span></div>
+<div><span style="line-height:1.3;"><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span></span></div>
+<h1 class="post-name" style="background-color:white;clear:both;color:#707070;font-family:'Segoe UI Light', 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:36px;font-weight:100;line-height:1.3;margin:0;"><span style="line-height:1.3;">Dynamics CRM 2011 Quick Optimization Guide</span></h1>
+<div></div>
+<div><span style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">I've put together a high-level list of optimizations for dynamics CRM to centralise information for myself, and thought sharing would be helpful for someone, I'll keep this list updated as I find more information., PLEASE ADD more optimizations tips &amp; tricks to this article.</span>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;"></div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<h3 style="clear:both;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="Authentication" style="color:#00749e;cursor:pointer;"></a>Authentication</h3>
+</div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">The number of authentication request's and authentication challenges takes valuable seconds deteriorating performance.</div>
+<ul style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<li>Application Pool Kernel Mode authentication enabled</li>
+<li>Enable Kerberos
+<ul>
+<li><a href="http://quantusdynamics.blogspot.co.uk/2011/12/extreme-performance-with-dynamics-crm.html" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://quantusdynamics.blogspot.co.uk/2011/12/extreme-performance-with-dynamics-crm.html&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." />&nbsp;</a>&nbsp;
+<ul>
+<li><span style="font-family:arial, tahoma, helvetica, freesans, sans-serif;font-size:15px;line-height:20px;">Enable</span>&nbsp;<span style="font-family:arial, tahoma, helvetica, freesans, sans-serif;font-size:15px;line-height:20px;">useAppPoolCredentials</span></li>
+<li>Enable authPersistNonNTLM</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">Resources:</div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;"><a href="http://support.microsoft.com/kb/2593042" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/kb/2593042&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<h3 style="clear:both;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="IIS" style="color:#00749e;cursor:pointer;"></a>IIS</h3>
+</div>
+<ul style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<li>AppPool Recycling
+<ul>
+<li>Configure to recycle after hours.</li>
+</ul>
+</li>
+</ul>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<ul>
+<li>WCF Compression - enable compression for the content-type: application/soap+xml; charset=utf8 this content type is used by the Outlook client HTTP requests. Compressing this traffic reduces network traffic and improves communication.
+<ul>
+<li><a href="http://blogs.msdn.com/b/crminthefield/archive/2011/12/29/enable-wcf-compression-to-improve-crm-2011-network-performance.aspx" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://blogs.msdn.com/b/crminthefield/archive/2011/12/29/enable-wcf-compression-to-improve-crm-2011-network-performance.aspx&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Enable Dynamic Compression
+<ul>
+<li><a href="http://www.iis.net/ConfigReference/system.webServer/httpCompression" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.iis.net/ConfigReference/system.webServer/httpCompression&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li></li>
+</ul>
+<div></div>
+</div>
+<h3 style="background-color:white;clear:both;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="CRM_Registry_Keys" style="color:#00749e;cursor:pointer;"></a>CRM Registry Keys</h3>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">A number of tweaks can be done on the CRM side to improve performance.</div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<ul>
+<li>You can control the size of the Workflow table by deleting completed Workflows with a registry key, this is a nice way to improve performance on the database side, however this can only be applied if you don't need the workflow history.
+<ul>
+<li>Name: AsyncRemoveCompletedWorkflows</li>
+<li>Type: DWORD</li>
+<li>Value: 1</li>
+</ul>
+</li>
+<li>Improve SQL Performance EnableRetrieveMultiple
+<ul>
+<li>Type: DWORD</li>
+<li>Value: 2 (Decimal)</li>
+<li>Fixes a number of issues around the SQL tempdb database and improves performance</li>
+<li><a href="http://support.microsoft.com/kb/2535245" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/kb/2535245&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+<p>With Microsoft Dynamics CRM 2011 Update Rollup 10 or later, having the HKLMSoftwareMicrosoftMSCRMEnableRetrieveMulitiple Optimization set to 0 can often give better performance than having it set to a value of 2.<br /><a href="http://support.microsoft.com/kb/2710577" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/kb/2710577&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." />&nbsp;</a>- "Update Rollup 10 for Microsoft Dynamics CRM 2011 is available"<br />See this for more detailed information:<br />Update Rollup 10 includes performance improvements for retrieving multiple queries and for Quick Find. For more information, see the "Optimizing the Performance of Queries against Large Datasets" and "Optimizing the Performance of Quick Find Queries" sections of the Optimizing and Maintaining the Performance of a Microsoft Dynamics CRM 2011 Server Infrastructure white paper. To download this white paper, go to the following Microsoft Download Center website:<br />Optimizing and Maintaining the Performance of a Microsoft Dynamics CRM 2011 Server Infrastructure -<a href="http://www.microsoft.com/en-us/download/details.aspx?id=27139" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=27139&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+<li>Disable the email pop-up reminder to speed up load times
+<ul>
+<li>Name: DisablePendingEmailReminder</li>
+<li>Type: DWORD</li>
+<li>Value: 1</li>
+</ul>
+</li>
+<li>Set a preferred Domain Controller to speed up AD checks
+<ul>
+<li>Name: PreferredDC</li>
+<li>Type: String</li>
+<li>Value: DC_Name</li>
+</ul>
+</li>
+<li></li>
+</ul>
+</div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">There are a number of registry keys targeting different types of performance issues and types of environments, Microsoft is now releasing with each update Roll Up a package named:'tools'.This package contains a tool that can implement a number of updates/optimizations which were previously reserved for registry implementations, this way makes it easier to enable optimizations centrally and avoid creating registry keys across multiple front-end servers.<br /><a href="http://support.microsoft.com/kb/2691237" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/kb/2691237&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a><br />e.g number of registry keys part of RU6
+<ul>
+<li>DisableSmartMatching
+<ul>
+<li>Default Value – False</li>
+</ul>
+</li>
+<li>AutoCreateContactOnPromote
+<ul>
+<li>Default Value - True</li>
+</ul>
+</li>
+<li>BackgroundSendBatchFile
+<ul>
+<li>Default Value – 10</li>
+</ul>
+</li>
+<li>DisableInactiveRecordFilterForMailMerge
+<ul>
+<li>Default Value - False</li>
+</ul>
+</li>
+<li>LookupNameMatchesDuringImport
+<ul>
+<li>Default Value - False</li>
+</ul>
+</li>
+<li>EnableRetrieveMultipleOptimization
+<ul>
+<li>Default Value - 1</li>
+</ul>
+</li>
+<li>DoNotIgnoreInternalEmailToQueues
+<ul>
+<li>Default Value - False</li>
+</ul>
+</li>
+<li>SkipSuffixOnKBArticles
+<ul>
+<li>Default Value - False</li>
+</ul>
+</li>
+<li>SkipGettingRecordCountForPaging
+<ul>
+<li>Default Value – False</li>
+</ul>
+</li>
+</ul>
+<p><span style="font-size:24px;text-decoration:underline;"><br /></span></div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<h3 style="clear:both;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="Database" style="color:#00749e;cursor:pointer;"></a>Database</h3>
+<ul>
+<li>CRM Indexes with DMVs</li>
+<li><a href="http://quantusdynamics.blogspot.co.uk/2012/11/dynamics-crm-database-optimization-with.html" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://quantusdynamics.blogspot.co.uk/2012/11/dynamics-crm-database-optimization-with.html&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+<li>Optimizing CRM built-in maintenance jobs with Indexes</li>
+<li><a href="http://quantusdynamics.blogspot.co.uk/2013/08/dynamics-crm-2011-optimize-built-in.html" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://quantusdynamics.blogspot.co.uk/2013/08/dynamics-crm-2011-optimize-built-in.html&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+<li>CRM SQL Maintenance jobs
+<ul>
+<li><a href="https://community.dynamics.com/product/crm/crmtechnical/b/crminthefield/archive/2012/04/26/avoid-performance-issues-by-rescheduling-crm-2011-maintenance-jobs.aspx" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">https://community.dynamics.com/product/crm/crmtechnical/b/crminthefield/archive/2012/04/26/avoid-performance-issues-by-rescheduling-crm-2011-maintenance-jobs.aspx&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+<li><a href="http://crmjobeditor.codeplex.com/" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://crmjobeditor.codeplex.com/&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Max parallelism set to 1
+<ul>
+<li><a href="http://technet.microsoft.com/en-us/library/dd979074.aspx" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://technet.microsoft.com/en-us/library/dd979074.aspx&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." />&nbsp;</a>&nbsp;</li>
+</ul>
+</li>
+<li>Enable Lock Pages in memory forcing SQL queries to run using physical memory
+<ul>
+<li><span style="font-family:calibri, sans-serif;font-size:11pt;"><a href="http://msdn.microsoft.com/en-us/library/ms190730%28v=sql.105%29.aspx" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://msdn.microsoft.com/en-us/library/ms190730(v=sql.105).aspx&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span></li>
+</ul>
+</li>
+<li>Enable Read Committed Snapshot isolation to avoid deadlocks
+<ul>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=24923" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=24923&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+<li><a href="http://technet.microsoft.com/en-us/library/ms345124.aspx" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://technet.microsoft.com/en-us/library/ms345124.aspx&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Maintenance of the Workflow Table AsyncOperationBase
+<ul>
+<li><a href="http://support.microsoft.com/kb/968520" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/kb/968520&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Maintenance of the Principal Object table&nbsp;PrincipalObjectAccess
+<ul>
+<li><a href="http://support.microsoft.com/kb/2664150" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/kb/2664150&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>SQL Deadlocks article
+<ul>
+<li><a href="http://quantusdynamics.blogspot.co.uk/2012/01/dynamics-crm-40-sql-dead-locks.html" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://quantusdynamics.blogspot.co.uk/2012/01/dynamics-crm-40-sql-dead-locks.html&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<h3 style="clear:both;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="Outlook_Client" style="color:#00749e;cursor:pointer;"></a>Outlook Client</h3>
+<ul>
+<li>Outlook client optimization</li>
+<li><a href="http://quantusdynamics.blogspot.co.uk/2013/07/dynamics-crm-2011-outlook-client.html" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://quantusdynamics.blogspot.co.uk/2013/07/dynamics-crm-2011-outlook-client.html&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+<li>Registry Keys
+<ul>
+<li><a href="http://support.microsoft.com/kb/2585157%C2%A0" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/kb/2585157&nbsp;&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Increase the CRM Sync options, this depends on your environment.Settings &gt; Email
+<ul>
+<li>Promote emails</li>
+<li>Syncronization</li>
+</ul>
+</li>
+<li>Manage Outlook filters
+<ul>
+<li><a href="http://blogs.msdn.com/b/crm/archive/2011/06/02/controlling-user-synchronization-settings.aspx" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://blogs.msdn.com/b/crm/archive/2011/06/02/controlling-user-synchronization-settings.aspx&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Disable cached pinned-views with a registry key on the client side
+<ul>
+<li>Name: DisableMapiCaching</li>
+<li>Type: DWORD</li>
+<li>Value: 1</li>
+</ul>
+</li>
+</ul>
+</div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;"><strong>Note:</strong>&nbsp;Make sure you enable IIS WCF compression from point 2. IIS</div>
+<div style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<h3 style="clear:both;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="Internet_Explorer" style="color:#00749e;cursor:pointer;"></a>Internet Explorer</h3>
+</div>
+<ul style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<li>Ensure CRM url is added to the local intranet zone</li>
+<li>Authentication Options
+<ul>
+<li>AutoLogon</li>
+<li>Windows Integrated Authentication</li>
+</ul>
+</li>
+<li>Reset Zoom level for new windows and tabs</li>
+<li>Disk space for temporary internet files
+<ul>
+<li>250MB</li>
+</ul>
+</li>
+<li>Increase IE connections to the server with Registry Keys
+<ul>
+<li><a href="http://support.microsoft.com/?kbid=282402" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/?kbid=282402&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." />&nbsp;</a>&nbsp;</li>
+</ul>
+</li>
+</ul>
+<h3 style="background-color:white;clear:both;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="Email_Router" style="color:#00749e;cursor:pointer;"></a>Email Router<br /></h3>
+<ul style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<li>Installing email router on multiple servers
+<ul>
+<li><a href="http://quantusdynamics.blogspot.co.uk/2012/02/dynamics-crm-installing-email-router-on.html" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://quantusdynamics.blogspot.co.uk/2012/02/dynamics-crm-installing-email-router-on.html&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Load Balance Email router
+<ul>
+<li><a href="http://quantusdynamics.blogspot.co.uk/2012/03/dynamics-crm-load-balance-email-router.html" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://quantusdynamics.blogspot.co.uk/2012/03/dynamics-crm-load-balance-email-router.html&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Scalling Email router with Business Units
+<ul>
+<li><a href="http://quantusdynamics.blogspot.co.uk/2012/04/dynamics-crm-2011-scaling-email-router.html" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://quantusdynamics.blogspot.co.uk/2012/04/dynamics-crm-2011-scaling-email-router.html&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li> - Email router scalability and availability
+<ul>
+<li><a href="http://blogs.msdn.com/b/crminthefield/archive/2012/10/28/microsoft-dynamics-crm-2011-e-mail-router-availability-and-scalability.aspx" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://blogs.msdn.com/b/crminthefield/archive/2012/10/28/microsoft-dynamics-crm-2011-e-mail-router-availability-and-scalability.aspx&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+</ul>
+</li>
+<li>Reduce the configuration update period
+<ul>
+<li>Open the Microsoft.Crm.Tools.EmailAgent.xml in notepad and edit the following line to 86400000 this will set the email router to update the user list once a day, this is important if you have a large number of users in your environment.
+<ul>
+<li>&lt;configupdateperiod&gt;86400000&lt;/configupdateperiod&gt;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Increase the number of emails to process on each batch
+<ul>
+<li>On the same file as above you need to add an extra section to override some of the settings, this will stay included on the&nbsp; &lt;systemconfiguration&gt; section:&lt;/systemconfiguration&gt;
+<ul>
+<li>&nbsp;&lt;provideroverrides&gt;</li>
+<li>&nbsp; &lt;cachecapacity&gt;1024 &nbsp;&lt;/cachecapacity&gt;</li>
+<li>&nbsp; &lt;pendingstatusdelay&gt;300000 &lt;/pendingstatusdelay&gt;</li>
+<li>&nbsp; &lt;sendingstatusdelay&gt;1800000 &lt;/sendingstatusdelay&gt;</li>
+<li>&nbsp; &lt;maximumdeliveryattempts&gt;10 &lt;/maximumdeliveryattempts&gt;</li>
+<li>&nbsp; &lt;retrievemessagecount&gt;10&nbsp; &lt;/retrievemessagecount&gt;</li>
+<li>&nbsp; &lt;batchsize&gt;50 &lt;/batchsize&gt;</li>
+<li>&nbsp; &lt;requestbatchsize&gt;50 &lt;/requestbatchsize&gt;</li>
+<li>&lt;/provideroverrides&gt;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul style="background-color:white;color:#2a2a2a;font-family:'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;font-size:12px;line-height:16px;">
+<li>for more information on how to use &lt;proveroverrides&gt; &lt;/proveroverrides&gt; go to:<a href="http://support.microsoft.com/kb/972150" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://support.microsoft.com/kb/972150&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a>
+<ul>
+<li></li>
+</ul>
+<p>If you have more than 5000 users in your environment you will need to increase email router limits on how many users to load from CRM by setting MaxRowsPerPage on the front-end server:
+<ul>
+<li>Name: MaxRowsPerPage</li>
+<li>Type: DWORD</li>
+<li>Value: Number_of_rows (Decimal)</li>
+</ul>
+<p><a href="" name="Monitoring" style="color:#00749e;cursor:pointer;"></a><br />
+<h3 style="clear:both;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="Monitoring" style="color:#00749e;cursor:pointer;"></a>Monitoring</h3>
+<p><span style="font-size:12.1px;">Use SSIS to monitor pending emails</span></li>
+<li style="margin-left:40px;">
+<h3 style="clear:both;font-size:1.2em;font-weight:normal;line-height:1.25;margin:3px 0;"><a href="" name="Resources" style="color:#00749e;cursor:pointer;"></a>Resources</h3>
+</li>
+</ul>
+<ol>
+<li style="font-size:12.1px;"><span style="font-size:16px;"><strong>&nbsp;</strong>Optimizing and Maintaining the Performance of a Microsoft Dynamics CRM 2011 Server Infrastructure.&nbsp;</span><a href="http://www.microsoft.com/en-us/download/details.aspx?id=27139" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank"><span style="font-size:16px;">http://www.microsoft.com/en-us/download/details.aspx?id=27139</span>&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></li>
+<li style="font-size:12.1px;"><span style="font-size:16px;"><strong>&nbsp;</strong>Optimizing and Maintaining Client Performance for Microsoft Dynamics CRM 2011 and CRM Online.&nbsp;<a href="http://www.microsoft.com/en-us/download/details.aspx?id=23261" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=23261&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span></li>
+<li style="font-size:12.1px;"><span style="font-size:16px;"><strong></strong></span><span style="font-size:16px;"><strong></strong>&nbsp;Security and Authentication in Microsoft Dynamics CRM: Connectivity and Firewall Port Requirements in On-Premise Deployments.</span><span style="font-size:16px;"><a href="http://www.microsoft.com/en-us/download/details.aspx?id=12774" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=12774&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span></li>
+<li style="font-size:12.1px;"><strong><span style="font-size:16px;font-weight:normal;"><strong></strong></span></strong>&nbsp;<span style="font-size:16px;">Security and Authentication in Microsoft Dynamics CRM: The Microsoft Dynamics CRM Security Model.&nbsp;<a href="http://www.microsoft.com/en-gb/download/details.aspx?id=12108" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-gb/download/details.aspx?id=12108&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span>
+<div class="chdr" id="ctl00_ctl18_ColumnRepeater_ctl00_RowRepeater_ctl00_CellRepeater_ctl00_ctl01">
+<div class="chdr-p"></div>
+</div>
+<p><strong><span style="font-weight:normal;"></span></strong></li>
+<li style="font-size:12.1px;"><strong><span style="font-size:16px;font-weight:normal;"><strong>&nbsp;</strong></span></strong><span style="font-size:16px;">Outlook Synchronization in Microsoft Dynamics CRM 4.0.<a href="http://www.microsoft.com/en-us/download/details.aspx?id=17594" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=17594&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span></li>
+<li style="font-size:12.1px;"><span style="font-size:16px;"><strong> </strong></span><span style="font-size:16px;"><strong>&nbsp;</strong>Offline and Online Synchronization in Microsoft Dynamics CRM</span><span style="font-size:16px;">.&nbsp;<a href="http://www.microsoft.com/en-us/download/details.aspx?id=2737" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=2737&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span></li>
+<li style="font-size:12.1px;"><span style="font-size:16px;"><strong></strong>&nbsp;</span><span style="font-size:16px;">Sharing Data across Microsoft Dynamics CRM Deployments.<a href="http://www.microsoft.com/en-us/download/details.aspx?id=10151" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=10151&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span></li>
+<li style="font-size:12.1px;"><strong><span style="font-size:16px;font-weight:normal;"><strong></strong></span></strong><span style="font-size:16px;"><strong>&nbsp;</strong>Optimizing and Maintaining Microsoft Dynamics CRM 4.0.</span><span style="font-size:16px;"><a href="http://www.microsoft.com/en-us/download/details.aspx?id=3997" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=3997&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span></li>
+<li style="font-size:12.1px;"><span style="font-size:16px;"><strong> </strong>&nbsp;</span><span style="font-size:16px;">How to configure the Microsoft Dynamics CRM on-premises and Microsoft Dynamics CRM Online E-mail Router in different deployment scenarios.&nbsp;<a href="http://www.microsoft.com/en-us/download/details.aspx?id=21445" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=21445&nbsp;<img border="0" src="{{ site.baseurl }}/assets/2013/10/10_5F00_external.png" style="height:auto !important;max-width:100%;overflow:hidden;" title="This link is external to TechNet Wiki. It will open in a new window." /></a></span></li>
+<li style="font-size:12.1px;"><strong><span style="font-size:16px;font-weight:normal;"><strong></strong></span></strong><span style="font-size:16px;">&nbsp;Deploying Microsoft Dynamics CRM 2011 and CRM Online Solutions from Development through Test and Production Environments.<a href="http://www.microsoft.com/en-us/download/details.aspx?id=27824" style="color:#00749e;cursor:pointer;outline:none;text-decoration:none;" target="_blank">http://www.microsoft.com/en-us/download/details.aspx?id=27824&nbsp;</a></span></li>
+</ol>
+<div><span style="color:#2a2a2a;font-family:Segoe UI, Lucida Grande, Verdana, Arial, Helvetica, sans-serif;"><span style="font-size:12px;line-height:16px;"><br /></span></span></div>
+</div>
+<div><span style="color:#2a2a2a;font-family:Segoe UI, Lucida Grande, Verdana, Arial, Helvetica, sans-serif;"><span style="font-size:12px;line-height:16px;"><br /></span></span></div>
+<div><span style="color:#2a2a2a;font-family:Segoe UI, Lucida Grande, Verdana, Arial, Helvetica, sans-serif;"><span style="font-size:12px;line-height:16px;">From Technet:</span></span></div>
+<div><a href="http://social.technet.microsoft.com/wiki/contents/articles/13661.dynamics-crm-2011-quick-optimization-guide.aspx#SQL_Jobs">http://social.technet.microsoft.com/wiki/contents/articles/13661.dynamics-crm-2011-quick-optimization-guide.aspx#SQL_Jobs</a></div>
+</div>
+</div>
+</div>

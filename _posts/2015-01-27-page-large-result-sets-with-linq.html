@@ -1,0 +1,37 @@
+---
+layout: post
+title: Page large result sets with LINQ
+date: 2015-01-27 13:55:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2015
+- Large Result Sets
+- Queries
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54067'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/01/27/page-large-result-sets-with-linq/"
+---
+<div>
+<div>
+<div><font size="2">Often, a CRM consultant has to develop some custom code to work with large result sets, below is an example that it can be found in the SDK using LINQ.</p>
+<p>I will do my tests as well to see the best option to use (Linq, QueryExpression and Fetch) in terms of performance and time to develop as well, however below is the LINQexample:</p>
+<p>The following example shows how to page the results of a LINQ query by using the <b>Take</b> and <b>Skip</b> operators:</p>
+<p></font>
+<p><font size="2"><font face="Arial, Helvetica, sans-serif">int pageSize = 5;</font></font><font size="2"><font face="Arial, Helvetica, sans-serif"><br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">var accountsByPage = (from a in svcContext.AccountSet<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">                      select new Account<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">                      {<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">                       Name = a.Name,<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">                      });<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">System.Console.WriteLine(&quot;Skip 10 accounts, then Take 5 accounts&quot;);<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">System.Console.WriteLine(&quot;======================================&quot;);<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">foreach (var a in accountsByPage.Skip(2 * pageSize).Take(pageSize))<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">{<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif"> System.Console.WriteLine(a.Name);<br /></font></font><font size="2"><font face="Arial, Helvetica, sans-serif">}</font></font></p>
+</div>
+</div>
+</div>

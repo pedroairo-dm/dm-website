@@ -1,0 +1,32 @@
+---
+layout: post
+title: The Asyncoperation tables grow very large in Microsoft Dynamics CRM 4.0
+date: 2009-09-11 15:02:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 4.0
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54105'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2009/09/11/asyncoperation-tables-grow-very-large/"
+---
+<div>
+<div>
+<div><span style="font-family:&quot;">This problem is fixed in the latest cumulative update rollup for Microsoft Dynamics CRM 4.0. For more information, click the following article number to view the article in the Microsoft Knowledge Base: </span><span style="font-family:&quot;"><br /></span><br /><span style="font-family:&quot;">949256 (http://support.microsoft.com/kb/949256/ ) Microsoft Dynamics CRM 4.0 updates and hotfixes </span></p>
+<p><span style="font-family:&quot;">To enable this hotfix, the following registry key must be added: AsyncRemoveCompletedJobs. To add the registry key, complete the following steps:</span><br /><span style="font-family:&quot;">Click <strong>Start</strong>, click <strong>Run</strong>, type <strong>regedit</strong>, and then click OK.</span><span style="font-family:&quot;"><br /></span><br /><span style="font-family:&quot;">Locate the following registry subkey: <strong>HKEY_LOCAL_MACHINESoftwareMicrosoftMSCRM</strong></span><span style="font-family:&quot;"><br /></span><br /><span style="font-family:&quot;">Right-click MSCRM, point to New, and then click DWORD Value.</span><span style="font-family:&quot;"><br /></span><br /><span style="font-family:&quot;">Type <strong>AsyncRemoveCompletedJobs</strong> for the name of the key.</span><span style="font-family:&quot;"><br /></span><br /><span style="font-family:&quot;">Right-click <strong>AsyncRemoveCompletedJobs</strong>, click Modify and then <strong>type 1</strong> in the Value data field. </span></p>
+<p><span style="font-family:&quot;">When the value of this registry key is set to 1, the following asynchronous jobs will be removed immediately after completion: </span><br /><span style="font-family:&quot;"><br /></span><br /><span style="font-family:&quot;">CollectSQMData</span><br /><span style="font-family:&quot;">PersistMatchCode</span><br /><span style="font-family:&quot;">FullTextCatalogIndex</span><br /><span style="font-family:&quot;">UpdateContractStates</span></div>
+</div>
+</div>

@@ -1,0 +1,33 @@
+---
+layout: post
+title: Error accessing WCF from CRM 2011 Custom Workflow Activity
+date: 2013-10-04 15:33:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2011
+- WCF
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54097'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2013/10/04/i-was-having-following-exception-when/"
+---
+<div>
+<div>
+<div><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">I was having the following exception when calling a wcf service from a Custom Workflow Activity:</span><br /><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;"><br /></span><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">"When using System.ServiceModel.Channels.Message or types with MessageContractAttribute, the method must not use any other types of parameters."</span><br /><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;"><br /></span><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">And the reason was because when the svc service was added to the project, the configuration was:</span></p>
+<div class="separator" style="clear:both;text-align:center;"><a href="http://dynamicsmonster.files.wordpress.com/2013/10/fa00c-clientconfigurationreference1.png" style="margin-left:1em;margin-right:1em;"><img border="0" height="172" src="{{ site.baseurl }}/assets/2013/10/ClientConfigurationReference1.PNG" width="640" /></a></div>
+<p><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">After investigation, i discovered that the configuration should be with the check in Generate asynchronous operations instead.</span><br /><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;"><br /></span><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">I will do more research and update with the reason that should be like this.</span></div>
+</div>
+</div>

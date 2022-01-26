@@ -1,0 +1,113 @@
+---
+layout: post
+title: Debug a Plugin or Custom Workflow Activity in CRM
+date: 2015-01-26 10:31:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2015
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54071'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/01/26/debug-plugin-or-custom-workflow/"
+---
+<div>
+<div>
+<div><span style="font-family:Verdana, sans-serif;font-size:x-small;">Since i'm developing around CRM, in my case, since 2004.</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">For very customized implementations where plugins and custom workflow activities are done, we need sometimes to debug them, i've been talking to CRM developers, and i can't believe when they say: "Oh, debugging a plugin or custom workflow activity, i don't need", how is that possible? I would say you are not a truly crm developer, because if you are you should know ho to debug, and there are few ways of debugging.</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span><span style="font-family:Verdana, sans-serif;font-size:x-small;"><u>From the SDK, i took this:</u></span></p>
+<p>The following steps describe how to debug a plug-in executing on Microsoft Dynamics CRM 2015. To debug a plug-in that executes in the sandbox on Microsoft Dynamics CRM Online, you must using tracing as described later in this topic.<br /> <br />
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="sectionToggle0" src="{{ site.baseurl }}/assets/2015/01/" />In This Topic</span></h2>
+<div class="section" id="sectionSection0"><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Debug a plug-In</a><br /> <a href="/html/b4bbe405-a56f-450b-acd9-0c063cf35990.htm#bkmk_sandboxplugin">Debug a sandboxed plug-in</a><br /> <a href="/html/b4bbe405-a56f-450b-acd9-0c063cf35990.htm#loggingandtracing">Logging and tracing</a></div>
+<p><a href="https://www.blogger.com/null" name="bkmk_debugaplugin"></a><a href="https://www.blogger.com/null" name="bkmk_debugaplugin"></a><br />
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="sectionToggle1" src="{{ site.baseurl }}/assets/2015/01/" />Debug a plug-in</span></h2>
+<div class="section" id="sectionSection1">
+<div class="subSection">
+<ol class="ordered">
+<li>Register and deploy the plug-in assembly.<br /> If there is another copy of the assembly at the same location and you cannot overwrite that copy because it is locked by Microsoft Dynamics CRM, you must restart the service process that was executing the plug-in. Refer to the table below for the correct service process. More information: <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Register and Deploy Plug-Ins</a> </li>
+<li>Configure the debugger.<br /> Attach the debugger to the process on the Microsoft Dynamics CRM server that will run your plug-in. Refer to the following table to identify the process.<br /> <br />
+<h3 class="subHeading"></h3>
+<table>
+<tbody>
+<tr>
+<th>Plug-in Registration Configuration </th>
+<th>Service Process </th>
+</tr>
+<tr>
+<td>online</td>
+<td>w3wp.exe </td>
+</tr>
+<tr>
+<td>offline</td>
+<td>Microsoft.Crm.Application.Hoster.exe </td>
+</tr>
+<tr>
+<td>asynchronous registered plug-ins (or custom workflow assemblies)</td>
+<td>CrmAsyncService.exe </td>
+</tr>
+<tr>
+<td>sandbox (isolation mode)</td>
+<td>Microsoft.Crm.Sandbox.WorkerProcess.exe </td>
+</tr>
+</tbody>
+</table>
+<p> If there are multiple processes running the same executable file, for example multiple w3wp.exe processes, attach the debugger to all instances of the running executable process. Next, set one or more breakpoints in your plug-in code. </li>
+<li>Test the plug-in.<br /> Run the Microsoft Dynamics CRM application, or other custom application that uses the SDK, and perform whatever action is required to cause the plug-in to execute. For example, if a plug-in is registered for an account creation event, create a new account. </li>
+<li>Debug your plug-in code.<br /> Make any needed changes to your code so that it performs as you want. If the code is changed, compile the code into an assembly and repeat steps 1 through 4 in this procedure as necessary. However, if you change the plug-in assembly’s major or minor version numbers, you must unregister the earlier version of the assembly and register the new version. More information: <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Register and Deploy Plug-Ins</a> </li>
+<li>Register the plug-in in the database.<br /> After the edit/compile/deploy/test/debug cycle for your plug-in has been completed, unregister the (on-disk) plug-in assembly and then reregister the plug-in in the Microsoft Dynamics CRM database. More information: <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Register and Deploy Plug-Ins</a></li>
+</ol>
+</div>
+<div class="alert">
+<table cellpadding="0" cellspacing="0" style="width:100%px;">
+<tbody>
+<tr>
+<th align="left"><img class="note" src="{{ site.baseurl }}/assets/2015/01/" />Tip </th>
+</tr>
+<tr>
+<td>It is possible to debug a database deployed plug-in. The compiled plug-in assembly's symbol file (.pdb) must be copied to the server's &lt;<i>crm-root</i>&gt;Serverbinassembly folder and Internet Information Services (IIS) must then be restarted. After debugging has been completed, you must remove the symbol file and reset IIS to prevent the process that was executing the plug-in from consuming additional memory. </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For more information about debugging a plug-in using the Plug-in Profiler tool, see <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Analyze plug-in performance</a>.</div>
+<p><a href="https://www.blogger.com/null" name="bkmk_sandboxplugin"></a><a href="https://www.blogger.com/null" name="bkmk_sandboxplugin"></a><br />
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="sectionToggle2" src="{{ site.baseurl }}/assets/2015/01/" />Debug a sandboxed plug-in</span></h2>
+<div class="section" id="sectionSection2">It is important to perform these steps before the first execution of a sandboxed plug-in. If the plug-in has already been executed, either change the code of the&nbsp;assembly, causing the hash of the assembly to change on the server, or restart the Microsoft Dynamics CRM Sandbox Processing Service on the sandbox server.<br /> <b>Configure the Server</b><br /> The sandbox host process monitors the sandbox worker process which is executing the plug-in. The host process checks if the plug-in stops responding, if it is exceeding memory thresholds, and more. If the worker process doesn't respond for than 30 seconds, it will be shutdown. In order to debug a sandbox plug-in, you must disable this shutdown feature. To disable the shutdown feature, set the following registry key to 1 (<b>DWORD</b>): <br /> 
+<div class="code"><span><br />
+<table cellpadding="0" cellspacing="0" style="width:100%px;">
+<tbody>
+<tr>
+<th>&nbsp;</th>
+<th><span class="copyCode"><img align="absMiddle" class="copyCodeImage" src="{{ site.baseurl }}/assets/2015/01/" />Copy Code</span></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>HKEY_LOCAL_MACHINESOFTWAREMicrosoftMSCRMSandboxDebugPlugins</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p></span></div>
+<p><b>Debug the Plug-in</b><br /> Follow these steps to debug a sandboxed plug-in.<br /> 
+<ol class="ordered">
+<li>Register the plug-in in the sandbox (isolation mode) and deploy it to the Microsoft Dynamics CRM server database.</li>
+<li>Copy the symbol file (.pdb) of the compiled plug-in assembly to the serverbinassembly folder on the server running the sandbox worker process named Microsoft.Crm.Sandbox.WorkerProcess.exe. This is the server hosting the Sandbox Processing Service role.</li>
+<li>Follow the instructions in steps 2 through 4 presented at the beginning of this topic.</li>
+</ol>
+<p>For more information about debugging a plug-in using the Plug-in Profiler tool, see <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Analyze plug-in performance</a>.</div>
+<p><a href="https://www.blogger.com/null" name="loggingandtracing"></a><a href="https://www.blogger.com/null" name="loggingandtracing"></a><br />
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="sectionToggle3" src="{{ site.baseurl }}/assets/2015/01/" />Logging and tracing</span></h2>
+<div class="section" id="sectionSection3">An alternative method to debug a plug-in is to use tracing. Tracing assists developers in troubleshooting plug-ins by providing run-time plug-in information as an aid in diagnosing the cause of plug-in failure. Tracing is especially useful to debug Microsoft Dynamics CRM Online registered plug-ins as it is the only supported debugging method for that scenario.<br /> The tracing discussed here is different from ASP.NET tracing. Tracing is implemented in the Microsoft Dynamics CRM SDK through the use of the tracing service <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">ITracingService</a>. Developers add <b>Trace</b> statements to their plug-in code, then build and deploy the plug-in. During execution and only when that plug-in passes an exception back to the platform at run-time, tracing information is displayed to the user. For a synchronous registered plug-in, the tracing information is displayed in a dialog box of the Microsoft Dynamics CRM web application. For an asynchronous registered plug-in, the tracing information is shown in the <b>Details</b> area of the <b>System Job</b> form in the web application. The amount and nature of this information is up to you as a developer to code into your plug-ins.<br /> The main reason for implementing this type of tracing is to support the isolated (sandboxed) plug-in and custom workflow activities capability in Microsoft Dynamics CRM. Sandboxed custom code is not able to write information to the system event log or the file system. The tracing service was implemented to provide sandboxed plug-ins and custom workflow activities with a means to output run-time information when an exception is thrown. In addition, tracing is also supported in plug-ins that are not sandboxed. <br /> An important design feature of tracing is that the tracing information is only made available when an exception is passed from the plug-in or custom workflow activity back to the platform. When the error dialog box is displayed in the web application, the user must click the <b>Download Log File</b> button to view the log containing exception and trace output. If an exception is not thrown or is caught by the plug-in/custom activity code, any tracing information generated by your custom code is lost. <br /> An alternate approach is to create a custom entity to track any run-time plug-in information that you want to record. When your plug-in executes, have the plug-in store its exception information in a record of your custom entity. In this way, you are logging your run-time plug-in information to the Microsoft Dynamics CRM database. This method works for any plug-in regardless of how it is registered. However, if the plug-in executes within the database transaction and an exception occurs that causes a transaction rollback, any entity data changes by the plug-in will be undone. </div>
+<p>For more information about how to use tracing in plug-in code, see <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Sample: Azure aware custom plug-in</a>. For more information about platform (ASP.NET based) tracing, see <a href="http://technet.microsoft.com/en-us/library/hh699694(v=crm.7).aspx" target="_blank">Monitor and troubleshoot Microsoft Dynamics CRM</a>.</div>
+</div>
+</div>

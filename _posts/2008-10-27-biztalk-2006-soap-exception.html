@@ -1,0 +1,42 @@
+---
+layout: post
+title: Biztalk 2006 - Soap Exception
+date: 2008-10-27 13:18:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- Biztalk 2006
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54121'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2008/10/27/biztalk-2006-soap-exception/"
+---
+<div>
+<div>
+<div><span style="font-family:trebuchet ms;font-size:85%;">Temos o seguinte cenário:</p>
+<p>- Publicação de Orquestração do BizTalk como WebService (Request Response)</p>
+<p>- Dentro da Orquestração chamada a Web Service Externo (Request - Response)<br />- Admitir <strong>Web Service Externo Offline</strong></p>
+<p>Como retornar à aplicação que invoca WS Orquestração Objecto com Erro de Offline?</p>
+<p>De entre algumas formas de retornar, incluindo a forma apresentada na mensagem anterior, prefiro esta abaixo descrita.</p>
+<p>Mensagem exemplo a utilizar como msg de resultado abaixo colocada:</p>
+<p></span><span style="font-family:trebuchet ms;font-size:85%;"><img id="BLOGGER_PHOTO_ID_5261824664805229138" style="display:block;margin:0 auto 10px;width:218px;cursor:hand;height:171px;text-align:center;" alt="" src="{{ site.baseurl }}/assets/2008/10/ResultMsg.GIF" border="0" /></p>
+<p>Inicio Orquestração, depois de colocar "<em>Shape Receive</em>", construir MSG de Resultado limpa.</p>
+<p>Invocar WS Externo dentro de um "<em>Scope</em>", aí criar um "<em>New exception Handler</em>" do tipo "<em>Soap Exception</em>", dentro do "<em>Catch</em>", colcar os dados que se quer na mensagem, assim, quando a "MSG de <em>Response</em>" à orquestração chegar à aplicação, esta terá a justificação do erro. No meu caso o que fiz foi o seguinte:</p>
+<p>Coloquei em Status - "NOK"<br />Message - "Erro ao aceder ao WS Externo"</p>
+<p>Abaixo está a imagem da minha Orquestração:</p>
+<p><img id="BLOGGER_PHOTO_ID_5261826690513478578" style="display:block;margin:0 auto 10px;width:400px;cursor:hand;height:313px;text-align:center;" alt="" src="{{ site.baseurl }}/assets/2008/10/orquestracaoComTratamentoExcepcao.JPG" border="0" /></p>
+<p></span></div>
+</div>
+</div>

@@ -1,0 +1,65 @@
+---
+layout: post
+title: CRM 2015 - Changing Data Encryption Key Issue
+date: 2016-02-11 06:12:35.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Data Encryption Key
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '344001'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2016/02/11/crm-2015-changing-data-encryption-key-issue/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Just redeployed an Organization into another server in the same Domain, when I came across with an issue when trying to send emails.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">It was easy to discover the problem, in this case related to the Data Encryption after being done the redeployment.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">To resolve the issue i have tried the following:</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">Change the encryption key, but i was having issues saying first i was not in the <span>PrivUserGroup, i added a CRM Admin user to that group for the moment and  performed an IIS Reset, tried again and that time the info around key different from the generated one.<span></span></span></font></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2">- To overcome that i run against that specific organization the following SQL Query:</font></span></p></p>
+</div>
+</div>
+<div>
+<div>
+<div style="overflow:auto;">
+<table style="float:left;width:100%;">
+<tbody>
+<tr>
+<td width="100%">
+<p><font face="Verdana, Geneva, sans-serif" size="2"> <span>USE CRMOrg_MSCRM (Use CRM Org Name)<br /></span></font></p>
+<div><font face="Verdana, Geneva, sans-serif" size="2">UPDATE EmailServerProfile SET IncomingPassword=null<br /></font>
+<div>UPDATE EmailServerProfile SET OutgoingPassword=null
+<div>UPDATE Mailbox SET Password=null
+<div>UPDATE Queue SET EmailPassword=null
+<div>UPDATE UserSettings SET EmailPassword=null</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>

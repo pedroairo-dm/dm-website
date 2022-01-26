@@ -1,0 +1,38 @@
+---
+layout: post
+title: CRM 2015 - Workflows - Performance
+date: 2015-02-05 11:43:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags: []
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54041'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/05/crm-2015-workflows-performance/"
+---
+<div>
+<div>
+<div>
+<p><font size="2"></font></p>
+<p><span><font size="2">Many times we think that in terms of managing workflows and for extending in the future we often create a parent workflow, and child workflow(s), however reading few lines on the Best Practices for developing with CRM, they say &quot;for maximum throughput, use a single long workflow&quot;.So, we have to think that for best performance implementations we should bare this in mind.If you ask a .net developer, that his mind is always around Object Oriented approach, with Workflows, the developer should go for a single workflow. </font></span></p>
+<p><span style="background-color:transparent;line-height:1.8;font-size:small;"><br /></span></p>
+<p><span style="background-color:transparent;line-height:1.8;font-size:small;">Best practices for developing with Microsoft Dynamics CRM.</span></p>
+<p><span><font size="2">What type of workflow Is better? </font></span></p>
+<div><span><br /></span></div>
+<p style="line-height:18px;padding-bottom:15px;color:rgb(42,42,42);"><font face="Arial, Helvetica, sans-serif" size="2">Fr</font><font face="Arial, Helvetica, sans-serif" size="2">om a performance perspective, is it better to create a single long workflow or is it better to have multiple child workflows and call them in one parent workflow? The child workflow approach achieves lower throughput, but it is more manageable if you frequently change your workflow definition. Compilation overhead is not a major concern because the workflow is compiled only during publishing. However, Microsoft Dynamics CRM incurs overhead when it starts each workflow instance. The overhead occurs when all entities that are used in the workflow are retrieved and the child workflow is started in a two-step process that includes a 'Workflow Expansion Task' and the actual workflow instance. Therefore, for maximum throughput, use a single long workflow.</font></p>
+</div>
+</div>
+</div>

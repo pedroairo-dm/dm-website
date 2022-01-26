@@ -1,0 +1,47 @@
+---
+layout: post
+title: Import CRM Dynamics 2015 Managed Solution - Exceeded Content Size
+date: 2015-11-24 02:09:15.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Content Size
+- Import new Solutions
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '294001'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/11/24/import-crm-dynamics-2015-managed-solution-exceeded-content-size/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">I was importing a CRM Managed Solution and the import failed with the following error:</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2"><span>&quot;The assembly content size '8399872 bytes' has exceeded the maximum value allowed for isolated plug-ins '8388608 bytes'.&quot;</span><br /></font></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2">I know you can argue that even for a dll can be to much and it was something Microsoft was trying to avoid, however sometimes can really happen. To overcome this issue, a key on the [DeploymentProperties] table can be updated to a bigger value.</font></span></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2">With me the problem was the utilization of an external dll that i used for some testing, totally forgot to remove the reference.</font></span></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2">But, if in anytime someone has to use a dll that has more than 8.192 of size, the default of CRM, the following sql query can override that value for a bigger value.</font></span></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2"><span>update [MSCRM_CONFIG].[dbo].[DeploymentProperties]<br />SET [IntColumn] = 16384<br />WHERE [ColumnName] = 'SandboxClientMaxAssemblySizeInKByte'</span><br /></font></span></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2">Hope it helps.</font></span></p>
+<p></p>
+</div>
+</div>
+</div>

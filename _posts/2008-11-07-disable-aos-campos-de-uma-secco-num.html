@@ -1,0 +1,30 @@
+---
+layout: post
+title: Disable aos campos de uma seccção num formulário do CRM 4.0
+date: 2008-11-07 18:32:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 4.0
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54113'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2008/11/07/disable-aos-campos-de-uma-secco-num/"
+---
+<div>
+<div>
+<div><span style="font-family:trebuchet ms;"><span style="font-size:85%;"><span style="color:#3333ff;">function</span> DisableTabSectionFields(TAB_ID, SECTION_IDX)<br />{<br /><span style="color:#009900;">//TAB_ID --&gt; tab0 for the first TAB</span><br /><span style="color:#3333ff;">var</span> tab = document.getElementById(TAB_ID);<br /><span style="color:#009900;">//SECTION_IDX --&gt; 0 for the first section</span><br /><span style="color:#3333ff;">var</span> sec = tab.childNodes.rows;<br /><span style="color:#3333ff;">var</span> elems = sec.getElementsByTagName(<span style="color:#996633;">'*'</span>);<br /><span style="color:#3333ff;">var</span> i=0;<br /><span style="color:#3333ff;">for</span>(i=0; i &lt; elems.length; ++i)</span></span><br />{<br /><span style="font-family:trebuchet ms;"><span style="font-size:85%;">if (elems.Disabled != <span style="color:#996633;">"undefined"</span>)<br />elems.Disabled=<span style="color:#3333ff;">true</span>;<br />}<br />}</span></span><br /><span style="font-family:trebuchet ms;"><span style="font-size:85%;"></span></span><br /><span style="font-family:trebuchet ms;"><span style="font-size:85%;">Disponibilizado pelo colega <span style="color:#000099;">João Pedro Silva</span></span></span></div>
+</div>
+</div>

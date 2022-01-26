@@ -1,0 +1,79 @@
+---
+layout: post
+title: CRM 2015 - Plugins - Web Access
+date: 2015-02-05 11:11:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Plugins
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54043'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/05/crm-2015-plugins-web-access/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Sometimes we need to connect to a third party web service from a Plugin or Custom Workflow Activity, usually when the isolation mode is None we don't have huge restrictions, however using the isolation mode as Sandbox, in there yes, we have huge restrictions but we can still have web access to third party web services. Below is an example from the CRM 2015 SDK.</font></p>
+<p><span style="font-family:Helvetica Neue , Arial , Helvetica , sans-serif;"><br /></span>
+<p><span style="cursor:default;"><font face="Arial, Helvetica, sans-serif" size="4">Web Access for Isolated (sandboxed) Plug-ins</font></span></p>
+<div class="section" id="sectionSection5">
+<p><font face="Arial, Helvetica, sans-serif" size="2">If you plan on registering your plug-in in the sandbox, you can still access Web addresses from your plug-in code. You can use any .NET Framework class in your plug-in code that provides Web access within the Web access restrictions outlined <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Plug-in isolation, trusts, and statistics</a>. For example, the following plug-in code downloads a Web page.</font></p>
+<div class="code"><span><font face="Arial, Helvetica, sans-serif"><br />
+<table cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="2">
+<p><font color="#000000"><font face="Arial, Helvetica, sans-serif" size="2">// Download the target URI using a Web client. Any .NET class that uses the<br /></font><font face="Arial, Helvetica, sans-serif" size="2">// HTTP or HTTPS protocols and a DNS lookup should work.<br /></font><font face="Arial, Helvetica, sans-serif" size="2">using (WebClient client = new WebClient())<br /></font><font face="Arial, Helvetica, sans-serif" size="2">{<br /></font><font face="Arial, Helvetica, sans-serif" size="2"> byte responseBytes = client.DownloadData(webAddress);<br /></font><font face="Arial, Helvetica, sans-serif" size="2"> string response = Encoding.UTF8.GetString(responseBytes);</font></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p></font></span></div>
+<div class="alert">
+<table cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<th align="left"><font face="Arial, Helvetica, sans-serif"><br /></font>
+<p><font face="Arial, Helvetica, sans-serif"><u><font color="#000000" size="2">Security Note </font></u></font></p>
+</th>
+</tr>
+<tr>
+<td>
+<p><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">For sandboxed plug-ins to be able to access external Web services, the server where the Sandbox Processing Service role is installed must be exposed to the Internet, and the account that the sandbox service runs under must have Internet access. Only outbound connections on ports 80 and 443 are required. Inbound connection access is not required. Use the Windows Firewall control panel to enable outbound connections for the Microsoft.Crm.Sandbox.WorkerProcess application located on the server in the %PROGRAMFILES%Microsoft Dynamics CRMServerbin folder.</font></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><font face="Arial, Helvetica, sans-serif"><br /></font>
+<p><font face="Arial, Helvetica, sans-serif"><font size="2"><u>Some enumerated restrictions:</u></font></font><font face="Arial, Helvetica, sans-serif"><font size="2"><br /></font></font><font face="Arial, Helvetica, sans-serif"><font size="2">Sandboxed plug-ins and custom workflow activities can access the network through the HTTP and HTTPS protocols. This capability provides support for accessing popular web resources like social sites, news feeds, web services, and more. The following web access restrictions apply to this sandbox capability.</font></font></p>
+<ul>
+<li class="unordered"><font face="Arial, Helvetica, sans-serif" size="2">Only the HTTP and HTTPS protocols are allowed.</font></li>
+</ul>
+<ul>
+<li class="unordered"><font face="Arial, Helvetica, sans-serif" size="2">Access to localhost (loopback) is not permitted.</font></li>
+</ul>
+<ul>
+<li class="unordered"><font face="Arial, Helvetica, sans-serif" size="2">IP addresses cannot be used. You must use a named web address that requires DNS name resolution.</font></li>
+</ul>
+<ul>
+<li class="unordered"><font face="Arial, Helvetica, sans-serif" size="2">Anonymous authentication is supported and recommended. There is no provision for prompting the logged on user for credentials or saving those credentials.</font></li>
+</ul>
+</div>
+</div>
+</div>

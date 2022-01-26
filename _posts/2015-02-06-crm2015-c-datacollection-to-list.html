@@ -1,0 +1,31 @@
+---
+layout: post
+title: CRM2015 - C# - DataCollection to List
+date: 2015-02-06 14:33:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2015
+- EntityCollection to List
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54035'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/06/crm2015-c-datacollection-to-list/"
+---
+<div>
+<div>
+<div><span style="font-family:Verdana, sans-serif;">Converting a DataCollection in a List in CRM can be done like the below example if using the strong type:</span><br /><span style="font-family:Verdana, sans-serif;"><br /></span><span style="font-family:Verdana, sans-serif;">QueryExpression qExpr = new QueryExpression(Account.EntityLogicalName);</span><br /><span style="font-family:Verdana, sans-serif;">qExpr.ColumnSet = new ColumnSet(new string { "name" });</span><br /><span style="font-family:Verdana, sans-serif;">qExpr.Criteria = new FilterExpression(LogicalOperator.And);</span><br /><span style="font-family:Verdana, sans-serif;">qExpr.Criteria.AddCondition("name", ConditionOperator.Like, "%Lda%");</span><br /><span style="font-family:Verdana, sans-serif;"><br /></span><span style="font-family:Verdana, sans-serif;">EntityCollection col = service.RetrieveMultiple(qExpr);</span><br /><span style="font-family:Verdana, sans-serif;"><br /></span><span style="font-family:Verdana, sans-serif;">if (col != null &amp;&amp; col.Entities != null)</span><br /><span style="font-family:Verdana, sans-serif;">{</span><br /><span style="font-family:Verdana, sans-serif;">&nbsp; &nbsp;List accs = col.Entities.Select(item =&gt; item.ToEntity()).ToList();</span><br /><span style="font-family:Verdana, sans-serif;">&nbsp;}</span></div>
+</div>
+</div>

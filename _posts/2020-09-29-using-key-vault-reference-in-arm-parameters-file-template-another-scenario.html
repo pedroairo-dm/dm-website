@@ -1,0 +1,63 @@
+---
+layout: post
+title: Using Key Vault reference in arm parameters file template, another scenario
+date: 2020-09-29 15:29:34.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  _publicize_pending: '1'
+  _publicize_done_external: a:1:{s:7:"twitter";a:1:{i:25049610;s:56:"https://twitter.com/pedroairo/status/1310949851245490179";}}
+  _wp_old_date: '2020-09-22'
+  _publicize_job_id: '49365866909'
+  publicize_linkedin_url: ''
+  _publicize_done_23193164: '1'
+  _wpas_done_25049609: '1'
+  timeline_notification: '1601389775'
+  _publicize_done_23193165: '1'
+  _wpas_done_25049610: '1'
+  publicize_twitter_user: pedroairo
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '966255'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2020/09/29/using-key-vault-reference-in-arm-parameters-file-template-another-scenario/"
+---
+<p><!-- wp:paragraph --></p>
+<p>Following the last post, where an example is given on how to use Key Vault in a Arm Parameters File Template. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>That's a great idea for using Key Vault when deploying a resource with DevOps. However, that's not the only challenge you have, another question that can be important to ask is. And what about a Service Url that you can be using in a Logic App for example. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>First thing that probably comes to mind is: OK, let's create a parameter like [Service URL], set the value to the right URL needed for the purpose. And do that for all parameters files related to each environment.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now, assume a disaster recover type of issue, where that [Service URL] is no longer available and instead you are provided a new one to configure in your Logic App. (Assuming the next steps are done only after provided the new URL)</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Yes, you go back to your source control, change the relevant value in the parameters file, check in the code, most likely, promote the change, and finally with continuos integration it gets deployed to the specific environment. Now, I will ask you, how much time took you to perform that change, from the moment it got to you, until it was deployed? If your team has the coding and deployment well oiled, probably 1h, but as we know, not all companies have that so well implemented. What it means that it can take quite some time. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Depending on how the availability affects the "Customer", most likely someone will be asked questions why it took so long a small change to point to a new URL?</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>There's where the Key Vault in here can have an important paper. Why not use the Key Vault for this purpose? Probably another interesting idea for using the Key Vault, don't you think? Instead of setting the URL for every environment "hard coded" in the parameters files, just create a Key in the Key Vault for that purpose and reference it.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>For this specific scenario, and works really well. Assuming the same disaster scenario. The only thing needed would be ask someone to create a revision on the secret, set the value and that's it. How much time needed? Probably 2 minutes.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Any comments/questions are welcome.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hope it helps.</p>
+<p><!-- /wp:paragraph --></p>

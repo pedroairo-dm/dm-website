@@ -1,0 +1,43 @@
+---
+layout: post
+title: Multi-Entity Quick Find on Microsoft CRM Dynamics 2015
+date: 2015-01-20 14:11:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2015
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54079'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/01/20/multi-entity-quick-find-on-microsoft/"
+---
+<div>
+<div>
+<div>Another highly anticipated feature of Dynamics CRM 2015 is Multi-Entity Quick Find, which allows users to search across multiple entities. Many ISVs have built their own implementations and it is nice to finally see this part of the base product. In this post, I will refer to Multi-Entity Quick Find as global search for simplicity.</p>
+<p><img alt="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find" height="42" src="{{ site.baseurl }}/assets/2015/01/microsoft-dynamics-crm-2015-multi-entity-quick-find-1.png" title="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find (1)" width="600" /><br />Global Search is available on the navigation bar, next to the Advanced Find button. Simply enter a search term and click on the search item (or press ENTER) to execute the search. The searchable fields for an entity are defined by the Find Columns of the Quick Find View for that entity. Global Search also supports wildcard searches.</p>
+<p><img alt="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find" height="402" src="{{ site.baseurl }}/assets/2015/01/microsoft-dynamics-crm-2015-multi-entity-quick-find-2.png" title="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find (2)" width="600" /></p>
+<p> This displays a dedicated search results page which I really like the look of. It provides the ability to enter additional search queries without having to navigate back to the navigation bar for subsequent searches. The results are grouped by entity and are displayed vertically with tiles and key information about the record. If you have uploaded images for certain records (e.g. Contacts and Accounts), the image will be displayed instead of the entity icon.<br />A user can simply click on a search result to open the record, or they can click on the + (plus) icon next to the entity name to create a new record. Doing so will either display an empty form, or the quick-create form.<br />The <strong>Filter with</strong> drop-down list displays the entities that are configured for global search. A user can select any item in the list to only show results for that entity.</p>
+<p><img alt="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find" src="{{ site.baseurl }}/assets/2015/01/microsoft-dynamics-crm-2015-multi-entity-quick-find-3.png" title="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find (3)" /></p>
+<p>We’re not restricted to only these entities. Additional entities can be configured for Global Search on the <strong>General</strong> tab in System Settings.</p>
+<p><img alt="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find" height="205" src="{{ site.baseurl }}/assets/2015/01/microsoft-dynamics-crm-2015-multi-entity-quick-find-4.png" title="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find (4)" width="600" /></p>
+<p> Clicking on the <strong>Select…</strong> button lets you select the entities to be configured for Global Search. This list also includes any custom entities that you create.</p>
+<p><img alt="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find" height="445" src="{{ site.baseurl }}/assets/2015/01/microsoft-dynamics-crm-2015-multi-entity-quick-find-5.png" title="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find (5)" width="600" /></p>
+<p> I tried specifying every single entity and received an error message stating that you can only specify a maximum of 10 entities for global search. </p>
+<p><img alt="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find" src="{{ site.baseurl }}/assets/2015/01/microsoft-dynamics-crm-2015-multi-entity-quick-find-6.png" title="Microsoft Dynamics CRM 2015 Multi-Entity Quick Find (6)" /></p>
+<p> With this restriction in place, it is important to have a good think about the core entities in your system that need to be configured for global search.</p>
+<p><strong><u>From Microsoft Page:</u></strong></p>
+<p><strong></strong><a href="https://community.dynamics.com/crm/b/magnetismsolutionscrmblog/archive/2014/09/18/microsoft-dynamics-crm-2015-multi-entity-quick-find.aspx">https://community.dynamics.com/crm/b/magnetismsolutionscrmblog/archive/2014/09/18/microsoft-dynamics-crm-2015-multi-entity-quick-find.aspx</a></div>
+</div>
+</div>

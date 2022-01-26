@@ -1,0 +1,34 @@
+---
+layout: post
+title: CRM How to get (download) an attachment
+date: 2009-09-07 16:55:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 4.0
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54107'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2009/09/07/crm-how-to-get-download-attachment/"
+---
+<div>
+<div>
+<div><span class="Apple-style-span" style="font-family:Verdana;color:rgb(51,51,51);font-size:13px;line-height:19px;">
+<p></p>
+<p><span class="Apple-style-span" style="font-size:small;">If you want to get an attachment from a note, then you have to get it using HTTP call. The following function returns an array of bytes that can be saved into a stream or you can convert it to Base64String (</span><span style="font-family:'courier new';"><span class="Apple-style-span" style="font-size:small;">System</span><span style="color:rgb(0,0,255);"><span class="Apple-style-span" style="font-size:small;">.</span></span><span style="color:rgb(43,145,175);"><span class="Apple-style-span" style="font-size:small;">Convert</span></span><span style="color:rgb(0,0,255);"><span class="Apple-style-span" style="font-size:small;">.</span></span><span class="Apple-style-span" style="font-size:small;">ToBase64String(myBytes)</span></span><span class="Apple-style-span" style="font-size:small;">) if you want to save it again in CRM.</span></p>
+<p><span style="font-family:'courier new';"><span style="font-size:11px;"><span style="color:rgb(0,0,255);">private</span> <span style="color:rgb(0,0,255);">byte</span> GetAnnotationAttachment(<span style="color:rgb(43,145,175);">Guid</span> annotationId)<br />{<br /><span style="color:rgb(43,145,175);">Guid</span> attachid <span style="color:rgb(0,0,255);">=</span> annotationId;<br /><span style="color:rgb(0,0,255);">int</span> objecttypecode <span style="color:rgb(0,0,255);">=</span> 5; </span></span><span style="font-family:'courier new';"><span style="font-size:11px;"><span style="color:rgb(0,128,0);">//Annotation attachment OTC<br /></span><span style="color:rgb(0,0,255);">string</span> url <span style="color:rgb(0,0,255);">=</span> _serverUrl <span style="color:rgb(0,0,255);">+</span> <span style="color:rgb(163,21,21);">"Activities/Attachment/download.aspx?AttachmentType="</span> <span style="color:rgb(0,0,255);">+</span> objecttypecode<span style="color:rgb(0,0,255);">.</span>ToString() <span style="color:rgb(0,0,255);">+</span> <span style="color:rgb(163,21,21);">"&amp;AttachmentId="</span><span style="color:rgb(0,0,255);">+</span> attachid<span style="color:rgb(0,0,255);">.</span>ToString();<br />System<span style="color:rgb(0,0,255);">.</span>Net<span style="color:rgb(0,0,255);">.</span><span style="color:rgb(43,145,175);">WebClient</span> myWebClient <span style="color:rgb(0,0,255);">=</span> <span style="color:rgb(0,0,255);">new</span> System<span style="color:rgb(0,0,255);">.</span>Net<span style="color:rgb(0,0,255);">.</span><span style="color:rgb(43,145,175);">WebClient</span>();<br />myWebClient<span style="color:rgb(0,0,255);">.</span>Credentials <span style="color:rgb(0,0,255);">=</span>System<span style="color:rgb(0,0,255);">.</span>Net<span style="color:rgb(0,0,255);">.</span><span style="color:rgb(43,145,175);">CredentialCache</span><span style="color:rgb(0,0,255);">.</span>DefaultNetworkCredentials;<br /><span style="color:rgb(0,0,255);">return</span> myWebClient<span style="color:rgb(0,0,255);">.</span>DownloadData(url);<br />}</span></span></p>
+<p></span></div>
+</div>
+</div>

@@ -1,0 +1,230 @@
+---
+layout: post
+title: 'Walkthrough: Register a CRM app with Active Directory'
+date: 2015-01-27 16:16:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2015
+- Mobile Application
+- Rich Desktop Client
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54065'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/01/27/walkthrough-register-crm-app-with/"
+---
+<div>
+<div>
+<div>I took this from the CRM 2015 SDK:</p>
+<p>This walkthrough describes how to register an external rich desktop client or mobile application so that it can connect to and authenticate with the Microsoft Dynamics CRM server and access the web services. Once registered, an application can access the web services using HTTP requests through the server’s SOAP or OData endpoints. This walkthrough applies to both Microsoft Dynamics CRM 2015 and Microsoft Dynamics CRM Online 2015 Update. <br />
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="prerequisitesToggle" src="{{ site.baseurl }}/assets/2015/01/" />Prerequisites</span></h2>
+<div class="section" id="prerequisitesSection">For a Microsoft Dynamics CRM 2015 on-premises or Internet-facing deployment (IFD):<br /> 
+<ul>
+<li class="unordered">Windows Server 2012 R2 with AD FS. </li>
+<li class="unordered">You must have administrator access to the server hosting the Microsoft Dynamics CRM 2015 deployment services role and the AD FS server.</li>
+<li class="unordered">The on-premises server must be configured to use claims authentication. </li>
+</ul>
+<p>For a Microsoft Dynamics CRM Online deployment:<br /> 
+<ul>
+<li class="unordered">The user must have a Microsoft Dynamics CRM Online system user account with administrator role for the Microsoft Office 365 subscription.</li>
+</ul>
+<p>For either deployment type, you must know the redirect URI for your application. Instructions for finding that URI are provided in the section at the end of this topic named <a href="/html/dd48aa30-7b05-4b15-a039-ff6522da8613.htm#bkmk_redirect">How to obtain the redirect URI</a>.</div>
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="sectionToggle0" src="{{ site.baseurl }}/assets/2015/01/" />In This Topic</span></h2>
+<div class="section" id="sectionSection0"><a href="/html/dd48aa30-7b05-4b15-a039-ff6522da8613.htm#bkmk_ifd">App registration for CRM on-premises (IFD)</a><br /> <a href="/html/dd48aa30-7b05-4b15-a039-ff6522da8613.htm#bkmk_online">App registration for CRM Online</a><br /> <a href="/html/dd48aa30-7b05-4b15-a039-ff6522da8613.htm#bkmk_redirect">Obtain the redirect URI</a></div>
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="sectionToggle1" src="{{ site.baseurl }}/assets/2015/01/" />App registration for CRM on-premises (IFD)</span></h2>
+<div class="section" id="sectionSection1"><b>Scenario</b>: A customer or other person registers a custom application to access organization data on a CRM server provided by an ISV or Partner.<br /> <br />
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0EVD" src="{{ site.baseurl }}/assets/2015/01/" /><b>The ISV or Partner performs the following tasks:</b></span></h4>
+<div class="subSection">
+<ol class="ordered">
+<li>Configures the CRM on-premises (IFD) server and AD FS server using Windows PowerShell commands that are provided later in this section. </li>
+<li>Provides the client ID and server address URL information to the customer.</li>
+</ol>
+</div>
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0EOE" src="{{ site.baseurl }}/assets/2015/01/" /><b>The customer or other person performs the following tasks:</b></span></h4>
+<div class="subSection">
+<ol class="ordered">
+<li>Configures the external application by entering the client ID and server address URL in the app as instructed.</li>
+</ol>
+</div>
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0EDF" src="{{ site.baseurl }}/assets/2015/01/" />CRM server setup</span></h4>
+<div class="subSection">To configure the CRM server to enable federated claims, follow these steps.<br /> <br />
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0ENF" src="{{ site.baseurl }}/assets/2015/01/" /><b>Configure claims settings</b></span></h4>
+<div class="subSection">
+<ol class="ordered">
+<li>Log on as administrator on the CRM server that hosts the deployment service role and open a Windows PowerShell command window. </li>
+<li>Add the CRM Windows PowerShell snap-in (Microsoft.Crm.PowerShell.dll). More information: <a href="http://technet.microsoft.com/en-us/library/dn531202(v=CRM.7).aspx" target="_blank">Use PowerShell to Call the Deployment Web Service</a><br /> 
+<div class="code"><span><br />
+<table cellpadding="0" cellspacing="0" style="width:100%px;">
+<tbody>
+<tr>
+<th>Windows PowerShell&nbsp;</th>
+<th><span class="copyCode"><img align="absMiddle" class="copyCodeImage" src="{{ site.baseurl }}/assets/2015/01/" />Copy Code</span></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>Add-PSSnapin Microsoft.Crm.PowerShell</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p></span></div>
+</li>
+<li>Enter the following Windows PowerShell commands.<br /> 
+<div class="code"><span><br />
+<table cellpadding="0" cellspacing="0" style="width:100%px;">
+<tbody>
+<tr>
+<th>Windows PowerShell&nbsp;</th>
+<th><span class="copyCode"><img align="absMiddle" class="copyCodeImage" src="{{ site.baseurl }}/assets/2015/01/" />Copy Code</span></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>$ClaimsSettings = Get-CrmSetting -SettingType OAuthClaimsSettings<br />$ClaimsSettings.Enabled = $true<br />Set-CrmSetting -Setting $ClaimsSettings<br /></pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p></span></div>
+</li>
+</ol>
+</div>
+</div>
+<p><a href="https://www.blogger.com/null" name="bkmk_adfs"></a><a href="https://www.blogger.com/null" name="bkmk_adfs"></a><br />
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0EDBAC" src="{{ site.baseurl }}/assets/2015/01/" />AD FS server setup</span></h4>
+<div class="subSection">To register the external application with AD FS, follow these steps.<br /> <br />
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0EOBAC" src="{{ site.baseurl }}/assets/2015/01/" /><b>Register the application in Active Directory</b></span></h4>
+<div class="subSection">
+<ol class="ordered">
+<li>Log on to the AD FS server as administrator and open a Windows PowerShell command window. </li>
+<li>Enter the following command.<br /> 
+<div class="code"><span><br />
+<table cellpadding="0" cellspacing="0" style="width:100%px;">
+<tbody>
+<tr>
+<th>Windows PowerShell&nbsp;</th>
+<th><span class="copyCode"><img align="absMiddle" class="copyCodeImage" src="{{ site.baseurl }}/assets/2015/01/" />Copy Code</span></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>Add-AdfsClient -ClientId  -Name  -RedirectUri </pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p></span></div>
+<p>Where  is a unique number,  is a name for the application, and  is any valid URI that AD FS is to redirect to after authentication has completed. It is recommended that the client ID be a GUID. You can generate a GUID in Microsoft Visual Studio by opening the <b>Tools</b> menu and clicking <b>Create GUID</b>.</li>
+</ol>
+</div>
+</div>
+</div>
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="sectionToggle2" src="{{ site.baseurl }}/assets/2015/01/" />App registration for CRM Online</span></h2>
+<div class="section" id="sectionSection2"><b>Scenario</b>: A person with a CRM Online system user account accesses organization data through a rich desktop client or mobile app.<br /> <br />
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0EOEAC" src="{{ site.baseurl }}/assets/2015/01/" /><b>The end user performs the following tasks:</b></span></h4>
+<div class="subSection">
+<ol class="ordered">
+<li>Registers the external application in Microsoft Azure and provides a redirect URI during the registration process. The URI can be any valid and appropriate URI. The Microsoft Azure app registration process results in the generation of a client ID string. </li>
+<li>Configures the application by entering the client ID and redirect URI in the app’s authentication code or configuration file when instructed on the Microsoft Azure app registration page.</li>
+</ol>
+</div>
+<p> <b>Scenario</b>: An ISV creates and registers an app that later published in the app store. The ISV’s customers download the app from the store and use it to connect to their Microsoft Dynamics CRM Online organization.<br /> <br />
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0ERFAC" src="{{ site.baseurl }}/assets/2015/01/" /><b>The ISV performs the following tasks:</b></span></h4>
+<div class="subSection">
+<ol class="ordered">
+<li>Registers the app in the ISV’s tenant using the steps provided in the previous scenario (above).</li>
+</ol>
+</div>
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0EDGAC" src="{{ site.baseurl }}/assets/2015/01/" /><b>Each customer that downloads the app performs the following tasks:</b></span></h4>
+<div class="subSection">
+<ol class="ordered">
+<li>When accessing a CRM organization in the customer’s tenant, the customer will be presented with a consent form. </li>
+<li>The customer reads the information on the form and clicks <b>OK</b> to consent. </li>
+<li>(Optional) The customer register’s the app in the customer’s tenant.</li>
+</ol>
+</div>
+<p> For native apps, the customer has to consent each time he or she is prompted to authenticate again. For web apps, the customer is only asked to consent one time. The workaround to bypass the consent form is for the customer to register the app in the customer’s tenant.<br /> <br />
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0ENHAC" src="{{ site.baseurl }}/assets/2015/01/" /><b>Register an application with Microsoft Azure</b></span></h4>
+<div class="subSection">
+<ol class="ordered">
+<li><a href="http://manage.windowsazure.com/" target="_blank">Sign in</a> to the Microsoft Azure management portal by using an account with administrator permission. Use an account in the same subscription (tenant) as you intend to register the app with.<br /> If you don’t have an account, you must sign up for one by using a credit card. However, the account is free and your credit card will not be charged if you only follow the procedures called out in this topic to register one or more apps. More information: <a href="http://azure.microsoft.com/en-us/pricing/details/active-directory/" target="_blank">Active Directory Pricing Details</a> </li>
+<li>Choose <b>Active Directory</b> in the left column of the page. You may need to scroll the left column to see the <b>Active Directory</b> icon and label. </li>
+<li>Choose the desired tenant directory in the directory list.<br /><img alt="List of available Active Directory entries" src="{{ site.baseurl }}/assets/2015/01/" /><br /> If your CRM tenant directory is not shown in the directory list, choose <b>Add</b>, and then select <b>Use existing directory</b> in the dialog box. Follow the prompts and instructions provided, and then go back to step 1. </li>
+<li>With the target directory selected, choose <b>Applications</b>, and then choose <b>Add</b>. </li>
+<li>In the dialog box, choose <b>Add an application my organization is developing</b>. </li>
+<li>When prompted, enter a name for your application, choose a type: <b>Web Application</b> or <b>Native Client Application</b>, and then choose the right arrow to continue. </li>
+<li>Continue providing the requested information and complete the app registration process. </li>
+<li>With the tab of the newly registered app selected, choose <b>Update Your Code</b>. Insert the provided redirect URI and client ID in the authentication code of your app.<br /><img alt="Generated client ID in Dynamics CRM" src="{{ site.baseurl }}/assets/2015/01/" /> </li>
+<li>With the tab of the newly registered app selected, choose <b>Configure</b>. </li>
+<li>Set the app permissions as shown in the figure below.<br /><img alt="Add application permission in Dynamics CRM" src="{{ site.baseurl }}/assets/2015/01/" /></li>
+</ol>
+</div>
+<h4 class="subHeading"><span style="cursor:default;"><img class="toggle" id="ID0ESMAC" src="{{ site.baseurl }}/assets/2015/01/" /><b>Register an application with AD FS</b></span></h4>
+<div class="subSection">
+<ul>
+<li>If you’re federating users between an IFD server and Microsoft Dynamics CRM Online, and you want to use the app with either server, you must register the application with both Microsoft Dynamics CRM Online and Active Directory Federation Services (AD FS) on the IFD server. Follow the steps provided in this topic. Your IFD server must be running Windows Server 2012 R2.</li>
+</ul>
+</div>
+</div>
+<h2 class="heading"><span style="cursor:default;"><img class="toggle" id="sectionToggle3" src="{{ site.baseurl }}/assets/2015/01/" />Obtain the redirect URI</span></h2>
+<p><a href="https://www.blogger.com/null" name="bkmk_ifd"></a><a href="https://www.blogger.com/null" name="bkmk_ifd"></a> <a href="https://www.blogger.com/null" name="bkmk_online"></a><a href="https://www.blogger.com/null" name="bkmk_online"></a> <a href="https://www.blogger.com/null" name="bkmk_redirect"></a><a href="https://www.blogger.com/null" name="bkmk_redirect"></a> 
+<div class="section" id="sectionSection3">One method to obtain the redirect URI is to execute the following line of code in a debug session. In a WinJS debug session, select the <b>RawUri</b> property.<br /> 
+<div class="code"><span><br />
+<table cellpadding="0" cellspacing="0" style="width:100%px;">
+<tbody>
+<tr>
+<th>C#&nbsp;</th>
+<th><span class="copyCode"><img align="absMiddle" class="copyCodeImage" src="{{ site.baseurl }}/assets/2015/01/" />Copy Code</span></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>string redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p></span></div>
+<div class="code"><span><br />
+<table cellpadding="0" cellspacing="0" style="width:100%px;">
+<tbody>
+<tr>
+<th>Visual Basic&nbsp;</th>
+<th><span class="copyCode"><img align="absMiddle" class="copyCodeImage" src="{{ site.baseurl }}/assets/2015/01/" />Copy Code</span></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>Dim redirectUri As String = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString()</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p></span></div>
+<div class="code"><span><br />
+<table cellpadding="0" cellspacing="0" style="width:100%px;">
+<tbody>
+<tr>
+<th>JavaScript&nbsp;</th>
+<th><span class="copyCode"><img align="absMiddle" class="copyCodeImage" src="{{ site.baseurl }}/assets/2015/01/" />Copy Code</span></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>Windows.Security.Authentication.Web.WebAuthenticationBroker.getCurrentApplicationCallbackUri()</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p></span></div>
+<p>You can then use the string value returned from the method call when you register the app. The C# line of code is shown in the topic <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Sample: Windows 8 desktop modern OData app</a>.</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,38 @@
+---
+layout: post
+title: Convert queries from QueryExpression to FetchXML
+date: 2015-02-02 09:59:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- FetxhXML
+- Queries
+- QueryExpression
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54059'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/02/convert-queries-from-queryexpression-to-fetchxml/"
+---
+<div>
+<div>
+<div>
+<p style="overflow:auto;padding:5px;line-height:17.55px;"><font size="2"><br /></font><font size="2">Often when developing high scale projects, and when performance is very crucial and critical if needed any aggregation function on a Plugin, Custom Workflow Activity or even a custom Application when retrieving data from crm, we should use Fetch XML.</font><font size="2"><br /></font><font size="2">When i have to do that, usually i have two options use an advanced find to get the xml (Button that says Download Fetch XML), or we can use a method from the SDK to do the same, please see the below example:</font></p>
+<p style="overflow:auto;padding:5px;line-height:17.55px;"><font size="2">Where queryExpression is a QueryExpression type.</font></p>
+<p style="overflow:auto;padding:5px;line-height:17.55px;"><font size="2"><br /></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="color:blue;">var</span> conversionRequest = <span style="color:blue;">new</span> QueryExpressionToFetchXmlRequest<br /></font><font face="Verdana, Geneva, sans-serif" size="2">{<br /></font><font face="Verdana, Geneva, sans-serif" size="2"> Query = queryExpression<br /></font><font face="Verdana, Geneva, sans-serif" size="2">};<br /></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="color:blue;">var</span> conversionResponse =<br /></font><font face="Verdana, Geneva, sans-serif" size="2"> (QueryExpressionToFetchXmlResponse)_serviceProxy.Execute(conversionRequest);</font><font face="Verdana, Geneva, sans-serif" size="2"><br /></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="color:green;">// Use the converted query to make a retrieve multiple request to Microsoft Dynamics CRM.<br /></span></font><font face="Verdana, Geneva, sans-serif" size="2">String fetchXml = conversionResponse.FetchXml;<br /></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="color:blue;">var</span> fetchQuery = <span style="color:blue;">new</span> FetchExpression(fetchXml);<br /></font><font face="Verdana, Geneva, sans-serif" size="2">EntityCollection result = _serviceProxy.RetrieveMultiple(fetchQuery);</font></p>
+<p style="overflow:auto;padding:5px;line-height:17.55px;"><font face="Verdana, Geneva, sans-serif" size="2"><br /></font><span style="background-color:transparent;line-height:17.55px;"><font face="Verdana, Geneva, sans-serif" size="2">And here it is, hope it helps.</font></span></p>
+</div>
+</div>
+</div>

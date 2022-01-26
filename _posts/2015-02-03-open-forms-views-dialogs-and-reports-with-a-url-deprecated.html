@@ -1,0 +1,148 @@
+---
+layout: post
+title: Open forms, views, dialogs and reports with a URL (Deprecated)
+date: 2015-02-03 16:33:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Javascript
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54051'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/03/open-forms-views-dialogs-and-reports-with-a-url-deprecated/"
+---
+<div>
+<div>
+<div>
+<p style="line-height:17.55px;overflow:auto;padding:5px;">Please go to the new Post for Open a Form from Javascript according to Microsoft Update.</p>
+<p style="line-height:17.55px;overflow:auto;padding:5px;"></p>
+<p style="line-height:17.55px;overflow:auto;padding:5px;"><span>CRM 2015 - Javascript - Opening an Entity Form from Javascript</span></p>
+<p style="line-height:17.55px;overflow:auto;padding:5px;"><span><a href="http://www.dynamicsmonster.com/blogs/post/CRM-2015-Javascript-Opening-an-Entity-Form-from-Javascript/" target="_blank" title="CRM 2015 - Javascript - Opening an Entity Form from Javascript">http://www.dynamicsmonster.com/blogs/post/CRM-2015-Javascript-Opening-an-Entity-Form-from-Javascript/</a> <br /></span></p>
+<p style="line-height:17.55px;overflow:auto;padding:5px;"></p>
+<p style="line-height:17.55px;overflow:auto;padding:5px;"></p>
+<p style="line-height:17.55px;overflow:auto;padding:5px;"><font size="2">Digging in the JavaScript to create my own framework that will make my live and my colleagues live easier.<br /></font><font size="2">Sometimes we need to open entity records windows, and the most common way of doing that if you ask a JavaScript developer is window.open. <br /></font><font size="2">However, as best practices Microsoft says to use the CRM own framework to do that.</font><font size="2"><br /></font><font size="2">So, instead of doing:<br /></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="color:blue;">function</span> openDialogProcess(dialogId, entityName, objectId)<br /></font><font face="Verdana, Geneva, sans-serif" size="2">{<br /></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="color:blue;">var</span> url = Xrm.Page.context.getClientUrl() +<br /></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="color:rgb(163,21,21);">&quot;/cs/dialog/rundialog.aspx?DialogId=&quot;</span> +<br /></font><font face="Verdana, Geneva, sans-serif" size="2"> dialogId + <span style="color:rgb(163,21,21);">&quot;&amp;EntityName=&quot;</span> +<br /></font><font face="Verdana, Geneva, sans-serif" size="2"> entityName + <span style="color:rgb(163,21,21);">&quot;&amp;ObjectId=&quot;</span> +<br /></font><font face="Verdana, Geneva, sans-serif" size="2"> objectId;<br /></font><font face="Verdana, Geneva, sans-serif" size="2"> window.open(url);<br /></font><font face="Verdana, Geneva, sans-serif" size="2">}<br /></font><span style="background-color:transparent;line-height:17.55px;"><font face="Verdana, Geneva, sans-serif" size="2">Do:<br /></font></span><font face="Verdana, Geneva, sans-serif" size="2">Xrm.Utility.openEntityForm(<span style="color:rgb(163,21,21);">&quot;account&quot;</span>,<span style="color:rgb(163,21,21);">&quot;A85C0252-DF8B-E111-997C-00155D8A8410&quot;</span>);<br /></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="background-color:transparent;line-height:17.55px;">More detail about what you can do:<br /></span></font><font face="Verdana, Geneva, sans-serif" size="2"><span style="color:rgb(42,42,42);line-height:18px;white-space:normal;">From: </span><span style="color:rgb(42,42,42);"><span style="line-height:18px;white-space:normal;">https://msdn.microsoft.com/en-us/library/72a66f93-92df-42b9-a8fd-b6125c7fe83b#BKMK_OpenEntityForm<br /></span></span></font><span style="color:rgb(42,42,42);line-height:18px;white-space:normal;"><font face="Verdana, Geneva, sans-serif" size="2">Opens an entity form.</font></span></p>
+<pre style="overflow:auto;padding:5px;"><pre style="font-family:Consolas , Courier , monospace;font-size:13px;line-height:17.55px;overflow:auto;padding:5px;" /></pre>
+<div class="codeSnippetContainer" id="code-snippet-4" style="clear:both;font-family:'Segoe UI' , 'Lucida Grande' , Verdana , Arial , Helvetica , sans-serif;line-height:17.55px;min-width:260px;white-space:normal;">
+<div class="codeSnippetContainerTabs" style="height:23px;vertical-align:middle;">
+<div class="codeSnippetContainerTabSingle" dir="ltr" style="background-color:white;border-color:rgb(147,147,147) rgb(147,147,147) rgb(255,255,255);border-style:solid;border-width:1px;color:rgb(112,112,112);float:left;font-size:1em;height:23px;left:auto;line-height:17px;top:auto;vertical-align:baseline;width:auto;"><a href="https://www.blogger.com/null" style="color:black;font-weight:bold;padding:0 8px;top:2px;">JavaScript</a></div>
+<p></div>
+<p>
+<div class="codeSnippetContainerCodeContainer" style="border:1px solid rgb(147,147,147);clear:both;margin-bottom:12px;top:-1px;">
+<div class="codeSnippetContainerCode" dir="ltr" id="CodeSnippetContainerCode_e96203be-0931-406e-9a09-355c667f657f" style="margin:0;padding:10px 21px;width:auto;">
+<div style="margin:0;padding:0;">
+<pre style="font-family:Consolas , Courier , monospace;overflow:auto;padding:5px;">Xrm.Utility.openEntityForm(name,id,parameters)<br /></pre>
+</div>
+</div>
+</div>
+</div>
+<div style="color:rgb(42,42,42);font-family:'segoe ui' , 'lucida grande' , verdana , arial , helvetica , sans-serif;line-height:18px;padding-bottom:15px;white-space:normal;"><b>Parameters</b></div>
+<dl>
+<dt><b>name</b></dt>
+<dd><b>Type</b>: String
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+<p><b>Required</b>: The logical name of an entity.
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+</dd>
+</dl>
+<dl>
+<dt><b>id</b></dt>
+<dd><b>Type</b>: String
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+<p><b>Optional</b>: The string representation of a unique identifier or the record to open in the form. If not set, a form to create a new record is opened.
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+</dd>
+</dl>
+<dl>
+<dt><b>parameters</b></dt>
+<dd><b>Type</b>: Object
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+<p><b>Optional</b>: A dictionary object that passes extra query string parameters to the form. Invalid query string parameters will cause an error.
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+<p>Valid extra query string parameters are:
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+<ul>
+<li class="unordered" style="list-style-image:none;"><b>Form id</b>: To set the id value of the main form to use when more than one form is available. The parameter is <b>formid</b>. </li>
+<li class="unordered" style="list-style-image:none;"><b>Default field ids</b>: To set default values for a new record form. For more information, see <a href="https://msdn.microsoft.com/en-us/library/gg334375" style="color:rgb(3,105,122);text-decoration:none;">Set field values using parameters passed to a form</a>. </li>
+<li class="unordered" style="list-style-image:none;">The <i>navbar</i> and <i>cmdbar</i> parameters described in <a href="http://msdn.microsoft.com/en-us/library/a8015117-1aa1-40df-b418-e563424b7558#BKMK_QueryStringParametersForMainForm" style="color:rgb(3,105,122);text-decoration:none;">Query String Parameters for the Main.aspx Page</a>. </li>
+<li class="unordered" style="list-style-image:none;"><b>Custom query string parameters</b>: A form can be configured to accept custom query string parameters. For more information, see <a href="https://msdn.microsoft.com/en-us/library/gg334436" style="color:rgb(3,105,122);text-decoration:none;">Configure a form to accept custom querystring parameters</a>. </li>
+</ul>
+</dd>
+</dl>
+<div style="color:rgb(42,42,42);font-family:'segoe ui' , 'lucida grande' , verdana , arial , helvetica , sans-serif;line-height:18px;padding-bottom:15px;white-space:normal;"><b>Remarks</b>: Using this function helps ensure that users are not prompted to log in again under certain circumstances.</div>
+<div style="color:rgb(42,42,42);font-family:'segoe ui' , 'lucida grande' , verdana , arial , helvetica , sans-serif;line-height:18px;padding-bottom:15px;white-space:normal;"><b>Examples</b></div>
+<dl>
+<dt><b>Open a new account record</b></dt>
+<dd>
+<div class="codeSnippetContainer" id="code-snippet-5" style="clear:both;min-width:260px;">
+<div class="codeSnippetContainerTabs" style="height:23px;vertical-align:middle;">
+<div class="codeSnippetContainerTabSingle" dir="ltr" style="background-color:white;border-color:rgb(147,147,147) rgb(147,147,147) rgb(255,255,255);border-style:solid;border-width:1px;color:rgb(112,112,112);float:left;font-size:1em;height:23px;left:auto;line-height:17px;top:auto;vertical-align:baseline;width:auto;"><a href="https://www.blogger.com/null" style="color:black;font-weight:bold;padding:0 8px;top:2px;">JavaScript</a></div>
+</div>
+<div class="codeSnippetContainerCodeContainer" style="border:1px solid rgb(147,147,147);clear:both;margin-bottom:12px;top:-1px;">
+<div class="codeSnippetToolBar" style="height:auto;width:auto;">
+<div class="codeSnippetToolBarText" style="background-color:white;float:right;height:0;padding-left:0;padding-right:0;top:-8px;vertical-align:top;width:auto;"></div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="CodeSnippetContainerCode_066b9e09-2d36-4430-9f0a-df7fa2b99624" style="margin:0;padding:10px 21px;width:auto;">
+<div style="margin:0;padding:0;">
+<pre style="font-family:Consolas , Courier , monospace;overflow:auto;padding:5px;">Xrm.Utility.openEntityForm(<span style="color:rgb(163,21,21);">&quot;account&quot;</span>);<br /></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+<dl>
+<dt><b>Open an existing account record</b></dt>
+<dd>
+<div class="codeSnippetContainer" id="code-snippet-6" style="clear:both;min-width:260px;">
+<div class="codeSnippetContainerTabs" style="height:23px;vertical-align:middle;">
+<div class="codeSnippetContainerTabSingle" dir="ltr" style="background-color:white;border-color:rgb(147,147,147) rgb(147,147,147) rgb(255,255,255);border-style:solid;border-width:1px;color:rgb(112,112,112);float:left;font-size:1em;height:23px;left:auto;line-height:17px;top:auto;vertical-align:baseline;width:auto;"><a href="https://www.blogger.com/null" style="color:black;font-weight:bold;padding:0 8px;top:2px;">JavaScript</a></div>
+</div>
+<div class="codeSnippetContainerCodeContainer" style="border:1px solid rgb(147,147,147);clear:both;margin-bottom:12px;top:-1px;">
+<div class="codeSnippetToolBar" style="height:auto;width:auto;">
+<div class="codeSnippetToolBarText" style="background-color:white;float:right;height:0;padding-left:0;padding-right:0;top:-8px;vertical-align:top;width:auto;"></div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="CodeSnippetContainerCode_21ec7125-cba2-4ebb-9b9b-8caeaa3ccf5e" style="margin:0;padding:10px 21px;width:auto;">
+<div style="margin:0;padding:0;">
+<pre style="font-family:Consolas , Courier , monospace;overflow:auto;padding:5px;">Xrm.Utility.openEntityForm(<span style="color:rgb(163,21,21);">&quot;account&quot;</span>,<span style="color:rgb(163,21,21);">&quot;A85C0252-DF8B-E111-997C-00155D8A8410&quot;</span>);<br /></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+<dl>
+<dt><b>Open a new account record with a specific form and setting default values</b></dt>
+<dd>
+<div class="codeSnippetContainer" id="code-snippet-7" style="clear:both;min-width:260px;">
+<div class="codeSnippetContainerTabs" style="height:23px;vertical-align:middle;">
+<div class="codeSnippetContainerTabSingle" dir="ltr" style="background-color:white;border-color:rgb(147,147,147) rgb(147,147,147) rgb(255,255,255);border-style:solid;border-width:1px;color:rgb(112,112,112);float:left;font-size:1em;height:23px;left:auto;line-height:17px;top:auto;vertical-align:baseline;width:auto;"><a href="https://www.blogger.com/null" style="color:black;font-weight:bold;padding:0 8px;top:2px;">JavaScript</a></div>
+</div>
+<div class="codeSnippetContainerCodeContainer" style="border:1px solid rgb(147,147,147);clear:both;margin-bottom:12px;top:-1px;">
+<div class="codeSnippetToolBar" style="height:auto;width:auto;">
+<div class="codeSnippetToolBarText" style="background-color:white;float:right;height:0;padding-left:0;padding-right:0;top:-8px;vertical-align:top;width:auto;"></div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="CodeSnippetContainerCode_e428db63-9bec-4bd3-ab32-879ebe55bb65" style="margin:0;padding:10px 21px;width:auto;">
+<div style="margin:0;padding:0;">
+<pre style="font-family:Consolas , Courier , monospace;overflow:auto;padding:5px;"><span style="color:blue;">var</span> parameters = {};<br />parameters = <span style="color:rgb(163,21,21);">&quot;b053a39a-041a-4356-acef-ddf00182762b&quot;</span>;<br />parameters = <span style="color:rgb(163,21,21);">&quot;Test&quot;</span>;<br />parameters = <span style="color:rgb(163,21,21);">&quot;(425) 555-1234&quot;</span>;<br />Xrm.Utility.openEntityForm(<span style="color:rgb(163,21,21);">&quot;account&quot;</span>, <span style="color:blue;">null</span>, parameters);</pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>

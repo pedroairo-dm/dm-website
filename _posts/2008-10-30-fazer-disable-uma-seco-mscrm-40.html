@@ -1,0 +1,32 @@
+---
+layout: post
+title: Esconder uma secção de um formulário no MSCRM 4.0
+date: 2008-10-30 14:21:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 4.0
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54119'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2008/10/30/fazer-disable-uma-seco-mscrm-40/"
+---
+<div>
+<div>
+<div><span style="font-size:85%;"><span style="font-family:trebuchet ms;"><span style="color:#3333ff;">function</span> OnCrmPageLoad()<br />{<br /><span style="color:#33cc00;">//Hide the Second Section in the first Tab</span><br />ToggleSection( 0 , 1 , <span style="color:#3333ff;">"none"</span> /* "inline" */);<br />}</p>
+<p></span></span><span style="font-size:85%;"><span style="font-family:trebuchet ms;"><span style="color:#33cc00;">// Tabs and Section Collections are zero based<br /></span><span style="color:#3333ff;">function</span> ToggleSection( tabIndex , sectionIndex , displayType )<br />{<br />var sec = document.getElementById( <span style="color:#3333ff;">"tab"</span> + tabIndex );<br />sec.childNodes.rows.style.display = displayType;<br />}</p>
+<p><span style="color:#33cc00;">//Entry Point</span><br />OnCrmPageLoad(); </span></span></div>
+</div>
+</div>

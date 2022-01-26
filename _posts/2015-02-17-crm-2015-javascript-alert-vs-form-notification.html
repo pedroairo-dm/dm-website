@@ -1,0 +1,43 @@
+---
+layout: post
+title: CRM 2015 - Javascript - Alert vs Form Notification
+date: 2015-02-17 10:57:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2015
+- Javascript
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54017'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/17/crm-2015-javascript-alert-vs-form-notification/"
+---
+<div>
+<div>
+<div>
+<p style="padding-bottom:0;line-height:18px;"><font size="2">For many years i used the old Alert to show error or warning messages in CRM, i was using that from a web resource or form. But Microsoft provides a way of doing that in terms of CRM point of view.</font></p>
+<p style="padding-bottom:0;line-height:18px;"><font size="2"><br /></font><font size="2">So, inside of a form and for custom validations now we can use the following:</font><font size="2"><br /></font></p>
+<p style="padding-bottom:0;line-height:18px;"><font size="2"><br /></font></p>
+<p><font face="Arial, Helvetica, sans-serif"><font size="2"><code></code><span>Xrm.Page.ui.setFormNotification(&quot;Hello&quot;,&quot;INFO&quot;,&quot;helloMsg&quot;);</span><code></code></font></font></p></p>
+<p style="padding-bottom:0;line-height:18px;"><font size="2"><code><br /></code></font><font size="2">Displays the message “Hello” at the top of the form with a system info icon.<br /></font><font size="2">This method is only available for <a href="https://msdn.microsoft.com/en-us/library/41462684-3e5d-4858-8be4-1a7c4fcdeff6#BKMK_UpdatedEntties" style="text-decoration:none;">Updated entities</a>.</font><font size="2"><br /></font><font size="2">What's the problem in here, i was tying to use this inside of a Web Resource that even is not inside of a CRM Form and debugging i discovered that Xrm.Page.ui is 'undefined', so after research i came across with the below way to display a non-blocking alert dialog with a callback function.:</font><font size="2"><br /></font></p>
+<p><font face="Arial, Helvetica, sans-serif"><font size="2"><code></code><span>var alertDisplayed = false; </span></font></font></p>
+<p><font face="Arial, Helvetica, sans-serif"><font size="2"><span>Xrm.Utility.alertDialog(&quot;Showing Alert&quot;,function () { alertDisplayed = true; });</span><code></code></font></font></p></p>
+<p style="padding-bottom:0;line-height:18px;"><font size="2"><code><br /></code></font><font size="2">Display an alert and set the value of the <b>alertDisplayed</b> variable when it is closed.<br /></font><font size="2">This method is only available for <a href="https://msdn.microsoft.com/en-us/library/41462684-3e5d-4858-8be4-1a7c4fcdeff6#BKMK_UpdatedEntties" style="text-decoration:none;">Updated entities</a>.</font><font size="2"><br /></font><font size="2">The result is our old Alert:</font><font size="2"><br /></font><a href="http://www.dynamicsmonster.com/files/blog/Untitled.png" style="margin-left:1em;margin-right:1em;"><font size="2"><img border="0" height="120" src="{{ site.baseurl }}/assets/2015/02/Untitled.png" width="320" /></font></a><font size="2"><br /></font><font size="2"><br /></font></p>
+<div class="separator" style="clear:both;text-align:center;"></div>
+<p style="padding-bottom:0;"><span style="line-height:18px;"><font size="2">Probably i will do my own custom dialog. Any ideas?</font></span></p>
+<div style="color:rgb(42,42,42);font-family:'segoe ui' , 'lucida grande' , verdana , arial , helvetica , sans-serif;font-size:13px;line-height:18px;padding-bottom:0;"></div>
+</div>
+</div>
+</div>

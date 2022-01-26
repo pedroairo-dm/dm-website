@@ -1,0 +1,142 @@
+---
+layout: post
+title: CRM 2015 - Web Proxy - New service proxy classes for the Organization Service
+date: 2015-02-11 08:52:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2015
+- Organization Service
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54023'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/11/crm-2015-web-proxy-new-service-proxy-classes-for-the-organization-service/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Sometimes we need to do something, trigger something, and the answer many times come from specific messages against the organization endpoint, an example now with CRM 2015 is around the rollup field, as default the calculations are based on a system job that runs every lets say 24h, however that time can be changed, however sometimes we need to &quot;Force&quot; that run to meet some specific customer requirement, let's say the customer wants almost immediately, so i would do a Plugin to do that, in this case and from the list below i would call the request  <u>CalculateRollupFieldRequest </u>to do that, below you can find few more new Requests than can be done by the Organization Request.</font></p>
+<p><span style="font-family:Verdana , sans-serif;"><br /></span><br />
+<table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="border:none;width:526px;border-collapse:collapse;">
+<tbody>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;background:rgb(237,237,237);" width="225">
+<p style="line-height:13.15pt;margin:15pt 0;"><b><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">Request class name</font></b></p>
+</td>
+<td style="border-left:none;border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:225.75pt;background:rgb(237,237,237);" width="301">
+<p style="line-height:13.15pt;margin:15pt 0;"><b><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">More information</font></b></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.calculatepricerequest.aspx"><span style="text-decoration:none;">CalculatePriceRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/dn817885.aspx"><span style="text-decoration:none;">Use custom pricing for products</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.calculaterollupfieldrequest.aspx"><span style="text-decoration:none;">CalculateRollupFieldRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="http://msdn.microsoft.com/en-us/library/26ada6f7-3e22-465c-90f8-19d326785eb4#BKMK_Rollup"><span style="text-decoration:none;">Rollup attributes</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.cloneproductrequest.aspx"><span style="text-decoration:none;">CloneProductRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="http://msdn.microsoft.com/en-us/library/0f6c4255-094e-455e-bf7b-b832b981f58b#Clone"><span style="text-decoration:none;">Clone a product family, product, or bundle</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.exportfieldtranslationrequest.aspx"><span style="text-decoration:none;">ExportFieldTranslationRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="http://msdn.microsoft.com/en-us/library/1635a343-2896-4cdb-a6fb-3c5113a32470#BKMK_Translating"><span style="text-decoration:none;">Translate localizable attributes</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.getdefaultpricelevelrequest.aspx"><span style="text-decoration:none;">GetDefaultPriceLevelRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/dn858605.aspx"><span style="text-decoration:none;">Set default price level for opportunity, quote, order, invoice</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.importfieldtranslationrequest.aspx"><span style="text-decoration:none;">ImportFieldTranslationRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="http://msdn.microsoft.com/en-us/library/1635a343-2896-4cdb-a6fb-3c5113a32470#BKMK_Translating"><span style="text-decoration:none;">Translate localizable attributes</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.publishproducthierarchyrequest.aspx"><span style="text-decoration:none;">PublishProductHierarchyRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="http://msdn.microsoft.com/en-us/library/ada37ff8-0f03-47b4-bfd7-25a4b0aacb5b#Publish"><span style="text-decoration:none;">Publish a product family, product, or bundle</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.retrievecurrentorganizationrequest.aspx"><span style="text-decoration:none;">RetrieveCurrentOrganizationRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">Retrieve organization information from the organization service instead of using the discovery service.</font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.retrieveprincipalsyncattributemappingsrequest.aspx"><span style="text-decoration:none;">RetrievePrincipalSyncAttributeMappingsRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">This message doesn’t have any extensibility scenarios in this release.</font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.retrieveproductpropertiesrequest.aspx"><span style="text-decoration:none;">RetrieveProductPropertiesRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/dn817890.aspx"><span style="text-decoration:none;">DynamicPropertyInstance (property instance) methods and messages</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.revertproductrequest.aspx"><span style="text-decoration:none;">RevertProductRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="http://msdn.microsoft.com/en-us/library/ada37ff8-0f03-47b4-bfd7-25a4b0aacb5b#Revert"><span style="text-decoration:none;">Revert a product family, product, or bundle</span></a></font></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid rgb(187,187,187) 1pt;padding:7.5pt 6pt;width:169.05pt;border-top:none;" valign="top" width="225">
+<p style="margin-bottom:0;line-height:13.5pt;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2"><a href="https://msdn.microsoft.com/en-us/library/microsoft.crm.sdk.messages.updateproductpropertiesrequest.aspx"><span style="text-decoration:none;">UpdateProductPropertiesRequest</span></a></font></p>
+</td>
+<td style="border-left:none;border-right:solid rgb(187,187,187) 1pt;border-top:none;padding:7.5pt 6pt;width:225.75pt;border-bottom:solid rgb(187,187,187) 1pt;" valign="top" width="301">
+<p style="margin-bottom:0;line-height:13.5pt;"><a href="https://msdn.microsoft.com/en-us/library/dn817890.aspx"><span style="text-decoration:none;"><font color="#000000" face="Arial, Helvetica, sans-serif" size="2">DynamicPropertyInstance (property instance) methods and messages</font></span></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

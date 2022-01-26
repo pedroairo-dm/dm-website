@@ -1,0 +1,29 @@
+---
+layout: post
+title: Handle exceptions in plug-ins
+date: 2015-01-26 11:10:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54069'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/01/26/handle-exceptions-in-plug-ins/"
+---
+<div>
+<div>
+<div><span style="font-family:Verdana, sans-serif;"><span style="font-size:x-small;"><br /></span><span style="font-size:x-small;">One thing that any CRM developer has to know is how to show a message to the user in a Plugin, every time it is needed, for that the concept of handling with exceptions in CRM has to be understood.</span></span><br /><span style="font-family:Verdana, sans-serif;"><span style="font-size:x-small;"><br /></span><span style="font-size:x-small;">On a Async Custom Workflow Acitvity it can be used sometimes to Resume the Process, if it makes sense.</span></span><br /><span style="font-family:Verdana, sans-serif;"><span style="font-size:x-small;"><br /></span><span style="font-size:x-small;">From the SDK, as i often call CRM Bible, i took this text:</span></span><br /><span style="font-family:Verdana, sans-serif;"><span style="font-size:x-small;"><br /></span><span style="font-size:x-small;">For synchronous plug-ins, whether registered in the sandbox or not, the Microsoft Dynamics CRM platform handles exceptions passed back from a plug-in by displaying an error message in a dialog of the web application user interface. The exception message for asynchronous registered plug-ins is written to a System Job (<b>AsyncOperation</b>) record which can be viewed in the System Jobs area of the web application. </span></span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">For synchronous plug-ins, you can optionally display a custom error message in the error dialog of the web application by having your plug-in throw an <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">InvalidPluginExecutionException</a> exception with the custom message string as the exception <b>Message</b> property value. If you throw <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">InvalidPluginExecutionException</a> and do not provide a custom message, a generic default message is displayed in the error dialog. It is recommended that plug-ins only pass an <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">InvalidPluginExecutionException</a> back to the platform.</span><br /><span style="font-family:Verdana, sans-serif;"><br /><span style="font-size:x-small;">If a synchronous plug-in returns an exception other than <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">InvalidPluginExecutionException</a> back to the platform, the error dialog is displayed to the user and the exception message (<a href="http://msdn.microsoft.com/en-us/library/system.exception.message.aspx" target="_blank">System.Exception.Message</a>) with stack trace is also written to one of two places. For plug-ins not registered in the sandbox, the information is written to the Application event log on the server that runs the plug-in. The event log can be viewed by using the Event Viewer administrative tool. For plug-ins registered in the sandbox, the exception message and stack trace is written to the Microsoft Dynamics CRM platform trace. For more information about tracing, see the Logging and Tracing section of the <a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491">Debug a plug-In</a> topic.</span></span><br /><span style="font-family:Trebuchet MS, sans-serif;font-size:x-small;"><br /></span></div>
+</div>
+</div>

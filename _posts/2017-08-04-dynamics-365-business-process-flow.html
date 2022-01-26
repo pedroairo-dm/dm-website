@@ -1,0 +1,60 @@
+---
+layout: post
+title: Dynamics 365 - Business Process Flow
+date: 2017-08-04 05:09:36.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Dynamics 365
+tags:
+- Customizations
+- Javascript
+- Process Flow
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '651001'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2017/08/04/dynamics-365-business-process-flow/"
+---
+<div>
+<div>
+<div>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">This is a nice to have to guide users in terms of filling information based on stages, for instance:</font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">The information needed to a contact to be a prospect, probably we only need First Name, Last Name and mobile phone. On the other hand, to become an opportunity, we will need some more details.</font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><br /></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">In this situation i would use this kind of approach, Business Process, because it will be really easy to see by opening the record in which phase of the process the contact is only by looking to the process bar. </font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><br /></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">However, u<span style="background-color:transparent;">sing this feature of CRM can be sometimes a little bit disappointing because customizing what the fields do (hiding based on rules, setting required based on others is not possible), i mean, configuring only with the CRM default functionality is not possible.</span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><br /></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">My personal opinion and because i've been working with CRM on my last 13 years already, using Javascript for this purposes it can be a nightmare in terms of Upgrades of the product.</font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><br /></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">But, because sometimes you get to a point where a system is already implemented and you don't have the time to redesign the feature, one thing i have to say, just customize with an approach of having some constants with the name of the field, and not use hard-coded all-around.</font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">With this, if the DOM changes, you will need to change the new name only in one place, instead of in all the places you have been using this.</font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><br /></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">For this example i will give few lines of Javascript that can be used to Hide the next stage button on the Process flow, set the required level of a field and set the field readonly.</font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><br /></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">var probabilityHeaderFieldName = &quot;<span>header_process_new_probability_1&quot;;</span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span>//to set required</span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span><span>Xrm.Page.getControl(<span>probabilityHeaderFieldName </span>).getAttribute().setRequiredLevel(&quot;required&quot;);</span><br /></span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span>//to set readonly</span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span><span>Xrm.Page.getControl(<span>probabilityHeaderFieldName&nbsp;</span>).setDisabled(true);</span><br /></span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span>//to hide the next stage button</span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span><span>var nextStageButtonName = &quot;<span>stageAdvanceActionContainer</span>&quot;;</span><br /></span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span><span>document.getElementById(<span>nextStageButtonName&nbsp;</span>).style.visibility = 'hidden';</span><br /></span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span><br /></span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3">Microsoft URL for the Business Process Flow, <a href="https://www.microsoft.com/en-us/Dynamics/crm-customer-center/create-a-business-process-flow.aspx" rel="nofollow" target="_self" title="click here">click here</a>.</font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span><br /></span></font></p>
+<p><font face="Tahoma, Geneva, sans-serif" size="3"><span>Hope it helps.</span></font></p>
+</div>
+</div>
+</div>

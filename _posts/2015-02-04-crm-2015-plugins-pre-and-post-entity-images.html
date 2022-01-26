@@ -1,0 +1,98 @@
+---
+layout: post
+title: CRM 2015 - Plugins - Pre and post entity images
+date: 2015-02-04 16:13:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Plugins
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54045'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/04/crm-2015-plugins-pre-and-post-entity-images/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Understanding what every message request property contains avoids some time that the developers have to spend when not using the most common message requests (Create, Update). So for that, here below you can find that information that can help sometimes long time on debugging a plugin to discover what we are doing wrong, and it is more a reminder.</font></p>
+<p><span style="font-family:Helvetica Neue , Arial , Helvetica , sans-serif;"><br /></span><span style="font-size:x-small;font-family:Helvetica Neue , Arial , Helvetica , sans-serif;"><br /></span><br />
+<table>
+<tbody>
+<tr>
+<th style="text-align:left;"><font color="#000000" face="Arial, Helvetica, sans-serif">Message Request </font></th>
+<th style="text-align:left;"><font color="#000000" face="Arial, Helvetica, sans-serif">Property </font></th>
+<th style="text-align:left;"><font color="#000000" face="Arial, Helvetica, sans-serif">Description </font></th>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">AssignRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">Target</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The assigned entity.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">CreateRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">Target</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The created entity.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">DeleteRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">Target</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The deleted entity.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">DeliverIncomingEmailRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">EmailId</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The delivered email ID.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">DeliverPromoteEmailRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">EmailId</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The delivered email ID.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">ExecuteWorkflowRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">Target</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The workflow entity.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">MergeRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">Target</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The parent entity, into which the data from the child entity is being merged.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">MergeRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">SubordinateId</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The child entity that is being merged into the parent entity.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">SendEmailRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">EmailId</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The sent entity ID.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">SetStateRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">EntityMoniker</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The entity for which the state is set.</font></span></td>
+</tr>
+<tr>
+<td><a href="https://www.blogger.com/blogger.g?blogID=3581682042335862491"><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">UpdateRequest</font></span></a></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">Target</font></span></td>
+<td><span style="font-size:x-small;"><font color="#000000" face="Arial, Helvetica, sans-serif">The updated entity.</font></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

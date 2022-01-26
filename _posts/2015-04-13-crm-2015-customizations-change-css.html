@@ -1,0 +1,59 @@
+---
+layout: post
+title: CRM 2015 - Customizations - Change CSS
+date: 2015-04-13 05:47:34.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Customizations
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '99001'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/04/13/crm-2015-customizations-change-css/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Before staring to tell what was happening to me, i have to say I'm the first to say to avoid this kind of customizations, however and because of a need i had to do this.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">I needed to add a border to the fields in a form even if they were not with the focus on them. So, the only way of doing that is applying some kind of CSS to them, i found some articles and i have chosen the below one.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2"> <span>function load_css_file(filename) { </span></font></p>
+<p><span><font size="2"> var fileref = document.createElement(&quot;link&quot;); </font></span></p>
+<p><span><font size="2"> fileref.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;); </font></span></p>
+<p><span><font size="2"> fileref.setAttribute(&quot;type&quot;, &quot;text/css&quot;); </font></span></p>
+<p><span><font size="2"> fileref.setAttribute(&quot;href&quot;, filename); </font></span></p>
+<p><span><font size="2"> document.getElementsByTagName(&quot;head&quot;)[0].appendChild(fileref);</font></span></p>
+<p><span><font size="2">}</font></span></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2">function customizeFormsCss() { //inject css file to the header load_css_file(&quot;WebResources/ttt_CRM.CSS.FormCustomization&quot;); </font></span></p>
+<p><span><font size="2">}</font></span></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2">Now, it comes the funny part that made me waist a lot of time. A colleague just started to do the developments, and it was working in his laptop (IE and Chrome), however it was not working in mine. So, the next thing that i did was, lets import to a new organization, and in my laptop started to work.</font></span></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><span><font size="2">So, after hours and because i deployed as well to a VM, into two different organizations, and it was working perfectly. </font></span></p>
+<p><span><font size="2"><br /></font></span></p>
+<p><font size="2"><span style="line-height:23.4px;">After </span>digging a little bit more, and because with this i taught that only could be something related to a configuration in the Organization, i discovered the reason. :)</font></p>
+<p><font size="2"><span style="line-height:23.4px;"><br /></span></font></p>
+<p><font size="2"><span style="line-height:23.4px;">In the one that it was not working, i have selected the below check box, after not selecting it started to work.</span></font></p>
+<p><font size="2"><span style="line-height:23.4px;"><br /></span></font></p>
+<p><font size="2"><span style="line-height:23.4px;"><img alt="" src="{{ site.baseurl }}/assets/2015/04/high contrast.png" />  <br /></span></font></p>
+<p><font size="2"><span style="line-height:23.4px;"><br /></span></font></p>
+<p><font size="2"><span style="line-height:23.4px;">Hope to help more people with this.</span></font></p>
+<p><font size="2"><span style="line-height:23.4px;"><br /></span></font></p>
+</div>
+</div>
+</div>

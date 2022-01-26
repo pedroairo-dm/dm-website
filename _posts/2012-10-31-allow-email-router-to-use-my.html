@@ -1,0 +1,45 @@
+---
+layout: post
+title: "'Allow Email Router to use my credentials' CRM 2011"
+date: 2012-10-31 11:27:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2011
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54103'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2012/10/31/allow-email-router-to-use-my/"
+---
+<div>
+<div>
+<div>In the CRM 2011, sometimes you have to use the user credentials to access to the mail box.<br />When the check box to allow that in the CRM is not editable.<br />Please follow the following article:&nbsp;<a href="http://support.microsoft.com/kb/2667140">Microsoft KB</a></p>
+<p><u>Cause:</u></p>
+<p>In processing e-mail for a user or queue, the E-mail Router requires credentials for the user or queue. Those credentials can be entered in the Microsoft Dynamics CRM Web application in the Set Personal Options dialog box (for users) and in the Queues form (for queues). Microsoft Dynamics CRM stores these credentials in encrypted form in the CRM database. The E-mail Router uses a key stored in the CRM database to decrypt these credentials. The call that the E-mail Router makes to obtain this key enforces HTTPS. In Microsoft Dynamics CRM 2011, the E-mail Router functions this way by default, which means that you need not take any action to retain this behavior.</p>
+<p><u>Resolution:</u></p>
+<ol>
+<li>To resolve the above issue, please follow the below steps to add the registry key "DisableSecureDecryptionKey" on the CRM server.</li>
+<li>Launch the registry editor on the CRM server by clicking "Start", "Run" and type "regedit"</li>
+<li>Locate the following path on th CRM server : HKEY_Local_MachineSoftwareMicrosoftMSCRM</li>
+<li>Please check the value of the registry key "DisableSecureDecryptionKey". If this registry key is present, set its value to 1. (If the key is not present or set to 0, calls from the E-mail Router to the Microsoft Dynamics CRM Server 2011 are made using HTTPS.) Setting the value of this key to 1 allows the E-mail Router to obtain information from the CRM database over the HTTP protocol. </li>
+<li>If you changed the value of DisableSecureDecryptionKey, do the following on the Microsoft Dynamics CRM Server 2011 to Restart Internet Information Services (IIS). To perform the same click on "Start", click "Run", type "cmd, and then click OK.</li>
+<li>Type the following in the command prompt window "IISRESET"</li>
+<li>(Recommended) Enable IPSec for all communications between the Microsoft Dynamics CRM Server 2011 and the E-mail Router computer. For more information about enabling IPSec, see <a href="http://go.microsoft.com/fwlink/?LinkId=202487">IPSec</a>
+<div class="pLink">(http://go.microsoft.com/fwlink/?LinkId=202487) </div>
+<p>.</li>
+</ol>
+</div>
+</div>
+</div>

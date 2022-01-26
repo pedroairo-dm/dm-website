@@ -1,0 +1,31 @@
+---
+layout: post
+title: HeaderAuthentica­tionProvider doesn't exist
+date: 2008-11-04 17:07:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 4.0
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54115'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2008/11/04/headerauthenticationprovider-doesnt/"
+---
+<div>
+<div>
+<div><span style="font-family:trebuchet ms;"><span style="font-size:85%;">Another issue that may be faced when deploying custom .Net applications in the CRM root directory is the following error:'Microsoft.Crm.WebServices.Crm2007.MultipleOrganizationSoapHeaderAuthentica&shy;tionProvider, Microsoft.Crm.WebServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' doesn't exist.<br />You can resolve this one of two ways...<br /></span><br /><span style="font-size:85%;">1. Add the following to your applications web.config (not CRM's web.config!)</span></p>
+<p></span><span style="font-family:trebuchet ms;"><span style="font-size:85%;">&lt;assemblies&gt;&lt;clear/&gt;&lt;add assembly="*"/&gt;&lt;/assemblies&gt;<br /></span><br /></span><span style="font-family:trebuchet ms;font-size:85%;">2. Go to the crm bin directory for IIS and either copy the Microsoft CRM.WebServices.dll to the GAC or to the bin directory of your custom ASP.Net application<br /></span></div>
+</div>
+</div>

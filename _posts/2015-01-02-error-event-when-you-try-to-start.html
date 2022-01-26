@@ -1,0 +1,43 @@
+---
+layout: post
+title: 'Error event when you try to start the Microsoft Dynamics CRM E-mail Router
+  Service in Microsoft Dynamics CRM: "The E-mail Router service could not run the
+  service main background thread"'
+date: 2015-01-02 13:58:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54083'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/01/02/error-event-when-you-try-to-start/"
+---
+<div>
+<div>
+<div><span style="font-family:inherit;">When the following message appears in the Event Viewer:</span><br /><span style="font-family:inherit;"><br /></span><span style="font-family:inherit;"><br /></span><span style="font-family:inherit;">Error event when you try to start the Microsoft Dynamics CRM E-mail Router Service in Microsoft Dynamics CRM: "The E-mail Router service could not run the service main background thread"</span><br /><span style="font-family:inherit;"><br /></span><span style="font-family:inherit;">Follow the next steps:</span><br /><span style="font-family:inherit;"><br /></span><span style="background-color:white;color:#333333;line-height:16px;"><span style="font-family:inherit;">If you are not on Update Rollup 13, to resolve this problem, follow these steps:&nbsp;</span></span>
+<ol style="background-color:white;box-sizing:border-box;color:#333333;line-height:16px;list-style-image:initial;list-style-position:initial;margin:16px 0 16px 40px;padding:0;position:inherit;">
+<li style="box-sizing:border-box;margin:0;padding:0;position:inherit;"><span style="font-family:inherit;">Delete the Microsoft.Crm.Tools.EmailAgent.SystemState.xml file.&nbsp;<br style="box-sizing:border-box;margin:0;padding:0;" /><br style="box-sizing:border-box;margin:0;padding:0;" /><b style="box-sizing:border-box;margin:0;padding:0;">Notes</b></span>
+<ul style="box-sizing:border-box;list-style:disc;margin:16px 0 16px 40px;padding:0;position:inherit;">
+<li style="box-sizing:border-box;margin:0;padding:0;position:inherit;"><span style="font-family:inherit;">By default, the Microsoft.Crm.Tools.EmailAgent.SystemState.xml file is in the following folder:</span>
+<div class="indent" style="box-sizing:border-box;margin:0;padding:0 20px 10px;"><span style="font-family:inherit;">C:Program FilesMicrosoft CRM EmailService</span></div>
+</li>
+<li style="box-sizing:border-box;margin:0;padding:0;position:inherit;"><span style="font-family:inherit;">By default, the Service folder is a hidden folder. To see this folder, you must change the Windows Explorer settings to display hidden files and hidden folders.</span></li>
+</ul>
+</li>
+<li style="box-sizing:border-box;margin:0;padding:0;position:inherit;"><span style="font-family:inherit;">Restart the Microsoft Dynamics CRM E-mail Router Service.<br style="box-sizing:border-box;margin:0;padding:0;" /><br style="box-sizing:border-box;margin:0;padding:0;" />The Microsoft.Crm.Tools.EmailAgent.SystemState.xml file is re-created.</span></li>
+</ol>
+</div>
+</div>
+</div>

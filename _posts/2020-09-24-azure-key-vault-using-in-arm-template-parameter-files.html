@@ -1,0 +1,71 @@
+---
+layout: post
+title: Azure Key Vault - Using in arm template parameter files
+date: 2020-09-24 09:58:01.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags: []
+meta:
+  _publicize_pending: '1'
+  timeline_notification: '1600937883'
+  _publicize_job_id: '49172867042'
+  publicize_linkedin_url: ''
+  _publicize_done_23193164: '1'
+  _wpas_done_25049609: '1'
+  _publicize_done_external: a:1:{s:7:"twitter";a:1:{i:25049610;s:56:"https://twitter.com/pedroairo/status/1309054480856625154";}}
+  _publicize_done_23193165: '1'
+  _wpas_done_25049610: '1'
+  publicize_twitter_user: pedroairo
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '966258'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2020/09/24/azure-key-vault-using-in-arm-template-parameter-files/"
+---
+<p><!-- wp:paragraph --></p>
+<p>Let's start from the beginning, Microsoft says:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>"Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. A vault is a logical group of secrets."</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>A colleague of mine told me about using a key vault reference in an arm template parameters file, the idea would be for accessing data like a password of a user for an SQL Server connection. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The idea was brilliant, first, no passwords referenced in any file, second, deploying to a new environment, only thing that we need to change is the Resurce Group name, and Artifact name (Key Vault Name) from the ID of the resource.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>That part it is easy if you work with some standard naming convention, for Azure purpose, and mentioned already in my previous post. Link: https://dynamicsmonster.wordpress.com/2020/09/22/configuring-arm-templates-deploying-to-different-environments/</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>As an example please see below JSON parameter, this is an example from a parameter file.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph {"fontSize":"small"} --></p>
+<p class="has-small-font-size">"sql_1_password": {<br />"reference": {<br />"keyVault": {<br />"id": "/subscriptions/[Dubscription Id]/resourceGroups/[Resource Group]/providers/Microsoft.KeyVault/vaults/[Key Vault Name]"<br />},<br />"secretName": "[Sql Password]"<br />}</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So, you would have one parameter file per environment, the only thing you would need to change from example above is [Resoure Group] and [Key Vault Name], keeping the same secret name in the other key vaults in the other resource groups will work with no problems at all.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>In next post will tell another scenario where using Key Vault in arm parameters files is useful.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Anything please comment here or contact us.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hope it helps.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Follow us.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Thank you.</p>
+<p><!-- /wp:paragraph --></p>

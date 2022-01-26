@@ -1,0 +1,58 @@
+---
+layout: post
+title: CRM 2015 - Javascript - Use of jQuery
+date: 2015-02-03 13:50:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Javascript
+- JQuery
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54053'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/03/crm-2015-javascript-use-of-jquery/"
+---
+<div>
+<div>
+<div>
+<p><span style="line-height:17.55px;"><font size="2">From the MSDN i found this topics that i think can help who is extending CRM with Javascripts.</font></span></p>
+<p><font face="Arial, Helvetica, sans-serif"><b style="font-size:13px;line-height:17.55px;"><br /></b><b style="font-size:13px;line-height:17.55px;">Use jQuery with HTML web resources</b><br /></font>
+<dl>
+<dd><font face="Arial, Helvetica, sans-serif">We recommend that you use jQuery together with HTML web resources to provide user interfaces because it is an excellent cross-browser library.</font>
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+<p><font face="Arial, Helvetica, sans-serif">With HTML web resources, you control the libraries that are present and there is no restriction against manipulating the DOM. Feel free to use jQuery within your HTML Web resources.</font>
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+</dd>
+</dl>
+<dl>
+<dt><b><font face="Arial, Helvetica, sans-serif">Avoid using jQuery with form scripts or ribbon commands</font></b></dt>
+<dd><font face="Arial, Helvetica, sans-serif">We do not recommend using jQuery in form scripts and ribbon commands.</font>
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+<p><font face="Arial, Helvetica, sans-serif">Most of the benefit provided by jQuery is that it allows for easy cross-browser manipulation of the DOM. This is explicitly unsupported within form scripts and ribbon commands. Restrict your scripts to use the<b>Xrm.Page</b> and <b>Xrm.Utility</b> libraries available in form scripts and ribbon commands. If you decide to use the remaining capabilities of jQuery that are useful with Microsoft Dynamics CRM and include the ability to use <b>$.ajax</b>, consider the following:</font>
+<div style="color:rgb(42,42,42);line-height:18px;padding-bottom:15px;"></div>
+<ul>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif">For best performance, don’t load jQuery in the page if you do not need it<br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif">Using <b>$.ajax</b> to perform requests against the OData and Modern Apps SOAP endpoint is supported, but there are alternatives. The alternative to using <b>$.ajax</b> is to use the browsers XMLHttpRequest object directly. The jQuery <b>$.ajax</b> method is just a wrapper for this object. If you use the native XMLHttpRequest object directly, you do not need to load jQuery.
+<p>Compare the SDK.REST.js and SDK.JQuery.js sample libraries found in <a href="https://msdn.microsoft.com/en-us/library/gg334427.aspx" style="color:rgb(3,105,122);text-decoration:none;">Sample: Create, retrieve, update, and delete using the OData endpoint with JavaScript</a> and <a href="https://msdn.microsoft.com/en-us/library/gg309549.aspx" style="color:rgb(3,105,122);text-decoration:none;">Sample: Create, retrieve, update, and delete using the OData endpoint with JavaScript and jQuery</a>. Both perform the same operations, but SDK.REST.js doesn’t require jQuery.<br /></font></li>
+<li class="unordered" style="list-style-image:none;"><font face="Arial, Helvetica, sans-serif">Each version of jQuery that is loaded in a page can be a different version. Different versions of jQuery have different behaviors and these can cause problems when multiple versions of jQuery are loaded on the same page. There is a technique to mitigate this, but it depends on editing the jQuery library and any other libraries that depend on jQuery. More information: <a href="https://community.dynamics.com/crm/b/develop1/archive/2013/08/08/jquery-and-jquery-ui-with-dynamics-crm-2011-amp-2013.aspx" style="color:rgb(3,105,122);text-decoration:none;">jQuery and jQuery UI with Dynamics CRM 2011 &amp; 2013</a>, <a href="http://api.jquery.com/jQuery.noConflict/" style="color:rgb(3,105,122);text-decoration:none;">jQuery.noConflict()</a></font></li>
+</ul>
+<div><font face="Arial, Helvetica, sans-serif"><br /></font></div>
+<p><span style="font-size:13px;line-height:17.55px;"><font face="Arial, Helvetica, sans-serif">More information can be found in MSDN url:</font></span>
+<dl /><span style="font-size:13px;line-height:17.55px;"><a href="https://msdn.microsoft.com/en-us/library/hh771584.aspx"><font face="Arial, Helvetica, sans-serif">https://msdn.microsoft.com/en-us/library/hh771584.aspx</font></a></span></dd>
+</dl>
+</div>
+</div>
+</div>

@@ -1,0 +1,36 @@
+---
+layout: post
+title: CRM 2015 - How to change max number of records per collection
+date: 2016-03-09 00:57:56.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- MaxResultsPerCollection
+- Rest API
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '372001'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2016/03/09/crm-2015-how-to-change-max-number-of-records-per-collection/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Not the best thing to do in terms of performance probably, but if you need to increase the max number of records per collection, i.e: Rest call to get records and render as a table in a custom page, by default it will bring 50, to increase run the next sql statement in the MSCRM_CONFIG database:</font></p>
+<p></p>
+<p><span><font size="2"><i>update ServerSettingsProperties<br />set IntColumn = 250 <br />where ServerSettingsProperties.ColumnName = 'MaxResultsPerCollection'</i></font></span></p>
+</div>
+</div>
+</div>

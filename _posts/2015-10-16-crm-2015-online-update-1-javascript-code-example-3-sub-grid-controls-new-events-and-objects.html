@@ -1,0 +1,51 @@
+---
+layout: post
+title: 'CRM 2015 Online Update 1 - {Javascript Code Example #3} - Sub-grid controls
+  new events and objects'
+date: 2015-10-16 05:49:31.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- CRM 2015 Online 2015 Update 1
+- Javascript
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '263001'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/10/16/crm-2015-online-update-1-javascript-code-example-3-sub-grid-controls-new-events-and-objects/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">With Update 1 for CRM 2015 Online more events and objects are available, before this update, only the refresh was available. </font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">Now it is possible to interact with grid-controls to get the number of total records, getting the object grid so can be worked as an object, it is possible as well to get all rows or even selected rows from the grid only.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">I would say that mostly i would use the grid object on the purpose of getting either all rows or selected rows, however it is possible to extend to more functionalities.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">As an example i leave below few lines of code to access the grid from javascript:</font></p>
+<p><span style="background-color:transparent;line-height:1.8;"><font size="2"><br /></font></span></p>
+<p><span style="background-color:transparent;line-height:1.8;"><font size="2">Iterating trough the grid as an array:</font></span></p>
+<p><font size="2"><span style="background-color:transparent;line-height:1.8;"> </span><span style="background-color:transparent;line-height:1.8;"><i>var allGridRowData = []; </i></span></font></p>
+<p><span style="background-color:transparent;line-height:1.8;"><i><font size="2">var rows = Xrm.Page.getControl(&quot;Contacts&quot;).getGrid().getRows();</font></i></span></p>
+<p><span style="background-color:transparent;line-height:1.8;"><i><font size="2"> rows.forEach(function (row, i) { </font></i></span></p>
+<p><span style="background-color:transparent;line-height:1.8;"><i><font size="2">    allGridRowData.push(row.getData()); </font></i></span></p>
+<p><font size="2"><span style="background-color:transparent;line-height:1.8;"><i>});</i></span><br /></font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2"><br /></font></p>
+</div>
+</div>
+</div>

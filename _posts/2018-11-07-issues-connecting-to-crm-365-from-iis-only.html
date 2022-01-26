@@ -1,0 +1,49 @@
+---
+layout: post
+title: Issues connecting to CRM 365 from IIS only
+date: 2018-11-07 10:50:21.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Dynamics 365
+tags:
+- CRM 365 connection issues
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '73115'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2018/11/07/issues-connecting-to-crm-365-from-iis-only/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Everything working with no issues with the latest Nuget Packages for CRM trough a console application when connecting to CRM 365.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">Now, we had to promote a service that is currently working and has been working already for long time to consume CRM 365 data to work with the new CRM ddls.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">We added the dlls trough nuget packages, everything compiling but when this next line was called:</font></p>
+<p><font size="2"><span><u>OrganizationServiceProxy serviceProvider = new OrganizationServiceProxy(config.OrganizationUri,<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;config.HomeRealmUri, config.Credentials, config.DeviceCredentials);</u></span><br /></font></p>
+<p><font size="2"><span><br /></span></font></p>
+<p><font size="2">We were having this next exception:</font></p>
+<p><font size="2"><u><span>Metadata contains a reference that cannot be resolved: 'https://crm.domain/XRMServices/2011/Organization.svc?wsdl&amp;sdkversion=9.0'.</span><br /></u></font></p>
+<p><font size="2"><span><br /></span></font></p>
+<p><font size="2"><span>After some research we found that the solution would be before calling this line, call first:</span></font></p>
+<p><font size="2"><span><span><u>ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;</u></span><br /></span></font></p>
+<p><font size="2"><span><br /></span></font></p>
+<p><font size="2"><span>I will investigate more when i have some spare time.</span></font></p>
+<p><font size="2"><span>Hope it helps.</span></font></p>
+<p><font size="2"><br /></font></p>
+<p></p>
+</div>
+</div>
+</div>

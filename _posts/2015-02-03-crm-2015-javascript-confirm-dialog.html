@@ -1,0 +1,75 @@
+---
+layout: post
+title: CRM 2015 - Javascript - Confirm Dialog
+date: 2015-02-03 21:01:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 2015
+- Javascript
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54049'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/03/crm-2015-javascript-confirm-dialog/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Sometimes we need to extend in the client side with a confirm dialog, below is the way of doing that with the Xrm.Utility namespace:</font></p>
+<p>
+<h4 class="subHeading" style="margin:0;font-weight:normal;"><font face="Arial, Helvetica, sans-serif" size="2">confirmDialog</font></h4>
+<div class="subSection" style="line-height:17.55px;">
+<div style="line-height:18px;padding-bottom:15px;color:rgb(42,42,42);"><font face="Arial, Helvetica, sans-serif" size="2">Displays a confirmation dialog box that contains an optional message as well as <b>OK</b> and <b>Cancel</b> buttons.</font></div>
+<div class="codeSnippetContainer" id="code-snippet-2" style="min-width:260px;clear:both;">
+<div class="codeSnippetContainerTabs" style="vertical-align:middle;height:23px;">
+<div class="codeSnippetContainerTabSingle" dir="ltr" style="background-color:white;border-style:solid;border-width:1px;color:rgb(112,112,112);float:left;height:23px;left:auto;line-height:17px;top:auto;vertical-align:baseline;width:auto;border-color:rgb(147,147,147) rgb(147,147,147) rgb(255,255,255);"><a href="https://www.blogger.com/null" style="font-weight:bold;padding:0 8px;top:2px;color:black;"><font face="Arial, Helvetica, sans-serif" size="2">JavaScript</font></a></div>
+</div>
+<div class="codeSnippetContainerCodeContainer" style="clear:both;margin-bottom:12px;top:-1px;border:1px solid rgb(147,147,147);">
+<div class="codeSnippetToolBar" style="width:auto;height:auto;">
+<div class="codeSnippetToolBarText" style="float:right;height:0;padding-left:0;padding-right:0;top:-8px;vertical-align:top;width:auto;background-color:white;"></div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="CodeSnippetContainerCode_e91b78f3-7bab-4175-9edc-0480945e0ef7" style="padding:10px 21px;width:auto;margin:0;">
+<div style="padding:0;margin:0;">
+<pre style="padding:5px;overflow:auto;" /><font face="Arial, Helvetica, sans-serif" size="2">Xrm.Utility.confirmDialog(message,yesCloseCallback,noCloseCallback)<br /></font></div>
+</div>
+</div>
+</div>
+<div style="line-height:18px;padding-bottom:15px;color:rgb(42,42,42);"><b><font face="Arial, Helvetica, sans-serif" size="2">Parameters</font></b></div>
+<dl>
+<dt><b><font face="Arial, Helvetica, sans-serif" size="2">message</font></b></dt>
+<dd><font face="Arial, Helvetica, sans-serif" size="2"><b>Type</b>: String. The text of the message to display in the dialog.</font>
+<div style="line-height:18px;padding-bottom:15px;color:rgb(42,42,42);"></div>
+</dd>
+</dl>
+<dl>
+<dt><b><font face="Arial, Helvetica, sans-serif" size="2">yesCloseCallback</font></b></dt>
+<dd><font face="Arial, Helvetica, sans-serif" size="2"><b>Type</b>: Function. A function to execute when the <b>OK</b> button is clicked.</font>
+<div style="line-height:18px;padding-bottom:15px;color:rgb(42,42,42);"></div>
+</dd>
+</dl>
+<dl>
+<dt><b><font face="Arial, Helvetica, sans-serif" size="2">noCloseCallback</font></b></dt>
+<dd><font face="Arial, Helvetica, sans-serif" size="2"><b>Type</b>: Function. A function to execute when the <b>Cancel</b> button is clicked.</font>
+<div style="line-height:18px;padding-bottom:15px;color:rgb(42,42,42);"></div>
+</dd>
+</dl>
+<dl>
+<dt><b><font face="Arial, Helvetica, sans-serif" size="2">Remarks</font></b></dt>
+<dd><font face="Arial, Helvetica, sans-serif" size="2">This method is only available for <a href="http://msdn.microsoft.com/en-us/library/41462684-3e5d-4858-8be4-1a7c4fcdeff6#BKMK_UpdatedEntties" style="text-decoration:none;color:rgb(3,105,122);">Updated Entities</a>.</font></dd>
+</dl>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,73 @@
+---
+layout: post
+title: 'CRM 2015 - {Javascript Code Example #1} - Grid Objects and Methods'
+date: 2015-04-18 02:44:35.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Code Examples
+- Javascript
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '113007'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/04/18/crm-2015-javascript-code-example-1-grid-objects-and-methods/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">When we need to extend the Grids trough Javascripts, we should use the client sdk to avoid problems in the future, not only because of upgrades, but as well update rollups.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">Reading an article from MSDN, found written that only the refresh method was available, what means other extensions were not &quot;supported&quot;.<span style="background-color:transparent;line-height:1.8;"> </span></font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">This few examples are can applied to a CRM 2015 Online Organization with Update 1. Hope that it can be available as well for OnPrem near in the future.</font></p>
+<p><font size="2"><br /></font></p>
+<p><font size="2">1. Getting the Grid Control, and it was already working previously:</font></p>
+<blockquote><p><span style="background-color:transparent;line-height:1.8;"><font face="Arial, Helvetica, sans-serif" size="2"><span>var contactsSubgrid = Xrm.Page.getControl(&quot;Contacts&quot;);</span></font></span></p>
+</blockquote>
+<p><span style="background-color:transparent;line-height:1.8;"><font size="2">2. Add an event on load:</font></span><br />
+<blockquote>
+<div><span><font face="Arial, Helvetica, sans-serif" size="2">
+<pre><span /></pre>
+<p><font face="Arial, Helvetica, sans-serif"></font></font></span><span>var myContactsGridOnloadFunction = function () { console.log( &quot;Contacts Subgrid OnLoad occurred&quot; ) }; </span></div>
+<div><span><font face="Arial, Helvetica, sans-serif" size="2"><span>Xrm.Page.getControl( &quot;Contacts&quot; ).addOnLoad(myContactsGridOnloadFunction);</span>
+<pre></pre>
+<p></font></span></div>
+</blockquote>
+<div><span>
+<pre><span /></pre>
+<p><font size="2">
+<pre /><font face="Verdana, Geneva, sans-serif">3. Get all rows:</font></font></span></div><blockquote><span><pre><span><pre /></span></pre>
+<p><font face="Arial, Helvetica, sans-serif"><font size="2">var allRows = Xrm.Page.getControl( &quot;Contacts&quot; ).getGrid().getRows();</font> </font>
+<pre style="font-size:small;"><br /></pre>
+<p></span></p></blockquote>
+<p><span style="line-height:28.8px;"><font size="2">Source of the code:</font></span>
+<div><font size="2"><a href="https://msdn.microsoft.com/en-us/library/dn932126.aspx" target="_blank" title="https://msdn.microsoft.com/en-us/library/dn932126.aspx">https://msdn.microsoft.com/en-us/library/dn932126.aspx</a> </font></div>
+<div><span style="line-height:28.8px;"><font size="2"><br /></font></span></div>
+<div><span style="line-height:28.8px;"><font size="2">I will do more examples with this, and write a new version of tested methods and results.</font></span></div>
+<div><span style="line-height:28.8px;"><font size="2"><br /></font></span></div>
+<div><span style="line-height:28.8px;"><font size="2">Hope it can help.<br /></font></span>
+<div><span>
+<pre><span> </span><br /></pre>
+<p></span></div>
+<div><span style="line-height:28.8px;"><span> </span><br /></span>
+<p></p>
+<p></p>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,77 @@
+---
+layout: post
+title: Use static members of .Net Classes in Policies (Business Rule Composer)
+date: 2009-02-19 17:04:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- Biztalk 2006
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54111'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2009/02/19/use-net-classes-in-facts/"
+---
+<div>
+<div>
+<div><span class="Apple-style-span" style="font-family:'trebuchet ms';font-size:13px;" />
+<div>
+<div>
+<div><span class="Apple-style-span" style="font-family:georgia;" />
+<div><span><span></span></span><span class="Apple-style-span" style="font-size:13px;" />
+<div><span class="Apple-style-span" style="font-size:small;">To execute a policy that invokes a static member of the .NET class. You can modify this behavior by changing the value of the StaticSupport registry key under </span><span class="Apple-style-span" style="font-weight:bold;"><span class="Apple-style-span" style="font-size:small;">HKEY_LOCAL_MACHINESoftwareMicrosoftBusinessRules3.0</span></span></div>
+<div><span class="Apple-style-span" style="font-size:small;"><br /></span></div>
+<div><span class="Apple-style-span" style="font-weight:bold;"><span class="Apple-style-span" style="font-size:small;">In the registry the behavior of .Net Classes using static members (StaticSupport) used by Business Rule Engine is:</span></span></div>
+<div><span class="Apple-style-span" style="font-size:small;"><br /></span></div>
+<div><span class="Apple-style-span" style="font-weight:bold;"><span class="Apple-style-span" style="font-size:small;">0</span></span></div>
+<div><span class="Apple-style-span" style="font-size:small;">Default value. The rule engine follows the BizTalk Server 2004 model, where the static method is called only when an instance of the .NET class is asserted.</span></div>
+<div><span class="Apple-style-span" style="font-size:small;"><br /></span></div>
+<div><span class="Apple-style-span" style="font-weight:bold;"><span class="Apple-style-span" style="font-size:small;">1</span></span></div>
+<div><span class="Apple-style-span" style="font-size:small;">An object instance is not required. The static method is called when the rule is evaluated or executed.</span></div>
+<div><span class="Apple-style-span" style="font-size:small;"><br /></span></div>
+<div><span class="Apple-style-span" style="font-weight:bold;"><span class="Apple-style-span" style="font-size:small;">2</span></span></div>
+<div><span class="Apple-style-span" style="font-size:small;">An object instance is not required. The static method is called at the policy translation time if all parameters are constant. This is a performance optimization because the static method is called only once even though it is used in multiple rules in conditions. Note that static methods used as actions will not be executed at the translation time, but static methods used as parameters may be executed. </span></div>
+<div><span class="Apple-style-span" style="font-size:small;"><br /></span></div>
+<div><span class="Apple-style-span" style="font-family:'trebuchet ms';">
+<p><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">If you do not see the </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">StaticSupport</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;"> registry key under </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">HKEY_LOCAL_MACHINESoftwareMicrosoftBusinessRules3.0</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, you should add it by performing the following steps.</span></span></p>
+<p><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">To add the StaticSupport registry key</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;"> </span></span></p>
+<p> </span>
+<ol>
+<li><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Click </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Start</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">; click </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Run</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, type </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">RegEdit</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, and then click </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">OK</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">.</p>
+<p></span></span> </li>
+<li><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">HKEY_LOCAL_MACHINE</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Software</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Microsoft</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">BusinessRules</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, and then select </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">3.0</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">.
+<p></span></span> </li>
+<li><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">In the right pane, right-click, point to </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">New</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, and then click </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">DWORD value</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">.
+<p></span></span> </li>
+<li><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">For </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Name</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, type </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">StaticSupport</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">.
+<p></span></span></li>
+</ol>
+<p><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">If the </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">StaticSupport</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;"> registry key already exists, and you need to change its value, perform the following steps.</span></span></p>
+<p><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">To change the value of the StaticSupport registry key</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;"> </span></span></p>
+<ol>
+<li><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Click </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Start</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, click </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Run</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, type </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">RegEdit</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, and then click </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">OK</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">.</p>
+<p></span></span> </li>
+<li><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">HKEY_LOCAL_MACHINE</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Software</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Microsoft</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">BusinessRules</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">, and then expand </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">3.0</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">.
+<p></span></span> </li>
+<li><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Double-click the </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">StaticSupport</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;"> registry key, or right-click it and then click </span></span><b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">Modify</span></span></b><span class="Apple-style-span" style="font-family:georgia;"><span class="Apple-style-span" style="font-size:small;">. </span></span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div><span class="Apple-style-span" style="font-weight:bold;font-family:'trebuchet ms';font-size:13px;"></span></div>
+</div>
+</div>
+</div>

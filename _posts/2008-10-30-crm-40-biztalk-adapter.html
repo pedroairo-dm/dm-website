@@ -1,0 +1,71 @@
+---
+layout: post
+title: CRM 4.0 Biztalk Adapter
+date: 2008-10-30 17:26:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 4.0 Biztalk Adapter
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54117'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2008/10/30/crm-40-biztalk-adapter/"
+---
+<div>
+<div>
+<div><span style="font-family:trebuchet ms;font-size:85%;">Este adapter foi disponibilizado pela Microsoft, espero que não tenha mais issues do que aqueles que a Microsoft diz no documento existente para download na página:</p>
+<p></span><a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=4628FCA6-388D-45BC-A154-453B920DBCB8&amp;displaylang=en"><span style="font-family:trebuchet ms;font-size:85%;">http://www.microsoft.com/downloads/details.aspx?FamilyId=4628FCA6-388D-45BC-A154-453B920DBCB8&amp;displaylang=en</span></a><span style="font-family:trebuchet ms;"><span style="font-size:85%;"></p>
+<p>Nesta mesma página é possível fazer download dos binários do Adapter. </span><br /></span><span style="font-size:85%;"><br /></span><span style="font-size:85%;"></span><span style="font-family:trebuchet ms;"><span style="font-size:85%;">No entanto, a sua utilização não é propriamente fácil ou intuitiva, assim posso explicar aqui passo a passo o primeiro exemplo que fiz para criar/actualizar um "<em><strong>account</strong></em>" no MSCRM via <strong><span style="color:#000099;">CRM 4.0 Biztalk Adapter</span>.</strong> </span><br /><span style="font-size:85%;"></span><br /><span style="font-size:85%;">Está entendido que para este exemplo, a pessoa já criou um port no Biztalk para comunicar com o CRM, sendo esse passo explicado no documento existente no link acima.</span></p>
+<p><span style="font-size:85%;"></span><br /></span>
+<p><span style="font-family:trebuchet ms;font-size:85%;">Explicação passo a passo:</p>
+<p></span></p>
+<ul>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Cirar Projecto "<em><strong>Empty Biztalk Server Project</strong></em>"</span></li>
+<p>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Botão Direito em cima do Projecto criado e carregar em "<em>Add</em>" - "<em><u>Add Generated Items</u></em>", seleccionando o <em>Adapter</em> "<em><strong>Microsoft Dynamics CRM 4.0</strong></em>"<br /></span></li>
+</ul>
+<p><span style="font-family:trebuchet ms;font-size:85%;"></span></p>
+<p><span style="font-family:trebuchet ms;font-size:85%;"><img id="BLOGGER_PHOTO_ID_5263007764078134306" style="display:block;margin:0 auto 10px;width:400px;cursor:hand;height:302px;text-align:center;" alt="" src="{{ site.baseurl }}/assets/2008/10/addGeneratedItemCRM.JPG" border="0" /></p>
+<p></span>
+<ul>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Depois de se configurar o acesso, quando da escolha de "<em>Actions</em>" ou "<em>Entities</em>", para este exemplo seleccionei a entidade "<em>Account</em>". Por fim quando carreguei em "Next" foram adicionados ao projectos ficheiros .xsd que nos permitem por exemplo "criar/actualizar/apagar" <u><strong>account's.</strong></u><br /></span></li>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Adicionar "Orchestration" ao projecto </span></li>
+<p>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Criar 2 Mensagens ("MensagemInput", "MensagemToCRM") do tipo "account_Entities" e "accountRequest" respectivamente<br /></span></li>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Actualizar os "parameters" das 2 Multi-part Messages Types criadas pelo Biztalk para os tipos correctos, a de accountRequest para "account_Entities" e a de CRMAdapterResponseRequest para "CRMAdapterResponse_Response"</span></li>
+<p>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Criar Port para recepção de MSG com o PortType utilizando Message Type = "account_Entities"</span></li>
+<p>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Criar Port para envio de MSG para o CRM com o PortType utilizando Message Type = "accountRequest"</span></li>
+<p>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Adicionar shape de Receive e de Send e ligá-las aos port's de Recepção e de Envio respectivamente.</span></li>
+<p>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Para concluir o desenho da orquestração, é necessário colocar uma "<em>Transformation Shape</em>" que transforme a MSG de Imput na MSG de envio para CRM</span></li>
+<p>
+<li><span style="font-family:trebuchet ms;font-size:85%;">No final a Orquestração tem esta forma.<br /></span></li>
+</ul>
+<p>
+<p><span style="font-family:trebuchet ms;font-size:85%;"></span></p>
+<p><span style="font-family:trebuchet ms;font-size:85%;"><img id="BLOGGER_PHOTO_ID_5263007376680765474" style="display:block;margin:0 auto 10px;width:400px;cursor:hand;height:235px;text-align:center;" alt="" src="{{ site.baseurl }}/assets/2008/10/orquestracaoAccountToCRM.bmp" border="0" /><br /></span>
+<ul>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Fazer deploy</span></li>
+<p>
+<li><span style="font-family:trebuchet ms;font-size:85%;">Configurar os Port's de Recepção e Envio no Biztalk Administration 2006 Console</span></li>
+</ul>
+<p>
+<p><span style="font-family:trebuchet ms;font-size:85%;">Boa Sorte...</span></p>
+</div>
+</div>
+</div>

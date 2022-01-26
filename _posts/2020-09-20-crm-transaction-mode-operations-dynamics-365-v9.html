@@ -1,0 +1,70 @@
+---
+layout: post
+title: CRM Transaction Mode operations (Dynamics 365 V9)
+date: 2020-09-20 09:01:19.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- CRM 365 V9
+- Transactional
+meta:
+  _publicize_pending: '1'
+  _publicize_done_external: a:1:{s:7:"twitter";a:1:{i:25049610;s:56:"https://twitter.com/pedroairo/status/1307590667615580160";}}
+  timeline_notification: '1600588883'
+  _publicize_job_id: '49019124949'
+  publicize_linkedin_url: ''
+  _publicize_done_23193164: '1'
+  _wpas_done_25049609: '1'
+  _publicize_done_23193165: '1'
+  _wpas_done_25049610: '1'
+  publicize_twitter_user: pedroairo
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '966231'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2020/09/20/crm-transaction-mode-operations-dynamics-365-v9/"
+---
+<p><!-- wp:paragraph --></p>
+<p>I hope I'm not late with this post. Who never had to do develop some code where the requirement would be "In Transaction"?</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>I don't think this will apply to all possible scenarios but it is a start.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's assume the following scenario: In CRM 365, someone asked you to apply a change to an entity based on a really easy filter. For example, if a customer address is in City "A", set a custom field with value "B", however, if you can't update one of the records for some reason (example, exception thrown), you need to rollback everything.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Here, and we all know that are many ways to achieve this, I'm giving one.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hypothetically, let's assume we opt for a plugin at first sight, however, after some testing we start to get Timeouts because we need to update to many records and the 2 minutes just pass.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Another option would be with a Console Application, and this is a personal option, not 100% right nor 100% wrong, there is one of many ways. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>By not doing with a Plugin, brings me to a problem that needs to be addressed based on the requirements that is the requirement "Transaction". If one of the records fail, I need to undo the others, so, more code to deal with that, however, you can avoid that for this specific case only with CRM SDK, no need to reinvent the wheel.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Found in the SDK the message <em><strong>ExecuteTransactionRequest</strong></em> that do the Transaction I really needed, this allows me to perform multiple requests as one single database transaction. Using this message allows executing two or more organization services requests in a single database transaction. If one of the requests fails the transaction is rolled back.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>For more information visit Microsoft page below:</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/org-service/use-executetransaction" target="_blank">https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/org-service/use-executetransaction</a></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Any questions please reply trough this post or contact us.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hope it helps.</p>
+<p><!-- /wp:paragraph --></p>

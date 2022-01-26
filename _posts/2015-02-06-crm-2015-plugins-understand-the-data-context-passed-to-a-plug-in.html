@@ -1,0 +1,49 @@
+---
+layout: post
+title: CRM 2015 - Plugins - Understand the data context passed to a plug-in
+date: 2015-02-06 13:15:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CRM 2015
+tags:
+- Plugins
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54037'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2015/02/06/crm-2015-plugins-understand-the-data-context-passed-to-a-plug-in/"
+---
+<div>
+<div>
+<div>
+<p><font size="2">Many times, we need to remember where can i get the changed data on the form in a plugin. <span style="color:rgb(42,42,42);line-height:18px;">As a reminder i did the following table, hope help.</span></font></p>
+<p>
+<div class="separator" style="clear:both;text-align:center;"><a href="http://www.dynamicsmonster.com/files/blog/Capture.PNG" style="margin-left:1em;margin-right:1em;"><img border="0" height="195" src="{{ site.baseurl }}/assets/2015/02/Capture.PNG" width="400" /></a></div>
+<p><span style="font-family:'Helvetica Neue' , Arial , Helvetica , sans-serif;"><br /></span>
+<p><font size="2">X means available.</font><font size="2"><br /></font><font size="2">As an introduction i took this from the msdn:</font></p>
+<p>
+<p style="line-height:18px;padding-bottom:15px;"></p>
+<p><font face="Arial, Helvetica, sans-serif"><font size="4"><b>Input and output parameters</b></font></font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">The <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.iexecutioncontext.inputparameters.aspx" style="text-decoration:none;">InputParameters</a> property contains the data that is in the request message currently being processed by the event execution pipeline. Your plug-in code can access this data. The property is of type <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.parametercollection.aspx" style="text-decoration:none;">ParameterCollection</a> where the keys to access the request data are the names of the actual public properties in the request. As an example, take a look at<a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.messages.createrequest.aspx" style="text-decoration:none;">CreateRequest</a>. One property of <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.messages.createrequest.aspx" style="text-decoration:none;">CreateRequest</a> is named <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.messages.createrequest.target.aspx" style="text-decoration:none;">Target</a>, which is of type <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.entity.aspx" style="text-decoration:none;">Entity</a>. This is the entity currently being operated upon by the platform. To access the data of the entity you would use the name “Target” as the key in the input parameter collection. You also need to cast the returned instance.<br /></font><font face="Arial, Helvetica, sans-serif" size="2">Similarly, the <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.iexecutioncontext.outputparameters.aspx" style="text-decoration:none;">OutputParameters</a> property contains the data that is in the response message, for example <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.messages.createresponse.aspx" style="text-decoration:none;">CreateResponse</a>, currently being passed through the event execution pipeline. However, only synchronous post-event and asynchronous registered plug-ins have <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.iexecutioncontext.outputparameters.aspx" style="text-decoration:none;">OutputParameters</a> populated as the response is the result of the core platform operation. The property is of type <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.parametercollection.aspx" style="text-decoration:none;">ParameterCollection</a> where the keys to access the response data are the names of the actual public properties in the response.</font>
+<div><font face="Arial, Helvetica, sans-serif" size="2"><br /></font></div>
+<div><font face="Arial, Helvetica, sans-serif" size="2"><br /></font></p>
+<div class="section" id="sectionSection4" style="line-height:17.55px;">
+<p style="line-height:18px;padding-bottom:15px;"><font face="Arial, Helvetica, sans-serif"><b><font size="4">Pre and post entity images</font></b></font></p>
+<p style="line-height:18px;padding-bottom:15px;"><a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.iexecutioncontext.preentityimages.aspx" style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;">PreEntityImages</a><span style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;"> and </span><a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.iexecutioncontext.postentityimages.aspx" style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;">PostEntityImages</a><span style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;"> contain snapshots of the primary entity's attributes before (pre) and after (post) the core platform operation. Microsoft Dynamics CRM populates the pre-entity and post-entity images based on the security privileges of the impersonated system user. Only entity attributes that are set to a value or are </span><b style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;">null</b><span style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;"> are available in the pre or post entity images. You can specify to have the platform populate these </span><b style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;">PreEntityImages</b><span style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;"> and </span><b style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;">PostEntityImages</b><span style="background-color:transparent;font-size:13px;line-height:1.8;font-family:Arial , Helvetica , sans-serif;"> properties when you register your plug-in. The entity alias value you specify during plug-in registration is used as the key into the image collection in your plug-in code.</span></p>
+<p style="font-size:13px;"><font face="Arial, Helvetica, sans-serif">There are some events where images aren’t available. For example, only synchronous post-event and asynchronous registered plug-ins have <a href="https://msdn.microsoft.com/en-us/library/microsoft.xrm.sdk.iexecutioncontext.postentityimages.aspx" style="text-decoration:none;">PostEntityImages</a> populated. The create operation doesn’t support a pre-image and a delete operation doesn’t support a post-image. In addition, only a small subset of messages support pre and post images as shown in the following table.</font></p></p>
+</div>
+</div>
+</div>
+</div>
+</div>

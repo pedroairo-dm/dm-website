@@ -1,0 +1,46 @@
+---
+layout: post
+title: Problem attaching a file over 5Mb in CRM 2011
+date: 2013-10-08 09:25:00.000000000 +00:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories: []
+tags:
+- Auto Number
+- Codeplex
+- CRM 2011
+- Email
+- Email Attachment
+- Sandbox
+meta:
+  _publicize_pending: '1'
+  sharing_disabled: '1'
+  _import_session_id: 61e12c43ccaa7
+  _import_original_post_id: '54095'
+author:
+  login: pedroairo
+  email: pedroairo@dynamicsmonster.com
+  display_name: pedroairo
+  first_name: ''
+  last_name: ''
+permalink: "/2013/10/08/problem-attaching-file-over-5mb-in-crm/"
+---
+<div>
+<div>
+<div><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">Hi,</span><br /><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;"><br /></span><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">I was trying to attach a file over 5Mb and the following error message appeared:</span></p>
+<p>
+<div class="separator" style="clear:both;text-align:center;"><a href="http://www.dynamicsmonster.com/files/blog/atachfile.PNG" style="margin-left:1em;margin-right:1em;"><img border="0" src="{{ site.baseurl }}/assets/2013/10/atachfile.PNG" /></a></div>
+<div class="separator" style="clear:both;text-align:left;"><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;"><br /></span></div>
+<div class="separator" style="clear:both;text-align:left;"><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">After some research from the error message, i was redirected to the codeplex website, and instantly i remembered, from here i'm using a solution for the auto number, is possible that the error comes from there?</span></div>
+<div class="separator" style="clear:both;text-align:left;"><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;"><br /></span></div>
+<div class="separator" style="clear:both;text-align:left;"><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">Yes, it is.</span></div>
+<div class="separator" style="clear:both;text-align:left;"><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;"><br /></span></div>
+<div class="separator" style="clear:both;text-align:left;"><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">So, from this <a href="http://advcrm2011autonumber.codeplex.com/workitem/1586">article</a>, i saw that the solution is deactivate the step that gives the auto number for the entity, and register only the step for the entities that we need.</span></div>
+<div class="separator" style="clear:both;text-align:left;"><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;"><br /></span></div>
+<div class="separator" style="clear:both;text-align:left;"><span style="font-family:Helvetica Neue, Arial, Helvetica, sans-serif;">I have to say that i'm happy with the<a href="http://advcrm2011autonumber.codeplex.com/releases/view/88934"> auto number solution</a> from the codeplex and the only problem that i had or i'm having is this one. I can say that using this solution saved time, we didn't have to develop a custom solution for this purpose.</span></div>
+</div>
+</div>
+</div>
