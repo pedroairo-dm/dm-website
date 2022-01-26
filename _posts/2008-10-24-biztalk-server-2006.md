@@ -3,14 +3,6 @@ layout: post
 title: Biztalk Server 2006 - Multiple Activate Receives and Returning Soap Faults Oddit
 date: 2008-10-24 12:07:00.000000000 +00:00
 type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
-categories: []
-excerpt: Multiple Activate Receives and Returning Soap Faults Oddity...
-tags: []
-
 ---
 
 
