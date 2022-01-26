@@ -3,31 +3,9 @@ layout: post
 title: CRM 365 - Business Process Flow - Jump between stages
 date: 2018-01-25 08:23:39.000000000 +00:00
 type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
-categories:
-- Dynamics 365
-tags:
-- Business Process Flow
-- TraversedPath
-meta:
-  _publicize_pending: '1'
-  sharing_disabled: '1'
-  _import_session_id: 61e12c43ccaa7
-  _import_original_post_id: '822001'
-author:
-  login: pedroairo
-  email: pedroairo@dynamicsmonster.com
-  display_name: pedroairo
-  first_name: ''
-  last_name: ''
-permalink: "/2018/01/25/crm-365-business-process-flow-jump-between-stages/"
+tag: Dynamics 365
 ---
-<div>
-<div>
-<div>
+
 <p>The moment when something stops to work without any changes of any type. </p>
 <p>As it happened with me, i know it happened with many developers/customers more.</p>
 <p>And as i got really annoyed more people got different feelings as well.</p>
@@ -63,17 +41,5 @@ permalink: "/2018/01/25/crm-365-business-process-flow-jump-between-stages/"
 <p></p>
 <p>And then my solution, probably not the prettiest one, but it works:&nbsp;</p>
 <p>Going one by one from the current until the one we need.</p>
-</div>
-</div>
-<div>
-<div>
-<p><span><font color="#080abd" size="2">foreach (Guid stageId in stagesToUpdate)<br />{<br />Opportunity opportunityToUpdate = new Opportunity();<br />opportunityToUpdate.Id = op.Id;<br />opportunityToUpdate.StageId = stageId;<br />opportunityToUpdate.ProcessId = process.WorkflowId;</font></span></p>
-<p><span><font color="#080abd" size="2"><br />service.Update(opportunityToUpdate);<br />}</font></span></p>
-</div>
-</div>
-<div>
-<div>
+
 <p>Hope it helps.</p>
-</div>
-</div>
-</div>
