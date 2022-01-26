@@ -6,9 +6,10 @@ bodyClass: "page-posts"
 <!--<div class="container" style="align-content: center;">
     {% if page.intro_image %}
     <div class="row">
-      <img alt={{ page.title }} class="intro-image{% if page.intro_image_absolute %} intro-image{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relative_url }}" />
+        <img alt={{ page.title }} class="intro-image{% if page.intro_image_absolute %} intro-image{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relative_url }}" />
     </div>
     {% endif %}
+
 </div>-->
 
 <div class="container">
@@ -16,6 +17,8 @@ bodyClass: "page-posts"
         <div class="content">{{content}}</div>
     </div>
 </div>
+
+
 <style>
     .collapsible {
         background-color: rgb(237, 193, 22);
@@ -31,20 +34,23 @@ bodyClass: "page-posts"
 
 
 
-    .content {
+    .contentHidden {
         padding: 0 18px;
         display: none;
         overflow: hidden;
     }
 </style>
 
+
 <div class="container pt-6 pb-6">
     <div class="row">
         {% assign postsByTags = site.posts | group_by:"tag" | sort: "date" | reverse %}
         {% for postByTag in postsByTags %}
         <div class="post-content" style="width:100%">
-            <button type="button" class="collapsible"> {{ postByTag.name }}</button>
-            <div class="content">
+            <button type="button" class="collapsible">
+                {{ postByTag.name }}
+            </button>
+            <div class="contentHidden">
                 <div class="row">
                     {% for post in postByTag.items %}
                     <div class="col-12 col-md-6 mb-3">
