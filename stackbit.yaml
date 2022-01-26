@@ -10,7 +10,7 @@ pagesDir: ""
 pageLayoutKey: null
 logicFields:
   - service.weight
-  - team.weight
+  - post.weight
 models:
   config:
     type: config
@@ -109,35 +109,6 @@ models:
         options:
           - label: service
             value: service
-  posts:
-    type: page
-    label: Blogs
-    file: posts.md
-    singleInstance: true
-    fields:
-      - type: string
-        name: title
-        label: Title
-      - type: string
-        name: layout
-        label: Layout
-      - type: string
-        name: collection
-        label: Collection
-      - type: image
-        name: intro_image
-        label: Intro Image
-      - type: boolean
-        name: intro_image_absolute
-        label: Intro Image Absolute
-      - type: boolean
-        name: intro_image_hide_on_mobile
-        label: Intro Image Hide On Mobile
-  post:
-    type: page
-    label: Post
-    folder: _posts
-    match: "*"
   contact:
     type: data
     label: Contact

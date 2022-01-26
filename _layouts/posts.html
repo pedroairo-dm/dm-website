@@ -1,19 +1,40 @@
 ---
 layout: default
+bodyClass: "page-posts"
 ---
 
+<!--<div class="container" style="align-content: center;">
+    {% if page.intro_image %}
+    <div class="row">
+      <img alt={{ page.title }} class="intro-image{% if page.intro_image_absolute %} intro-image{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relative_url }}" />
+    </div>
+    {% endif %}
+</div>-->
+
 <div class="container">
-    {% for post in site.posts %}
-    <article class="post">
+  <div class="row">
+    <div class="content">{{content}}</div>
+  </div>
+</div>
 
-        <!--<h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>-->
-        <h2>{{ post.title }}</h2>
+<div class="container pt-6 pb-6">
+    <div class="row">
+        {% assign weighted_posts = site.posts | sort: "weight" %}
+        {% for post in weighted_posts %}
+        <div class="col-12 col-md-6 mb-3">
+            <div class="post service-summary">
+                <div class="post-content">
+                    <h2 class="post-title">
+                        {{ post.title }}
+                    </h2>
 
-        <div class="entry">
-            {{ post.excerpt }}
+                    <p>{{ post.content | markdownify | strip_html | truncate: 200 }}</p>
+                    <a href="{{ post.url | relative_url }}">Read More</a>
+                    <hr />
+                    <sub><strong>Posted On: </strong>{{ post.date }}</sub>
+                </div>
+            </div>
         </div>
-
-        <!--<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>-->
-    </article>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>

@@ -13,7 +13,7 @@ logo:
 collections:
   services:
     output: true
-  team:
+  posts:
     output: true
 
 defaults:
@@ -22,11 +22,6 @@ defaults:
       type: "services"
     values:
       layout: "service"
-  - scope:
-      path: ""
-      type: "team"
-    values:
-      layout: "team"
   - scope:
       path: ""
       type: "posts"
