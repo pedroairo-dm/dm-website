@@ -1,5 +1,5 @@
 ---
-title: Dynammics Monster
+title: Dynamics Monster
 layout: home
 description: Dynamics Monster Website
 intro_image: "images/illustrations/dynamics_monster.png"
