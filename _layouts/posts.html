@@ -44,7 +44,7 @@ bodyClass: "page-posts"
 
 <div class="container pt-6 pb-6">
     <div class="row">
-        {% assign postsByTags = site.posts | group_by:"tag" | sort: "date" | reverse %}
+        {% assign postsByTags = site.posts | group_by:"tag" | sort: "name" %}
         {% for postByTag in postsByTags %}
         <div class="post-content" style="width:100%">
             <button type="button" class="collapsible">
@@ -52,7 +52,7 @@ bodyClass: "page-posts"
             </button>
             <div class="contentHidden">
                 <div class="row">
-                    {% for post in postByTag.items %}
+                    {% for post in postByTag.items | sort: "date" | reverse%}
                     <div class="col-12 col-md-6 mb-3">
                         <div class="post service-summary">
                             <div class="post-content">
