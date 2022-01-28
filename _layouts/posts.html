@@ -3,21 +3,11 @@ layout: default
 bodyClass: "page-posts"
 ---
 
-<!--<div class="container" style="align-content: center;">
-    {% if page.intro_image %}
-    <div class="row">
-        <img alt={{ page.title }} class="intro-image{% if page.intro_image_absolute %} intro-image{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relative_url }}" />
-    </div>
-    {% endif %}
-
-</div>-->
-
 <div class="container">
     <div class="row">
         <div class="content">{{content}}</div>
     </div>
 </div>
-
 
 <style>
     .collapsible {
@@ -32,8 +22,6 @@ bodyClass: "page-posts"
         font-size: 15px;
     }
 
-
-
     .contentHidden {
         padding: 0 18px;
         display: none;
@@ -41,56 +29,90 @@ bodyClass: "page-posts"
     }
 </style>
 
+<script>
+    function search(inputTextBox) {
+        debugger;
+
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById(inputTextBox.id);
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("ul_" + inputTextBox.id);
+
+
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("h2")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
 
 <div class="container pt-6 pb-6">
     <div class="row">
+
         {% assign postsByTags = site.posts | group_by:"tag" | sort: "name" %}
         {% for postByTag in postsByTags %}
         <div class="post-content" style="width:100%">
-            <button type="button" class="collapsible">
-                {{ postByTag.name }}
+            <button style="width:100%" type="button" class="collapsible">
+                {{postByTag.name}}
             </button>
-            <div class="contentHidden">
-                <div class="row">
-                    {% for post in postByTag.items | sort: "date" | reverse%}
-                    <div class="col-12 col-md-6 mb-3">
-                        <div class="post service-summary">
-                            <div class="post-content">
-                                <h2 class="post-title">
-                                    {{ post.title }}
-                                </h2>
+            <div id="id{{postByTag.name}}" class="contentHidden">
 
-                                <p>{{ post.content | markdownify | strip_html | truncate: 200 }}</p>
-                                <a href="{{ post.url | relative_url }}">Read More</a>
-                                <hr />
-                                <sub><strong>Posted On: </strong>{{ post.date }}</sub>
-                            </div>
-                        </div>
-                    </div>
+                <br />
+                <input style="width:30%;float:right" type="text" id="{{postByTag.name}}" onkeyup="search(this)" placeholder="Search for posts inside {{postByTag.name}}">
+                <br />
+
+                <br />
+                <ul id="ul_{{postByTag.name}}" class="row">
+                    {% for post in postByTag.items | sort: "date" | reverse%}
+
+                    <li class="post-content">
+                        <h2 class="post-title">
+                            {{ post.title }}
+                        </h2>
+
+                        <p>{{ post.content | markdownify | strip_html | truncate: 200 }}</p>
+                        <a href="{{ post.url | relative_url }}">Read More</a>
+                        <hr />
+                        <sub><strong>Posted On: </strong>{{ post.date }}</sub>
+
+                        <br />
+                        <br />
+
+                    </li>
+
                     {% endfor %}
-                </div>
+                </ul>
             </div>
             <br />
             <br />
         </div>
         {% endfor %}
     </div>
-</div>
 
 
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
 
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-</script>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
