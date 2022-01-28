@@ -1,0 +1,22 @@
+---
+layout: post
+title: Microsoft CRM 4.0 - Hide a section
+date: 2013-05-08 16:39:00.000000000 +00:00
+type: post
+tag: Microsoft CRM 4
+---
+
+<div>
+    <span>
+        <span>
+            <span style="color:#3333ff;">function</span> OnCrmPageLoad()<br />{<br /><span style="color:#33cc00;">//Hide the Second Section in the first Tab</span><br />ToggleSection( 0 , 1 , <span style="color:#3333ff;">"none"</span> /* "inline" */);<br />}</p>
+
+        </span>
+    </span><span>
+        <span>
+            <span style="color:#33cc00;">// Tabs and Section Collections are zero based<br /></span><span style="color:#3333ff;">function</span> ToggleSection( tabIndex , sectionIndex , displayType )<br />{<br />var sec = document.getElementById( <span style="color:#3333ff;">"tab"</span> + tabIndex );<br />sec.childNodes.rows.style.display = displayType;<br />}</p>
+            <span style="color:#33cc00;">//Entry Point</span><br />OnCrmPageLoad();
+        </span>
+    </span>
+</div>
+
