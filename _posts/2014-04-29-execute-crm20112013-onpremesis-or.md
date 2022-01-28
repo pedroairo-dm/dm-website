@@ -5,5 +5,61 @@ date: 2014-04-29 14:54:00.000000000 +00:00
 type: post
 tag: Microsoft CRM 2011 & Microsoft CRM 2013
 ---
+  
+The function below can be used to execute a workflow from JavaScript using the Organization.svc service instead of the CrmService.asmx from previous versions (CRM 3.0 and CRM4.0 versions):  
+  
+The first parameter of the function is the workflowid that it will be called, and the second parameter is only to show or not a window to confirm the action that will be made in next:  
 
-<div><span><br />The function below can be used to execute a workflow from&nbsp;JavaScript&nbsp;using the Organization.svc service&nbsp;instead of the CrmService.asmx from previous versions (CRM 3.0 and CRM4.0 versions):</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br />The first parameter of the function is the workflowid that it will be called, and the second parameter is only to show or not a window to confirm the action that will be made in next:</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span><span style="font-family:Verdana, sans-serif;font-size:x-small;">function ExecuteWorkflow(workflowId, confirmQuestion)</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">{</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; var _return = true;</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; if(confirmQuestion)</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; _return = window.confirm('Are you want to execute workflow.');</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; if (_return) {</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; var url = Xrm.Page.context.getServerUrl();</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; var entityId = Xrm.Page.data.entity.getId();</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; var OrgServicePath = "/XRMServices/2011/Organization.svc/web";</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; url = url + OrgServicePath;</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; var request;</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; request = "&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;s:Body&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;Execute xmlns="http://schemas.microsoft.com/xrm/2011/Contracts/Services" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;request i:type="b:ExecuteWorkflowRequest" xmlns:a="http://schemas.microsoft.com/xrm/2011/Contracts" xmlns:b="http://schemas.microsoft.com/crm/2011/Contracts"&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;a:Parameters xmlns:c="http://schemas.datacontract.org/2004/07/System.Collections.Generic"&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;a:KeyValuePairOfstringanyType&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;c:key&gt;EntityId&lt;/c:key&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;c:value i:type="d:guid" xmlns:d="http://schemas.microsoft.com/2003/10/Serialization/"&gt;" + entityId + "&lt;/c:value&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;/a:KeyValuePairOfstringanyType&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;a:KeyValuePairOfstringanyType&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;c:key&gt;WorkflowId&lt;/c:key&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;c:value i:type="d:guid" xmlns:d="http://schemas.microsoft.com/2003/10/Serialization/"&gt;" + workflowId + "&lt;/c:value&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;/a:KeyValuePairOfstringanyType&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;/a:Parameters&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;a:RequestId i:nil="true" /&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;a:RequestName&gt;ExecuteWorkflow&lt;/a:RequestName&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;/request&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;/Execute&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;/s:Body&gt;" +</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "&lt;/s:Envelope&gt;";</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; var req = new XMLHttpRequest();</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; req.open("POST", url, true)</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; // Responses will return XML. It isn't possible to return JSON.</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; req.setRequestHeader("Accept", "application/xml, text/xml, */*");</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; req.onreadystatechange = function () { assignResponse(req); };</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; req.send(request);</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; }</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">}</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;"><br /></span><span style="font-family:Verdana, sans-serif;font-size:x-small;">function assignResponse(req) {</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; if (req.readyState == 4) {</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; if (req.status == 200) {</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert('Successfully executed the workflow');</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; &nbsp; &nbsp; }</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">&nbsp; &nbsp; }</span><br /><span style="font-family:Verdana, sans-serif;font-size:x-small;">}</span></div>
+```js
+function ExecuteWorkflow(workflowId, confirmQuestion)  
+{  
+ var _return = true;  
+ if(confirmQuestion)  
+ _return = window.confirm('Are you want to execute workflow.');  
+  
+ if (_return) {  
+ var url = Xrm.Page.context.getServerUrl();  
+ var entityId = Xrm.Page.data.entity.getId();  
+ var OrgServicePath = "/XRMServices/2011/Organization.svc/web";  
+ url = url + OrgServicePath;  
+ var request;  
+ request = "<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">" +  
+ "<s:Body>" +  
+ "<Execute xmlns="http://schemas.microsoft.com/xrm/2011/Contracts/Services" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">" +  
+ "<request i:type="b:ExecuteWorkflowRequest" xmlns:a="http://schemas.microsoft.com/xrm/2011/Contracts" xmlns:b="http://schemas.microsoft.com/crm/2011/Contracts">" +  
+ "<a:Parameters xmlns:c="http://schemas.datacontract.org/2004/07/System.Collections.Generic">" +  
+ "<a:KeyValuePairOfstringanyType>" +  
+ "<c:key>EntityId</c:key>" +  
+ "<c:value i:type="d:guid" xmlns:d="http://schemas.microsoft.com/2003/10/Serialization/">" + entityId + "</c:value>" +  
+ "</a:KeyValuePairOfstringanyType>" +  
+ "<a:KeyValuePairOfstringanyType>" +  
+ "<c:key>WorkflowId</c:key>" +  
+ "<c:value i:type="d:guid" xmlns:d="http://schemas.microsoft.com/2003/10/Serialization/">" + workflowId + "</c:value>" +  
+ "</a:KeyValuePairOfstringanyType>" +  
+ "</a:Parameters>" +  
+ "<a:RequestId i:nil="true" />" +  
+ "<a:RequestName>ExecuteWorkflow</a:RequestName>" +  
+ "</request>" +  
+ "</Execute>" +  
+ "</s:Body>" +  
+ "</s:Envelope>";  
+  
+ var req = new XMLHttpRequest();  
+ req.open("POST", url, true)  
+ // Responses will return XML. It isn't possible to return JSON.  
+ req.setRequestHeader("Accept", "application/xml, text/xml, \*/\*");  
+ req.setRequestHeader("Content-Type", "text/xml; charset=utf-8");  
+ req.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");  
+ req.onreadystatechange = function () { assignResponse(req); };  
+ req.send(request);  
+ }  
+}  
+  
+function assignResponse(req) {  
+ if (req.readyState == 4) {  
+ if (req.status == 200) {  
+ alert('Successfully executed the workflow');  
+ }  
+ }  
+}
+```
