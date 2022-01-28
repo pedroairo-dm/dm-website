@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\css",
+    "\\_data",
     "\\_layouts",
-    "\\_posts",
-    "\\__posts"
+    "\\_services"
   ],
-  "SelectedNode": "\\_posts\\2016-02-22-rcsi-crm-project-on-the-sunday-business-post.html",
+  "SelectedNode": "\\index.md",
   "PreviewInSolutionExplorer": false
 }
