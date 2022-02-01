@@ -20,6 +20,7 @@ When the solution is saved or closed, the environment calls the SavePackageSolut
 
 These two methods, SaveUserOptions and WriteUserOptions, are called recursively for each stream of information to be saved to the .suo file, passing in the pointer to IVsSolutionPersistence. They are called recursively to allow for the writing of multiple streams to the .suo file. In that way, user information is persisted with the solution and is guaranteed to be there the next time the solution is opened.
 
-Source: <https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-user-options-dot-suo-file?view=vs-2022>
+Source: 
+<a href="https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-user-options-dot-suo-file?view=vs-2022" target="_blank">Click here to visit</a>
 
 Hope it helps.
