@@ -4,8 +4,8 @@ layout: none
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dynamics Monster Blog</title>
-    <description>Your latest posts from Dynamics Monster. </description>
+    <title>Dynamics Monster News</title>
+    <description>Your latest news and articles from Dynamics Monster. </description>
     <link>{{ site.url }}</link>
     {% for post in site.posts %}
       {% unless post.draft %}
