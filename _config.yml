@@ -28,6 +28,8 @@ defaults:
     values:
       layout: "post"
 
+feed:
+  path: /blog/feed.atom
 
 sass:
   indentWidth: 4
