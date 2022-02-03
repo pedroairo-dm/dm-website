@@ -1,1 +1,1 @@
-bundle exec --gemfile Gemfile jekyll serve
+bundle exec --gemfile Gemfile jekyll serve --trace
