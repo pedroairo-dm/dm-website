@@ -26,6 +26,6 @@ Explaining the fields to fill:
 
 3. The other fields are more or less explanatory, as per screenshot.
 
-Any queries or doubts don't hesitante in reaching us by email at <info@dynamicsmonster.com>.
+Any queries or doubts don't hesitante in reaching me by email at <info@dynamicsmonster.com>.
 
 Hope it helps.
