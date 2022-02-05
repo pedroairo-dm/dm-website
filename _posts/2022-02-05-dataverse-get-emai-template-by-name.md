@@ -32,7 +32,7 @@ In here, because i needed only the Email Template Id returned, and i knew it wou
 
 The result if you use the 'Peek Code' by clicking on the 3 dots from the artifact (in my case, the one on the screenshot above) will be something like:
 
-first(outputs('Get_Email_Template_where_title_=_''[Account]_-_Account_send_gift_to_customers''')?['body/value'])?['templateid’]
+**first(outputs('Get_Email_Template_where_title_=_''[Account]_-_Account_send_gift_to_customers''')?['body/value'])?['templateid’]**
 
 So, i didn't need to use the artifact for Parse the Json result returned from the call to after use the property templateid.
 
