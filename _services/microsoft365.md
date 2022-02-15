@@ -8,11 +8,11 @@ weight: 1
 Microsoft 365, formerly Office 365, is a line of subscription services offered by Microsoft which adds to and includes the Microsoft Office product line.
 Let us help you setting up and configuring your Microsoft 365, please see below the services we offer.
 
-<!-- ![MicrosoftCRM](/images/austin-distel-nGc5RT2HmF0-unsplash.jpg) -->
+## Services
 
-# Services 
-
-1. Setting up Microsoft 365 tenant
-2. Configuring security and complaiance
+1. Microsoft 365 Tenant configuration
+2. Microsoft 365 Security and Compliance
 3. Advance threat protection
 4. Sharepoint configuration
+5. Mailbox Migration and Setup Configuration
+6. Microsoft Teams support

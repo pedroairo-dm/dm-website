@@ -11,8 +11,8 @@ show_call_box: false
 
 # Our Mission
 
-With more than 16 years of experience working with Microsoft stack across small, medium and large implementations we can provide help to your existing solutions or designing and developing new solutions.
+With almost than 17 years of experience working with Microsoft stack across small, medium and large implementations we can provide help to your existing solutions or designing and developing new solutions.
 
-Delivering a project on time that a customer can use for helping their business is our main focus. 
+Delivering a project on time that a customer can use for helping their business is our main focus.
 
 Having customers happy and compromised with the deliverable’s is important to achieve good results.

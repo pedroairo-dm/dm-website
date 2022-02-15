@@ -7,15 +7,12 @@ weight: 1
 
 Get help identifying the Dynamics 365 applications that best fit your needs now and as your business needs change going forward.
 
-
-<!-- ![MicrosoftCRM](/images/austin-distel-nGc5RT2HmF0-unsplash.jpg) -->
-
-# Services 
+# Services
 
 1. Migration & Upgrade
 2. Support (Functional & Technical)
 3. Xrm (Extending)
 4. Power Platform
-6. Business Central
-7. Integration with other systems
-8. Training
+5. Business Central
+6. Integration with other systems
+7. Training
