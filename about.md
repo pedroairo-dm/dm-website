@@ -5,9 +5,10 @@ description: About
 # bodyClass: page-about
 ---
 
-## Let's build the future together
+## Let's build your digital future together.
 
-We have experience in the business since 2004. Our main area of expertise is around Microsoft CRM. 
+
+We have experience in the business since 2004. Our main area of expertise is around Microsoft CRM.
 
 We think it is important to tell where we came from to get where we are today for you to know a little more about us.
 
